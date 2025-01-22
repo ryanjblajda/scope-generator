@@ -1,3 +1,7 @@
 <div class="container">
-    <span></span>
+    <span>{{name()}}</span>
+    <br/>
+    <span>{{prompt()}}</span>
+
+    <app-answer *ngFor="let answer of answers()" [item]="answer"/>
 </div>

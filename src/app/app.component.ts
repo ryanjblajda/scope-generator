@@ -12,13 +12,15 @@ export class AppComponent implements OnInit {
   title = 'scope-generator';
 
   data: any;
+  sections: any;
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
     this.http.get('assets/scope_questions.json').subscribe((data) => {
       this.data = data;
-      console.log(this.data); // Log the data to the console
+      this.sections = this.data['sections'];
+      console.log(this.sections);
     });
   }
 }
