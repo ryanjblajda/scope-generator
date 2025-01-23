@@ -33,7 +33,6 @@ button.active {
 }
 
 input {
-    margin: .2em;
     border: none;
     border-radius: .5em;
     font-size: medium;
@@ -55,6 +54,8 @@ span {
     flex-direction: column;
     flex: 1 1 5%;
     background-color: darkcyan;
+    gap: 0.2em;
+    padding: 0.2em;
 }
 
 .scope-details-item {
@@ -83,4 +84,16 @@ app-section {
     background-color: darkcyan;
     display: flex;
     justify-content: center;
+}
+
+@media screen and (min-width: 600px) {
+    .scope-details {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    button { 
+        min-height: 5em;
+        flex: 0 1 10%;
+    }
 }

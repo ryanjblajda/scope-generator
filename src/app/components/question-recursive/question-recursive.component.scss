@@ -7,7 +7,6 @@ button {
     color: $button-text-color;
     padding: .2em;
     font-size: medium;
-    margin: .2em;
 }
 
 button:active {
@@ -24,4 +23,22 @@ button.active {
     display: flex;
     flex-direction: column;
     align-items: stretch;
+}
+
+@media screen and (min-width: 600px) {
+    .question {
+        text-align: center;
+    }
+
+    .answer-section {
+        flex-direction: row;
+        align-content: stretch;
+        justify-content: center;
+        gap: 0.2em;
+    }
+
+    button {
+        flex: 0 1 15%;
+        min-height: 5em;
+    }
 }
