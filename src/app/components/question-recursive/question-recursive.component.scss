@@ -4,12 +4,24 @@ button {
     border: none;
     border-radius: .2em;
     background-color: $button-background-color;
+    color: $button-text-color;
+    padding: .2em;
+    font-size: medium;
+    margin: .2em;
 }
 
 button:active {
     background-color: $button-touched-background-color;
+    color: $button-touched-text-color;
 }
 
 button.active {
     background-color: $button-selected-background-color;
+    color: $button-selected-text-color
+}
+
+.answer-section {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }

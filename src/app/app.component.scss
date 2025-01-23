@@ -15,10 +15,13 @@
 }
 
 button {
-    margin: .2em;
     border: none;
-    border-radius: .5em;
+    border-radius: .2em;
     background-color: $button-background-color;
+    color: $button-text-color;
+    padding: .2em;
+    font-size: medium;
+    margin: .2em;
 }
 
 button:active {
