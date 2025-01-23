@@ -1,11 +1,11 @@
 <section class="container">
   <header class="header">
-    <h2>{{title}}</h2>
+    <span class="header-name">{{title}}</span>
   </header>
   <section class="scope-details">
-    <article class="scope-details-item"><span>Project Number</span><input [placeholder]="projectNumber()"/></article>
-    <article class="scope-details-item"><span>Client Name</span><input [placeholder]="projectClientName()"/></article>
-    <article class="scope-details-item"><span>Project Description</span><input [placeholder]="projectDescription()"/></article>
+    <article class="scope-details-item"><span><h2>Project Number</h2></span><input [placeholder]="projectNumber()"/></article>
+    <article class="scope-details-item"><span><h2>Client Name</h2></span><input [placeholder]="projectClientName()"/></article>
+    <article class="scope-details-item"><span><h2>Project Description</h2></span><input [placeholder]="projectDescription()"/></article>
   </section>
   <section *ngIf="success()" class="question-list">
     <app-section *ngFor="let section of questions.sections" [section]="section"/>
@@ -18,11 +18,16 @@
     <button (click)="generateScope()">Generate Scope</button>
   </footer>
   <section *ngIf="loading() || !success()" class="container error">
-    <section class="error-popup">
+    <section *ngIf="loading()" class="error-popup">
       <h2>Please Wait...</h2>
       <br/>
-      <h3 *ngIf="loading()">Configuration Loading...</h3>
-      <h3 *ngIf="!success() && !loading()">Loading Failed</h3>
+      <span class="error-message">Configuration Loading...</span>
+    </section>
+    <section *ngIf="!loading() && !success()" class="error-popup">
+      <h2>Fatal Error</h2>
+      <br/>
+      <span class="error-message">Configuration Load Failed!</span>
+      <span>Contact the programming department to resolve this issue.</span>
     </section>
   </section>
 </section>

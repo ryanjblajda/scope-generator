@@ -1,7 +1,39 @@
-$button-background-color: whitesmoke;
-$button-touched-background-color: grey;
-$button-selected-background-color: lightgreen;
+$global-color-primary:  #4A2360;
+$global-color-text:     #7A7A7A;
+$global-color-secondary: #54595F;
+$global-color-tertiary: #2C3639;
+$global-color-tertiary-2: #20292D;
+$global-color-accent:   #9DA538;
+$global-color-19a2fc8b: #000;
+$global-color-3621085d: #FFF;
+$global-color-eee: #EEEEEE;
 
-$button-text-color: black;
-$button-touched-text-color: white;
-$button-selected-text-color: rgb(80, 80, 80);
+$error-background-color: $global-color-primary;
+$error-background-text-color: $global-color-eee;
+
+$header-text-color: $global-color-eee;
+$scope-details-text-color: $global-color-3621085d;
+$color-text: $global-color-text;
+
+$header-background: $global-color-primary;
+
+$scope-background: $global-color-accent;
+
+$questions-background: $global-color-3621085d;
+
+$body-background: $global-color-3621085d;
+
+$custom-details-background: $global-color-tertiary;
+$custom-details-text-color: $global-color-3621085d;
+
+$footer-background: $global-color-tertiary-2;
+$footer-text-color: $global-color-3621085d;
+
+$button-background-color: $global-color-eee;
+$button-touched-background-color: $global-color-primary;
+$button-hover-background-color: $global-color-accent;
+$button-selected-background-color: $global-color-tertiary-2;
+
+$button-text-color: $global-color-tertiary-2;
+$button-touched-text-color: $global-color-3621085d;
+$button-selected-text-color: $global-color-eee;

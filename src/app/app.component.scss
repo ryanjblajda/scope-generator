@@ -5,7 +5,6 @@
     width: 100vw;
     display: flex;
     flex-direction: column;
-    background-color: darkcyan;
     text-align: center;
 }
 
@@ -13,7 +12,12 @@
     width: 100%;
     text-align: center;
     flex: 1 1 5%;
-    background-color: darkcyan;
+    background: $header-background;
+    color: $header-text-color;
+}
+
+.header-name {
+    font-size: x-large;
 }
 
 button {
@@ -22,12 +26,17 @@ button {
     background-color: $button-background-color;
     color: $button-text-color;
     padding: .2em;
-    font-size: medium;
+    font-size: x-large;
     margin: .2em;
+    min-height: 2em;
 }
 
 button:active {
     background-color: $button-touched-background-color;
+}
+
+button:hover {
+    background-color: $button-hover-background-color;
 }
 
 button.active {
@@ -60,15 +69,23 @@ textarea {
     flex: 1 1 0;
     min-height: 10em;
     margin: .5em;
+    font-size: large;
+}
+
+textarea:focus{
+    text-decoration: none;
+    outline: 0;
 }
 
 .scope-details {
     display: flex;
     flex-direction: column;
     flex: 1 1 5%;
-    background-color: darkcyan;
     gap: 0.2em;
     padding: 0.2em;
+    padding-bottom: 0.5em;
+    background: $scope-background;
+    color: $scope-details-text-color;
 }
 
 .scope-details-item {
@@ -81,7 +98,7 @@ textarea {
     flex-direction: column;
     flex: 1 1 85%;
     width: 100%;
-    background-color: darkcyan;
+    background: $questions-background;
     border: none;
 }
 
@@ -93,28 +110,36 @@ textarea {
 .error-popup {
     padding: 1em;
     border-radius: 1em;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: $error-background-color;
+    color: $error-background-text-color;
+    margin: 0.5em;
+}
+
+.error-message {
+    font-size: xx-large;
+    margin-bottom: 2em;
 }
 
 .custom-details {
-    background-color: darkcyan;
     display: flex;
     flex-direction: column;
     align-items: stretch;
+    background: $custom-details-background;
+    color: $custom-details-text-color;
 }
 
 app-section {
     flex: 1 1 0;
-    background-color: rgba(0, 0, 0, 0.3);
     padding: .2em;
 }
 
 .footer {
     width: 100%;
     flex: 1 1 5%;
-    background-color: darkcyan;
     display: flex;
     justify-content: center;
+    background: $footer-background;
+    color: $footer-text-color;
 }
 
 @media screen and (min-width: 600px) {

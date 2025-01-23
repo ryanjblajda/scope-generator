@@ -6,12 +6,17 @@ button {
     background-color: $button-background-color;
     color: $button-text-color;
     padding: .2em;
-    font-size: medium;
+    font-size: large;
+    min-height: 2em;
 }
 
 button:active {
     background-color: $button-touched-background-color;
     color: $button-touched-text-color;
+}
+
+button:hover {
+    background-color: $button-hover-background-color;
 }
 
 button.active {
@@ -23,6 +28,8 @@ button.active {
     display: flex;
     flex-direction: column;
     align-items: stretch;
+    gap: 0.5em;
+    padding: 0.5em;
 }
 
 @media screen and (min-width: 600px) {

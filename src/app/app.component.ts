@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class AppComponent implements OnInit {
-  title = 'Scope Generator';
+  title = 'Functional Scope Generator';
   questions!:QuestionList;
   projectNumber = signal<string>('PR-XXXXX');
   projectDescription = signal<string>('a small huddle room');
@@ -31,7 +31,10 @@ export class AppComponent implements OnInit {
         //console.log(data);
         try {
           this.questions = JSON.parse(data) as QuestionList;
+          //set success true will only occur if the catch block doesnt fire
+          //setTimeout(() => {
           this.success.set(true);
+          //}, 1000);
         }
         catch(error) {
           console.log(error);
@@ -41,8 +44,10 @@ export class AppComponent implements OnInit {
     catch(error) {
       console.log(error);
     }
-
-    this.loading.set(false);
+    //set loading false so the fatal error message comes up if needed
+    //setTimeout(() => {
+      this.loading.set(false);
+    //}, 3000);
   }
 
   generateScope():void {

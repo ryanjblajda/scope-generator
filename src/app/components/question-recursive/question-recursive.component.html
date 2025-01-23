@@ -1,5 +1,5 @@
 <div class="question">
-    <h1>{{question.prompt}}</h1>
+    {{question.prompt}}
     <div class="answer-section">
         <button *ngFor="let i = index; let answer of question.answers" [class.active]="answer.selected" (click)="onAnswerClicked(answer)">{{answer.prompt}}</button>
     </div>

@@ -1,8 +1,11 @@
+@import './styles/variables.scss';
+
 html, body {
     margin: 0px;
     padding: 0px;
-    color: whitesmoke;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: $color-text;
+    font-family: 'Segoe UI','Roboto','Helvetica Neue','Arial','Noto Sans';
+    background: $body-background;
 }
 
 ::-webkit-scrollbar {
