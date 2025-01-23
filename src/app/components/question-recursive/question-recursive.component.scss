@@ -41,4 +41,15 @@ button.active {
         flex: 0 1 15%;
         min-height: 5em;
     }
+
+    .child-question-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        app-question-recursive {
+            flex: 1 1 30%;
+        }
+    }
 }

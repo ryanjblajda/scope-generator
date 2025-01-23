@@ -10,6 +10,10 @@
   <section class="question-list">
     <app-section *ngFor="let section of questions.sections" [section]="section"/>
   </section>
+  <section class="custom-details">
+    <span><h3>Additional Details</h3></span>
+    <textarea placeholder="enter additional details not captured via the questions, such as IT contact details or advanced functionality, like room combining or overflow"></textarea>
+  </section>
   <footer class="footer">
     <button>Submit</button>
   </footer>

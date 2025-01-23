@@ -72,7 +72,7 @@
                     "prompt":"Does this project require CCS to develop a user interface from scratch?",
                     "answers":[
                         {"prompt":"No, the client will be providing a standardized UI template file to CCS for modification as needed.", "scope":"The client will provide, prior to programming a template file for CCS to modify for this project.", "selected":false, "questions":[]},
-                        {"prompt":"No, this client is one we have worked with previously, and therfore we have a template file for modification.", "scope":"This is a previous client of CCS and a template file will be utilized to adhere to the client's standard", "selected":false, "questions":[]},
+                        {"prompt":"No, this client is one we have worked with previously, and therefore we have a template file for modification.", "scope":"This is a previous client of CCS and a template file will be utilized to adhere to the client's standard", "selected":false, "questions":[]},
                         {"prompt":"No, the client has chosen to use a CCS standardized UI that will have colors and logos added only.", "scope":"The client has chosen to use one of CCS' standardized user interface templates, and as such only colors and logos will be changed or modified to match the clients brand.", "selected":false, "questions":[]},
                         {
                             "prompt":"Yes", 

@@ -49,6 +49,16 @@ span {
     text-align: center;
 }
 
+textarea {
+    display: block;
+    border: none;
+    border-radius: .5em;
+    resize: none;
+    flex: 1 1 0;
+    min-height: 10em;
+    margin: .5em;
+}
+
 .scope-details {
     display: flex;
     flex-direction: column;
@@ -70,6 +80,13 @@ span {
     width: 100%;
     background-color: darkcyan;
     border: none;
+}
+
+.custom-details {
+    background-color: darkcyan;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }
 
 app-section {
