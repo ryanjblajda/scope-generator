@@ -3,9 +3,9 @@
     <h2>{{title}}</h2>
   </header>
   <section class="scope-details">
-    <article class="scope-details-item"><span>Project Number: </span><input/></article>
-    <article  class="scope-details-item"><span>Client Name: </span><input/></article>
-    <article  class="scope-details-item"><span>Project Description: </span><input/></article>
+    <article class="scope-details-item"><span>Project Number</span><input [placeholder]="projectNumber()"/></article>
+    <article class="scope-details-item"><span>Client Name</span><input [placeholder]="projectClientName()"/></article>
+    <article class="scope-details-item"><span>Project Description</span><input [placeholder]="projectDescription()"/></article>
   </section>
   <section class="question-list">
     <app-section *ngFor="let section of questions.sections" [section]="section"/>
@@ -15,6 +15,6 @@
     <textarea placeholder="enter additional details not captured via the questions, such as IT contact details or advanced functionality, like room combining or overflow"></textarea>
   </section>
   <footer class="footer">
-    <button>Submit</button>
+    <button (click)="generateScope()">Generate Scope</button>
   </footer>
 </section>
