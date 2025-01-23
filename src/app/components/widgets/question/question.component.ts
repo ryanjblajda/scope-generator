@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, signal } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { AnswerComponent } from '../answer/answer.component';
+import { Question } from '../../interfaces/interfaces';
 
 @Component({
   selector: 'app-question',
@@ -11,11 +12,11 @@ import { AnswerComponent } from '../answer/answer.component';
 })
 
 export class AppQuestionComponent implements OnInit {
-  @Input() item:any;
+  @Input() item!: Question;
 
   name = signal<string>('Question');
   prompt = signal<string>('Prompt');
-  answers = signal<any>([]);
+  answers = signal<any[]>([]);
 
   ngOnInit(): void {
     this.name.set(this.item.name);
@@ -24,10 +25,14 @@ export class AppQuestionComponent implements OnInit {
   }
 
   answered(selected:any): void {
-    console.log(`Question ${this.name()}, Answered with: ${selected.prompt}`)
+    console.log(`Question: ${this.name()}, Answered: ${selected.prompt}`)
     
-      this.answers.update((items:any) => {
-        return 
-      })
+    this.answers.update(currentItems => {
+      const updatedItems = currentItems.map(item => {
+        if (item === selected) { item.selected = true; } 
+        else { item.selected = false; }
+      });
+      return updatedItems;
+    });
   }
 }

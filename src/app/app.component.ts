@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as data from '../assets/scope_questions.json';
+import data from '../assets/scope_questions.json';
+import { QuestionList } from './components/interfaces/interfaces';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +10,9 @@ import * as data from '../assets/scope_questions.json';
 
 export class AppComponent implements OnInit {
   title = 'scope-generator';
-
-  sections:any;
+  questions:QuestionList = data;
 
   ngOnInit() {
-    this.sections = data.sections;
+
   }
 }

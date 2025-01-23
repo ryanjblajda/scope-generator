@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { signal } from '@angular/core';
+import { Answer } from '../../interfaces/interfaces';
 
 @Component({
   selector: 'app-answer',
@@ -8,7 +9,7 @@ import { signal } from '@angular/core';
   standalone: true,
 })
 export class AnswerComponent implements OnInit, OnChanges {
-  @Input() item:any;
+  @Input() item!:Answer;
 
   prompt = signal<string>("Question");
   selected = signal<boolean>(false);
