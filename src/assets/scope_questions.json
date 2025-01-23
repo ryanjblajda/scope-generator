@@ -32,10 +32,10 @@
                   "answers": [
                     {"prompt":"Yes", "scope":"", "selected":false, "questions":[
                         {
-                            "name":"Connectivity", 
-                            "prompt":"Will the device be connected to a local CCS provided WAP, or connect to the control system via the client's LAN", 
+                            "name":"Connectivity",
+                            "prompt":"Will the device be connected via the local CCS network, or connect to the control system via the client's LAN", 
                             "answers":[
-                                {"prompt":"Connected via CCS WAP", "scope":"", "selected":false, "questions":[]},
+                                {"prompt":"Connected via CCS local network", "scope":"", "selected":false, "questions":[]},
                                 {"prompt":"Connected via client LAN", "scope":"", "selected":false, "questions":[]}
                             ],
                             "questions":[]
