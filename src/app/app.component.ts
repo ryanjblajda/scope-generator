@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { NgFor } from '@angular/common';
+import * as data from '../assets/scope_questions.json';
 
 @Component({
   selector: 'app-root',
@@ -11,16 +10,9 @@ import { NgFor } from '@angular/common';
 export class AppComponent implements OnInit {
   title = 'scope-generator';
 
-  data: any;
-  sections: any;
-
-  constructor(private http: HttpClient) { }
+  sections:any;
 
   ngOnInit() {
-    this.http.get('assets/scope_questions.json').subscribe((data) => {
-      this.data = data;
-      this.sections = this.data['sections'];
-      console.log(this.sections);
-    });
+    this.sections = data.sections;
   }
 }

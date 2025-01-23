@@ -18,8 +18,16 @@ export class AppQuestionComponent implements OnInit {
   answers = signal<any>([]);
 
   ngOnInit(): void {
-    this.name.set(this.item['name']);
-    this.prompt.set(this.item['prompt']);
-    this.answers.set(this.item['answers']);
+    this.name.set(this.item.name);
+    this.prompt.set(this.item.prompt);
+    this.answers.set(this.item.answers);
+  }
+
+  answered(selected:any): void {
+    console.log(`Question ${this.name()}, Answered with: ${selected.prompt}`)
+    
+      this.answers.update((items:any) => {
+        return 
+      })
   }
 }

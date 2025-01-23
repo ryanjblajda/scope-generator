@@ -1,0 +1,20 @@
+button {
+    flex: 1 1 80%;
+    margin: .2em;
+    border: none;
+    border-radius: .2em;
+    padding: .2em;
+    font-size: large;
+}
+
+button:active {
+    background-color: goldenrod;
+}
+
+.active {
+    background-color: red;
+}
+
+.container {
+    display: flex;
+}

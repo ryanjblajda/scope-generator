@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { signal } from '@angular/core';
 
 @Component({
   selector: 'app-answer',
@@ -6,6 +7,16 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./answer.component.scss'],
   standalone: true,
 })
-export class AnswerComponent {
+export class AnswerComponent implements OnInit, OnChanges {
   @Input() item:any;
+
+  prompt = signal<string>("Question");
+  selected = signal<boolean>(false);
+
+  ngOnChanges(changes: SimpleChanges): void {
+  }
+
+  ngOnInit(): void {
+    this.prompt.set(this.item.prompt)
+  }
 }

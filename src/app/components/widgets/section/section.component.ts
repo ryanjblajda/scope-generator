@@ -12,8 +12,8 @@ export class SectionComponent implements OnInit{
   questions = signal<any>([]);
 
   ngOnInit(): void {
-    this.name.set(this.item['name']);
-    console.log(this.item['questions']);
-    this.questions.set(this.item['questions']);
+    this.name.set(this.item.name);
+    console.log(this.item.questions);
+    this.questions.set(this.item.questions);
   }
 }

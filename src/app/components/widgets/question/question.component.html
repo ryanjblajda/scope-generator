@@ -3,5 +3,5 @@
     <br/>
     <span>{{prompt()}}</span>
 
-    <app-answer *ngFor="let answer of answers()" [item]="answer"/>
+    <app-answer *ngFor="let i = index; let answer of answers()" [item]="answers()[i]" (click)="answered(answer)"/>
 </div>
