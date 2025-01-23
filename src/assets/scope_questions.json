@@ -5,7 +5,7 @@
             "questions": [
                 {
                     "name":"User Interface Count", 
-                    "prompt":"Is there more than one user interface in the system design?", 
+                    "prompt":"Are there multiple user interfaces in the system design?", 
                     "answers": [
                         {
                             "prompt":"Yes", 
@@ -26,6 +26,47 @@
                         { "prompt":"No", "scope":"There is a single user interface in the space.", "selected":false, "questions": [] }
                     ]
                 },
+                {
+                  "name":"xPanel Functionality",
+                  "prompt":"Will there be an xPanel available for technicians or end-users?",
+                  "answers": [
+                    {"prompt":"Yes", "scope":"", "selected":false, "questions":[
+                        {
+                            "name":"Connectivity", 
+                            "prompt":"Will the device be connected to a local CCS provided WAP, or connect to the control system via the client's LAN", 
+                            "answers":[
+                                {"prompt":"Connected via CCS WAP", "scope":"", "selected":false, "questions":[]},
+                                {"prompt":"Connected via client LAN", "scope":"", "selected":false, "questions":[]}
+                            ],
+                            "questions":[]
+                        }
+                    ]},
+                    {"prompt":"No",  "scope":"", "selected":false, "questions":[]}
+                  ]  
+                },
+                {
+                    "name":"iPad Functionality",
+                    "prompt":"Will there be an iPad/Android Tablet available for technicians or end-users?",
+                    "answers": [
+                        {
+                            "prompt":"Yes", 
+                            "scope":"", 
+                            "selected":false, 
+                            "questions": [
+                                {
+                                    "name":"Connectivity", 
+                                    "prompt":"Will the device be connected to a local CCS provided WAP, or connect to the control system via the client's LAN", 
+                                    "answers":[
+                                        {"prompt":"Connected via CCS WAP", "scope":"", "selected":false, "questions":[]},
+                                        {"prompt":"Connected via client LAN", "scope":"", "selected":false, "questions":[]}
+                                    ],
+                                    "questions":[]
+                                }
+                            ]
+                        },
+                        {"prompt":"No",  "scope":"", "selected":false, "questions":[]}
+                    ]  
+                  },
                 {
                     "name":"User Interface Development",
                     "prompt":"Does this project require CCS to develop a user interface from scratch?",
@@ -57,6 +98,135 @@
                             ]
                         }
                     ]
+                }
+            ]
+        },
+        {
+            "name":"Audio",
+            "questions": [
+                { 
+                    "name":"Microphones", 
+                    "prompt":"Are microphones present in the design?", 
+                    "answers": [ 
+                        { 
+                            "prompt":"Yes", 
+                            "scope":"", 
+                            "selected":false, 
+                            "questions": [ 
+                                { "name":"Speech Controls", "prompt":"Should user interfaces provide a speech mix level fader?", "answers": [ 
+                                        { "prompt":"Yes", "scope":"", "selected":false, "questions":[ ] },
+                                        { "prompt":"No", "scope":"", "selected":false, "questions":[ ] }
+                                    ] 
+                                },
+                                { "name":"Microphone Controls", "prompt":"Should user interfaces provide individual microphone level faders", "answers": [ 
+                                    { "prompt":"Yes", "scope":"", "selected":false, "questions":[ ] },
+                                    { "prompt":"No", "scope":"", "selected":false, "questions":[ ] }
+                                    ] 
+                                }
+                            ]
+                        },
+                        { 
+                            "prompt":"No", "scope":"", "selected":false, "questions":[] 
+                        }
+                    ] 
+                },
+                { 
+                    "name":"Recording", 
+                    "prompt":"Is there hardware for recording lectures, etc, present in the design?", 
+                    "answers": [ 
+                        { 
+                            "prompt":"Yes", 
+                            "scope":"", 
+                            "selected":false, 
+                            "questions": [ 
+                                { "name":"Mix Controls", "prompt":"Should there be a separate set of controls for an advanced technician to adjust the levels to the recording hardware or outputs?", "answers": [ 
+                                        { "prompt":"Yes", "scope":"", "selected":false, "questions":[ ] },
+                                        { "prompt":"No", "scope":"", "selected":false, "questions":[ ] }
+                                    ] 
+                                }
+                            ]
+                        },
+                        { 
+                            "prompt":"No", "scope":"", "selected":false, "questions":[] 
+                        }
+                    ] 
+                }
+            ]
+        },
+        {
+            "name":"USB",
+            "questions": [
+                { 
+                    "name":"Conferencing", 
+                    "prompt":"Is there hardware to allow USB conferencing (BYOD via Teams, Zoom, etc) present in the design?", 
+                    "answers": [ 
+                        { 
+                            "prompt":"Yes", 
+                            "scope":"", 
+                            "selected":false, 
+                            "questions": [ 
+                                { "name":"Incoming Audio Controls", "prompt":"Should user interfaces provide an incoming audio level fader?", "answers": [ 
+                                        { "prompt":"Yes", "scope":"", "selected":false, "questions":[] },
+                                        { "prompt":"No", "scope":"", "selected":false, "questions":[] }
+                                    ] 
+                                },
+                                { "name":"Ceiling Microphone Controls", "prompt":"Should user interfaces provide ceiling microphone level faders?", "answers": [ 
+                                    { "prompt":"Yes", "scope":"", "selected":false, "questions":[] },
+                                    { "prompt":"No", "scope":"", "selected":false, "questions":[] }
+                                    ] 
+                                },
+                                { "name":"Privacy Mute Controls", "prompt":"Should user interfaces provide a privacy mute button?", "answers": [ 
+                                    { "prompt":"Yes", "scope":"", "selected":false, "questions":[] },
+                                    { "prompt":"No", "scope":"", "selected":false, "questions":[] }
+                                    ] 
+                                }
+                            ]
+                        },
+                        { 
+                            "prompt":"No", "scope":"", "selected":false, "questions":[] 
+                        }
+                    ] 
+                }
+            ]
+        },
+        {
+            "name":"ATC",
+            "questions": [
+                { 
+                    "name":"Conferencing", 
+                    "prompt":"Is there hardware to allow Audio Teleconferencing (POTS or VOIP) present in the design?", 
+                    "answers": [ 
+                        { 
+                            "prompt":"Yes", 
+                            "scope":"", 
+                            "selected":false, 
+                            "questions": [ 
+                                { "name":"Incoming Audio Controls", "prompt":"Should user interfaces provide an incoming audio level fader?", "answers": [ 
+                                        { "prompt":"Yes", "scope":"", "selected":false, "questions":[] },
+                                        { "prompt":"No", "scope":"", "selected":false, "questions":[] }
+                                    ] 
+                                },
+                                { "name":"Ceiling Microphone Controls", "prompt":"Should user interfaces provide ceiling microphone level faders?", "answers": [ 
+                                    { "prompt":"Yes", "scope":"", "selected":false, "questions":[] },
+                                    { "prompt":"No", "scope":"", "selected":false, "questions":[] }
+                                    ] 
+                                },
+                                { "name":"Privacy Mute Controls", "prompt":"Should user interfaces provide a privacy mute button?", "answers": [ 
+                                    { "prompt":"Yes", "scope":"", "selected":false, "questions":[] },
+                                    { "prompt":"No", "scope":"", "selected":false, "questions":[] }
+                                    ] 
+                                },
+                                { "name":"Privacy Mute Sync", "prompt":"Is the hardware capable of syncing the privacy mute with the BYOD device?", "answers": [ 
+                                    { "prompt":"Yes", "scope":"", "selected":false, "questions":[] },
+                                    { "prompt":"No", "scope":"", "selected":false, "questions":[] }
+                                    ] 
+                                }
+                            ]
+                        },
+                        { 
+                            "prompt":"No", "scope":"", "selected":false, "questions":[] 
+                        }
+                    ] 
                 }
             ]
         }
