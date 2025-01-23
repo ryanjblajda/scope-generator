@@ -1,7 +1,0 @@
-<div class="container">
-    <span>{{name()}}</span>
-    <br/>
-    <span>{{prompt()}}</span>
-
-    <app-answer *ngFor="let i = index; let answer of answers()" [item]="answers()[i]" (click)="answered(answer)"/>
-</div>

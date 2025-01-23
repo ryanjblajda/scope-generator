@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import data from '../assets/scope_questions.json';
 import { QuestionList } from './components/interfaces/interfaces';
+import { SectionComponent } from './components/section/section.component';
 
 @Component({
   selector: 'app-root',

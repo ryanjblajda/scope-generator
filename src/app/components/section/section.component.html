@@ -1,0 +1,6 @@
+<div class="container">
+    <h2>{{section.name}}</h2>
+    <div *ngFor="let question of section.questions">
+        <app-question-recursive [question]="question"></app-question-recursive>
+    </div>
+</div>

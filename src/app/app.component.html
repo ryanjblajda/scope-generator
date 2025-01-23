@@ -1,22 +1,16 @@
-<div class="container">
-  <div class="header">
+<section class="container">
+  <header class="header">
     <h2>Functional Scope Generator</h2>
-  </div>
-  <div class="scope-details">
-    <div class="scope-details-item">
-      <span>Project Number: </span><input/>
-    </div>
-    <div  class="scope-details-item">
-      <span>Client Name: </span><input/>
-    </div>
-    <div  class="scope-details-item">
-      <span>Project Description: </span><input/>
-    </div>
-  </div>
-  <div class="question-list">
-    <app-section *ngFor="let section of questions.sections" [item]="section"/>
-  </div>
-  <div class="footer">
+  </header>
+  <section class="scope-details">
+    <article class="scope-details-item"><span>Project Number: </span><input/></article>
+    <article  class="scope-details-item"><span>Client Name: </span><input/></article>
+    <article  class="scope-details-item"><span>Project Description: </span><input/></article>
+  </section>
+  <section class="question-list">
+    <app-section *ngFor="let section of questions.sections" [section]="section"/>
+  </section>
+  <footer class="footer">
     <button>Submit</button>
-  </div>
-</div>
+  </footer>
+</section>

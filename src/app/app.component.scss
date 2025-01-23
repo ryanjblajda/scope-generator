@@ -1,3 +1,5 @@
+@import '../styles/variables.scss';
+
 .container {
     height: 100vh;
     width: 100vw;
@@ -16,10 +18,15 @@ button {
     margin: .2em;
     border: none;
     border-radius: .5em;
+    background-color: $button-background-color;
 }
 
 button:active {
-    background-color: whitesmoke;
+    background-color: $button-touched-background-color;
+}
+
+button.active {
+    background-color: $button-selected-background-color;
 }
 
 input {

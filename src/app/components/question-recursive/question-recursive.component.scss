@@ -1,0 +1,15 @@
+@import '../../../styles/variables.scss';
+
+button {
+    border: none;
+    border-radius: .2em;
+    background-color: $button-background-color;
+}
+
+button:active {
+    background-color: $button-touched-background-color;
+}
+
+button.active {
+    background-color: $button-selected-background-color;
+}
