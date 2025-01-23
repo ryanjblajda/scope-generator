@@ -5,6 +5,8 @@
     width: 100vw;
     display: flex;
     flex-direction: column;
+    background-color: darkcyan;
+    text-align: center;
 }
 
 .header {
@@ -81,6 +83,17 @@ textarea {
     width: 100%;
     background-color: darkcyan;
     border: none;
+}
+
+.error {
+    justify-content: center;
+    align-items: center;
+}
+
+.error-popup {
+    padding: 1em;
+    border-radius: 1em;
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .custom-details {

@@ -7,14 +7,22 @@
     <article class="scope-details-item"><span>Client Name</span><input [placeholder]="projectClientName()"/></article>
     <article class="scope-details-item"><span>Project Description</span><input [placeholder]="projectDescription()"/></article>
   </section>
-  <section class="question-list">
+  <section *ngIf="success()" class="question-list">
     <app-section *ngFor="let section of questions.sections" [section]="section"/>
   </section>
-  <section class="custom-details">
+  <section *ngIf="success()" class="custom-details">
     <span><h3>Additional Details</h3></span>
     <textarea placeholder="enter additional details not captured via the questions, such as IT contact details or advanced functionality, like room combining or overflow"></textarea>
   </section>
-  <footer class="footer">
+  <footer *ngIf="success()" class="footer">
     <button (click)="generateScope()">Generate Scope</button>
   </footer>
+  <section *ngIf="loading() || !success()" class="container error">
+    <section class="error-popup">
+      <h2>Please Wait...</h2>
+      <br/>
+      <h3 *ngIf="loading()">Configuration Loading...</h3>
+      <h3 *ngIf="!success() && !loading()">Loading Failed</h3>
+    </section>
+  </section>
 </section>

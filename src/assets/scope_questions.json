@@ -23,7 +23,7 @@
                                 }
                             ]
                         },
-                        { "prompt":"No", "scope":"There is a single user interface in the space.", "selected":false, "questions": [] }
+                        { "prompt":"No", "scope":"There is a single user interface in the space.", "selected":false }
                     ]
                 },
                 {
