@@ -5,6 +5,10 @@ html, body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 app-root {
     margin: 0px;
     padding: 0px;
