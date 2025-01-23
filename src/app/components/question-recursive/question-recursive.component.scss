@@ -50,6 +50,10 @@ button.active {
 
         app-question-recursive {
             flex: 1 1 30%;
+
+            button {
+                flex: 0 1 30%;
+            }
         }
     }
 }
