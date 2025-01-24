@@ -17,9 +17,8 @@
                                     "prompt":"Since there are multiple user interfaces in the system, how will they act?",
                                     "answers":[
                                         {"prompt":"The user interfaces will be synchronized, always showing the same page at the same time.", "scope":"", "selected":false, "questions":[]},
-                                        {"prompt":"The user interfaces will not be sychronized, allowing for different control pages to be viewed by different touchpanels at the same time.", "scope":"", "selected":false, "questions":[]}
-                                    ], 
-                                    "questions":[]
+                                        {"prompt":"The user interfaces will not be synchronized, allowing for different control pages to be viewed by different user interfaces at the same time.", "scope":"", "selected":false, "questions":[]}
+                                    ]
                                 }
                             ]
                         },
@@ -30,15 +29,15 @@
                   "name":"xPanel Functionality",
                   "prompt":"Will there be an xPanel available for technicians or end-users?",
                   "answers": [
-                    {"prompt":"Yes", "scope":"", "selected":false, "questions":[
+                    {"prompt":"Yes", "scope":"There will be an xPanel for either technicians or end users to control the av system.", "selected":false, "questions":[
                         {
                             "name":"Connectivity",
                             "prompt":"Will the device be connected via the local CCS network, or connect to the control system via the client's LAN", 
                             "answers":[
-                                {"prompt":"Connected via CCS local network", "scope":"", "selected":false, "questions":[]},
-                                {"prompt":"Connected via client LAN", "scope":"", "selected":false, "questions":[]}
-                            ],
-                            "questions":[]
+                                {"prompt":"Connected via CCS local network", "scope":"This xPanel will only be accessible by a device connected to the local AV network.", "selected":false, "questions":[]},
+                                {"prompt":"Connected via client LAN", "scope":"This xPanel will be able to connect from external networks, the specifics to be dictacted by the clients IT department.", "selected":false, "questions":[]}
+                            ]
+                            
                         }
                     ]},
                     {"prompt":"No",  "scope":"", "selected":false, "questions":[]}
@@ -50,15 +49,15 @@
                     "answers": [
                         {
                             "prompt":"Yes", 
-                            "scope":"", 
+                            "scope":"There will be an iPad available for either end users or technicians to control the av system.", 
                             "selected":false, 
                             "questions": [
                                 {
                                     "name":"Connectivity", 
                                     "prompt":"Will the device be connected to a local CCS provided WAP, or connect to the control system via the client's LAN", 
                                     "answers":[
-                                        {"prompt":"Connected via CCS WAP", "scope":"", "selected":false, "questions":[]},
-                                        {"prompt":"Connected via client LAN", "scope":"", "selected":false, "questions":[]}
+                                        {"prompt":"Connected via CCS WAP", "scope":"The iPad will only be able to connect to the av system when connected to the CCS provided wireless access point.", "selected":false, "questions":[]},
+                                        {"prompt":"Connected via client LAN", "scope":"The iPad will connect to the clients wireless network, requiring the control system, or other network hardware to be connected to the clients network, requiring collaboration from the clients IT department.", "selected":false, "questions":[]}
                                     ],
                                     "questions":[]
                                 }
@@ -110,16 +109,16 @@
                     "answers": [ 
                         { 
                             "prompt":"Yes", 
-                            "scope":"", 
+                            "scope":"There are microphones present in the design for speech reinforcement.", 
                             "selected":false, 
                             "questions": [ 
                                 { "name":"Speech Controls", "prompt":"Should user interfaces provide a speech mix level fader?", "answers": [ 
-                                        { "prompt":"Yes", "scope":"", "selected":false, "questions":[ ] },
+                                        { "prompt":"Yes", "scope":"The user interfaces will provide a speech mix fader to control the overall level of microphones.", "selected":false, "questions":[ ] },
                                         { "prompt":"No", "scope":"", "selected":false, "questions":[ ] }
                                     ] 
                                 },
                                 { "name":"Microphone Controls", "prompt":"Should user interfaces provide individual microphone level faders?", "answers": [ 
-                                    { "prompt":"Yes", "scope":"", "selected":false, "questions":[ ] },
+                                    { "prompt":"Yes", "scope":"The user interfaces will provide individual microphone control of each microphone in the system.", "selected":false, "questions":[ ] },
                                     { "prompt":"No", "scope":"", "selected":false, "questions":[ ] }
                                     ] 
                                 }
@@ -140,7 +139,7 @@
                             "selected":false, 
                             "questions": [ 
                                 { "name":"Mix Controls", "prompt":"Should there be a separate set of controls for an advanced technician to adjust the levels to the recording hardware or outputs?", "answers": [ 
-                                        { "prompt":"Yes", "scope":"", "selected":false, "questions":[ ] },
+                                        { "prompt":"Yes", "scope":"There will be a separate set of mix controls, or user interface, to control the audio feed to the recording hardware installed. The specifics will be determined during the ui submittals process", "selected":false, "questions":[ ] },
                                         { "prompt":"No", "scope":"", "selected":false, "questions":[ ] }
                                     ] 
                                 }
@@ -162,43 +161,66 @@
                     "answers": [ 
                         { 
                             "prompt":"Yes", 
-                            "scope":"", 
+                            "scope":"The av system will be capable of holding soft conferences with BYOD devices, using platforms such as Microsoft Teams, Zoom, Webex, etc.", 
                             "selected":false, 
                             "questions": [ 
                                 { "name":"Incoming Audio Controls", "prompt":"Should user interfaces provide an incoming audio level fader?", "answers": [ 
-                                        { "prompt":"Yes", "scope":"", "selected":false, "questions":[] },
+                                        { "prompt":"Yes", "scope":"The user interfaces will provide incoming USB audio control.", "selected":false, "questions":[] },
                                         { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 },
                                 { "name":"Ceiling Microphone Controls", "prompt":"Should user interfaces provide ceiling microphone level faders?", "answers": [ 
-                                    { "prompt":"Yes", "scope":"", "selected":false, "questions":[] },
+                                    { "prompt":"Yes", "scope":"The user interfaces will provide control of the ceiling microphone level [to the far end conferencing participants].", "selected":false, "questions":[] },
                                     { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 },
                                 { "name":"Privacy Mute Controls", "prompt":"Should user interfaces provide a privacy mute button?", "answers": [ 
-                                    { "prompt":"Yes", "scope":"", "selected":false, "questions":[] },
+                                    { "prompt":"Yes", "scope":"The user interfaces will provide a privacy mute button [which will mute all audio to far end conferencing participants].", "selected":false, "questions":[] },
                                     { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 },
                                 { "name":"Privacy Mute Sync", "prompt":"Is the specified hardware capable of providing privacy mute control of the BYOD device?", "answers": [ 
-                                    { "prompt":"Yes", "scope":"", "selected":false, "questions":[] },
+                                    { "prompt":"Yes", "scope":"The system will reflect the privacy mute status of a BYOD device connected.", "selected":false, "questions":[] },
                                     { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 },
                                 { "name":"Meeting Automation", "prompt":"Is the specified hardware capable of turning the system on when a meeting starts?", "answers": [ 
-                                    { "prompt":"Yes", "scope":"", "selected":false, "questions":[] },
+                                    { "prompt":"Yes", "scope":"The av system will automatically turn on, routing the appropriate source when a meeting starts.", "selected":false, "questions":[] },
                                     { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 },
                                 { "name":"One Touch Meeting Join", "prompt":"Is the specified hardware capable of joining a meeting with one-touch via user interfaces?", "answers": [ 
-                                    { "prompt":"Yes", "scope":"", "selected":false, "questions":[] },
+                                    { "prompt":"Yes", "scope":"The av system will join meetings [when available] with a single button press from user interfaces.", "selected":false, "questions":[] },
+                                    { "prompt":"No", "scope":"", "selected":false, "questions":[] }
+                                    ] 
+                                },
+                                { "name":"Camera Controls", "prompt":"Should user interfaces provide camera controls?", "answers": [ 
+                                    { 
+                                        "prompt":"Yes", 
+                                        "scope":"The user interfaces will provide pan, tilt and zoom controls for any installed cameras [if they support such control].", 
+                                        "selected":false, 
+                                        "questions":[
+                                            { 
+                                                "name":"Manual Preset Save/Recall", "prompt":"Should the user interfaces provide preset recall/saving controls?", "answers": [ 
+                                                    { "prompt":"Yes", "scope":"The user interfaces will provide camera preset recall & save functionality, the specific number of presets to be determined during the submittals process.", "selected":false, "questions":[] },
+                                                    { "prompt":"No", "scope":"", "selected":false, "questions":[] }
+                                                ] 
+                                            },
+                                            { 
+                                                "name":"ACPR", "prompt":"Is the camera & audio hardware capable of automated preset recall?", "answers": [ 
+                                                    { "prompt":"Yes", "scope":"The av system will automatically recall camera presets based on speaker positions in the space. The specific number of presets will be determined by the physical space.", "selected":false, "questions":[] },
+                                                    { "prompt":"No", "scope":"", "selected":false, "questions":[] }
+                                                ] 
+                                            }
+                                        ] 
+                                    },
                                     { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 }
                             ]
                         },
                         { 
-                            "prompt":"No", "scope":"", "selected":false, "questions":[] 
+                            "prompt":"No", "scope":"The av system will not be programmed to make soft conference calls or interact with such conference calls via BYOD devices.", "selected":false, "questions":[] 
                         }
                     ] 
                 }
@@ -213,38 +235,38 @@
                     "answers": [ 
                         { 
                             "prompt":"Yes", 
-                            "scope":"", 
+                            "scope":"The av system will have the ability to make audio conference calls, via the clients POTS or VOIP system.", 
                             "selected":false, 
                             "questions": [ 
                                 { "name":"Incoming Audio Controls", "prompt":"Should user interfaces provide an incoming audio level fader?", "answers": [ 
-                                        { "prompt":"Yes", "scope":"", "selected":false, "questions":[] },
+                                        { "prompt":"Yes", "scope":"The user interfaces will provide incoming conference audio control.", "selected":false, "questions":[] },
                                         { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 },
                                 { "name":"Ceiling Microphone Controls", "prompt":"Should user interfaces provide ceiling microphone level faders?", "answers": [ 
-                                    { "prompt":"Yes", "scope":"", "selected":false, "questions":[] },
+                                    { "prompt":"Yes", "scope":"The user interfaces will provide control of the ceiling microphone level [to the far end conferencing participants].", "selected":false, "questions":[] },
                                     { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 },
                                 { "name":"Privacy Mute Controls", "prompt":"Should user interfaces provide a privacy mute button?", "answers": [ 
-                                    { "prompt":"Yes", "scope":"", "selected":false, "questions":[] },
+                                    { "prompt":"Yes", "scope":"The user interfaces will provide a privacy mute button [which will mute all audio to far end conferencing participants].", "selected":false, "questions":[] },
                                     { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 },
                                 { "name":"Address/Phonebook", "prompt":"Should user interfaces provide address/phonebook controls?", "answers": [ 
-                                    { "prompt":"Yes", "scope":"", "selected":false, "questions":[] },
+                                    { "prompt":"Yes", "scope":"The user interfaces will provide the ability to browse an address book and dial a contact contained within it. Creation and management of the contacts within the address book will be the responsibility of the client.", "selected":false, "questions":[] },
                                     { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 },
                                 { "name":"Do Not Disturb", "prompt":"Should user interfaces provide do-not-disturb buttons?", "answers": [ 
-                                    { "prompt":"Yes", "scope":"", "selected":false, "questions":[] },
+                                    { "prompt":"Yes", "scope":"The user interfaces will provide a do-not-disturb button for prevent unwanted ringing of the system.", "selected":false, "questions":[] },
                                     { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 }
                             ]
                         },
                         { 
-                            "prompt":"No", "scope":"", "selected":false, "questions":[] 
+                            "prompt":"No", "scope":"The av system will not be programmed to make audio teleconferencing calls via POTS or VOIP.", "selected":false, "questions":[] 
                         }
                     ] 
                 }
@@ -259,48 +281,66 @@
                     "answers": [ 
                         { 
                             "prompt":"Yes", 
-                            "scope":"", 
+                            "scope":"The av system will interact with VTC codecs installed in the space.", 
                             "selected":false, 
                             "questions": [ 
                                 { "name":"Incoming Audio Controls", "prompt":"Should user interfaces provide an incoming audio level fader?", "answers": [ 
-                                        { "prompt":"Yes", "scope":"", "selected":false, "questions":[] },
+                                        { "prompt":"Yes", "scope":"The user interfaces will provide incoming conference audio control.", "selected":false, "questions":[] },
                                         { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 },
                                 { "name":"Ceiling Microphone Controls", "prompt":"Should user interfaces provide ceiling microphone level faders?", "answers": [ 
-                                    { "prompt":"Yes", "scope":"", "selected":false, "questions":[] },
+                                    { "prompt":"Yes", "scope":"The user interfaces will provide control of the ceiling microphone level [to the far end conferencing participants].", "selected":false, "questions":[] },
                                     { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 },
                                 { "name":"Privacy Mute Controls", "prompt":"Should user interfaces provide a privacy mute button?", "answers": [ 
-                                    { "prompt":"Yes", "scope":"", "selected":false, "questions":[] },
+                                    { "prompt":"Yes", "scope":"The user interfaces will provide a privacy mute button [which will mute all audio to far end conferencing participants].", "selected":false, "questions":[] },
                                     { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 },
                                 { "name":"Navigation Controls", "prompt":"Should user interfaces provide VTC navigation controls?", "answers": [ 
-                                    { "prompt":"Yes", "scope":"", "selected":false, "questions":[] },
+                                    { "prompt":"Yes", "scope":"The user interfaces will provide navigation controls of the VTC hardware, the specifics of which will be determined during the submittals process.", "selected":false, "questions":[] },
                                     { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 },
-                                { "name":"Camera Controls", "prompt":"Should user interfaces provide VTC camera controls?", "answers": [ 
-                                    { "prompt":"Yes", "scope":"", "selected":false, "questions":[] },
+                                { "name":"Camera Controls", "prompt":"Should user interfaces provide camera controls?", "answers": [ 
+                                    { 
+                                        "prompt":"Yes", 
+                                        "scope":"The user interfaces will provide pan, tilt and zoom controls for any installed cameras [if they support such control].", 
+                                        "selected":false, 
+                                        "questions":[
+                                            { 
+                                                "name":"Manual Preset Save/Recall", "prompt":"Should the user interfaces provide preset recall/saving controls?", "answers": [ 
+                                                    { "prompt":"Yes", "scope":"The user interfaces will provide camera preset recall & save functionality, the specific number of presets to be determined during the submittals process.", "selected":false, "questions":[] },
+                                                    { "prompt":"No", "scope":"", "selected":false, "questions":[] }
+                                                ] 
+                                            },
+                                            { 
+                                                "name":"ACPR", "prompt":"Is the camera & audio hardware capable of automated preset recall?", "answers": [ 
+                                                    { "prompt":"Yes", "scope":"The av system will automatically recall camera presets based on speaker positions in the space. The specific number of presets will be determined by the physical space.", "selected":false, "questions":[] },
+                                                    { "prompt":"No", "scope":"", "selected":false, "questions":[] }
+                                                ] 
+                                            }
+                                        ] 
+                                    },
                                     { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 },
                                 { "name":"Address/Phonebook", "prompt":"Should user interfaces provide address/phonebook controls?", "answers": [ 
-                                    { "prompt":"Yes", "scope":"", "selected":false, "questions":[] },
+                                    { "prompt":"Yes", "scope":"The user interfaces will provide the ability to browse an address book and dial a contact contained within it. Creation and management of the contacts within the address book will be the responsibility of the client.", "selected":false, "questions":[] },
                                     { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 },
                                 { "name":"Do Not Disturb", "prompt":"Should user interfaces provide do-not-disturb buttons?", "answers": [ 
-                                    { "prompt":"Yes", "scope":"", "selected":false, "questions":[] },
+                                    { "prompt":"Yes", "scope":"The user interfaces will provide a do-not-disturb button for prevent unwanted ringing of the system.", "selected":false, "questions":[] },
                                     { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 }
                             ]
                         },
                         { 
-                            "prompt":"No", "scope":"", "selected":false, "questions":[] 
+                            "prompt":"No", "scope":"The av system will not be programmed to control or interact with VTC codec hardware.", "selected":false, "questions":[] 
                         }
                     ] 
                 }
@@ -315,28 +355,28 @@
                     "answers": [ 
                         { 
                             "prompt":"Yes", 
-                            "scope":"", 
+                            "scope":"The av system will interact with the occupancy sensors installed in the system.", 
                             "selected":false, 
                             "questions": [ 
                                 { "name":"Vacancy Automation", "prompt":"Should the system automatically turn off when vacancy is detected?", "answers": [ 
-                                        { "prompt":"Yes", "scope":"", "selected":false, "questions":[] },
+                                        { "prompt":"Yes", "scope":"The av system will automatically turn off when vacancy has been detected, the specific vacancy timeout will be determined during the submittals process.", "selected":false, "questions":[] },
                                         { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 },
                                 { "name":"Vacancy Automation Cancellation", "prompt":"Should user interfaces provide the ability to cancel the vacancy shutdown?", "answers": [ 
-                                        { "prompt":"Yes", "scope":"", "selected":false, "questions":[] },
+                                        { "prompt":"Yes", "scope":"The user interfaces will display a page or control to allow the end-user to cancel a vacancy shutdown process that has been started.", "selected":false, "questions":[] },
                                         { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 },
                                 { "name":"Occupancy Automation", "prompt":"Should the system automatically turn on when occupancy is detected?", "answers": [ 
-                                        { "prompt":"Yes", "scope":"", "selected":false, "questions":[] },
+                                        { "prompt":"Yes", "scope":"The system will turn on automatically when occupancy has been determined. The default source to be determined during the submittals process.", "selected":false, "questions":[] },
                                         { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 }
                             ]
                         },
                         { 
-                            "prompt":"No", "scope":"", "selected":false, "questions":[] 
+                            "prompt":"No", "scope":"The av system will not respond to room occupancy or vacancy.", "selected":false, "questions":[] 
                         }
                     ] 
                 },
@@ -346,23 +386,23 @@
                     "answers": [ 
                         { 
                             "prompt":"Yes", 
-                            "scope":"", 
+                            "scope":"The av system is capable of detecting when end-user devices have been connected to the system.", 
                             "selected":false, 
                             "questions": [ 
                                 { "name":"System Power On", "prompt":"Should the system power on automatically when it detects signal on a user input?", "answers": [ 
-                                        { "prompt":"Yes", "scope":"", "selected":false, "questions":[] },
+                                        { "prompt":"Yes", "scope":"When an end user devices has been connected, the system will automatically turn on, and route that input. The specific inputs capable of creating this event will be determined during the submittals process.", "selected":false, "questions":[] },
                                         { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 },
                                 { "name":"System Power Off", "prompt":"Should the system power off automatically when it detects a lack of signal on all user inputs?", "answers": [ 
-                                        { "prompt":"Yes", "scope":"", "selected":false, "questions":[] },
+                                        { "prompt":"Yes", "scope":"When all end user devices have been disconnected, the system will automatically turn off. The specific inputs capable of creating this event will be determined during the submittals process.", "selected":false, "questions":[] },
                                         { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 }
                             ]
                         },
                         { 
-                            "prompt":"No", "scope":"", "selected":false, "questions":[] 
+                            "prompt":"No", "scope":"The av system is not capable of detecting when end-user devices have been connected. This will required end-users to interact with the user interfaces to turn the av system on or off as needed.", "selected":false, "questions":[] 
                         }
                     ] 
                 }
@@ -377,33 +417,33 @@
                     "answers": [ 
                         { 
                             "prompt":"Yes", 
-                            "scope":"", 
+                            "scope":"The system will control lighting within the space. The specifics of which lights or groups of lights will be determined by the lighting contractor.", 
                             "selected":false, 
                             "questions": [ 
                                 { "name":"Preset Recall", "prompt":"Should the user interfaces allow users to recall specified presets?", "answers": [ 
-                                        { "prompt":"Yes", "scope":"", "selected":false, "questions":[ ] },
+                                        { "prompt":"Yes", "scope":"The user interfaces will allow recall of presets specified by the lighting contractor and client.", "selected":false, "questions":[ ] },
                                         { "prompt":"No", "scope":"", "selected":false, "questions":[ ] }
                                     ] 
                                 },
                                 { "name":"Preset Saving", "prompt":"Should the user interfaces allow users to save new presets or overwrite existing ones?", "answers": [ 
-                                    { "prompt":"Yes", "scope":"", "selected":false, "questions":[ ] },
+                                    { "prompt":"Yes", "scope":"The user interfaces will allow saving of new presets or overwriting of existing ones, the specific presets to be specified by the lighting contractor and client.", "selected":false, "questions":[ ] },
                                     { "prompt":"No", "scope":"", "selected":false, "questions":[ ] }
                                     ] 
                                 },
                                 { "name":"Load Control", "prompt":"Should the user interfaces provide individual load control?", "answers": [ 
-                                    { "prompt":"Yes", "scope":"", "selected":false, "questions":[ ] },
+                                    { "prompt":"Yes", "scope":"The user interfaces will provide individual load control of specified lights in the space. The specified lights will be determined by the lighting system configuration.", "selected":false, "questions":[ ] },
                                     { "prompt":"No", "scope":"", "selected":false, "questions":[ ] }
                                     ] 
                                 },
                                 { "name":"Preset Automation", "prompt":"Will the system automatically recall specified presets when the system turns on or off?", "answers": [ 
-                                    { "prompt":"Yes", "scope":"", "selected":false, "questions":[ ] },
+                                    { "prompt":"Yes", "scope":"The av system will automatically recall the appropriate presets [determined by the client and lighting contractor] when it turns on or off.", "selected":false, "questions":[ ] },
                                     { "prompt":"No", "scope":"", "selected":false, "questions":[ ] }
                                     ] 
                                 }
                             ]
                         },
                         { 
-                            "prompt":"No", "scope":"", "selected":false, "questions":[] 
+                            "prompt":"No", "scope":"There will be no lighting control provided by the av system.", "selected":false, "questions":[] 
                         }
                     ] 
                 }
@@ -418,23 +458,23 @@
                     "answers": [ 
                         { 
                             "prompt":"Yes", 
-                            "scope":"", 
+                            "scope":"The system will control shades within the space, the specifics of which shades or groups of shades will be determined by the shade contractor.", 
                             "selected":false, 
                             "questions": [ 
                                 { "name":"Stop Controls", "prompt":"Should the user interfaces allow users to stop shades in addition to up/down control?", "answers": [ 
-                                        { "prompt":"Yes", "scope":"", "selected":false, "questions":[ ] },
+                                        { "prompt":"Yes", "scope":"The user interfaces, in addition to up/down controls will provide a stop button.", "selected":false, "questions":[ ] },
                                         { "prompt":"No", "scope":"", "selected":false, "questions":[ ] }
                                     ] 
                                 },
                                 { "name":"Preset Automation", "prompt":"Will the system automatically adjust shades when the system turns on or off?", "answers": [ 
-                                    { "prompt":"Yes", "scope":"", "selected":false, "questions":[ ] },
+                                    { "prompt":"Yes", "scope":"The av system will raise or lower shades as needed when the system turns on or off. The specifics of which shades will move shall be determined by the configuration of the space, the shade contractor and/or the client.", "selected":false, "questions":[ ] },
                                     { "prompt":"No", "scope":"", "selected":false, "questions":[ ] }
                                     ] 
                                 }
                             ]
                         },
                         { 
-                            "prompt":"No", "scope":"", "selected":false, "questions":[] 
+                            "prompt":"No", "scope":"There will be no shade control provided by the av system.", "selected":false, "questions":[] 
                         }
                     ] 
                 }
@@ -449,33 +489,33 @@
                     "answers": [ 
                         { 
                             "prompt":"Yes", 
-                            "scope":"", 
+                            "scope":"The av system, or av hardware will be connected to the client's network in some capacity. This will require collaboration and communication between the IT department.", 
                             "selected":false, 
                             "questions": [ 
                                 { "name":"Control System", "prompt":"Does our control system connect to the client's network?", "answers": [ 
-                                        { "prompt":"Yes", "scope":"", "selected":false, "questions":[ ] },
+                                        { "prompt":"Yes", "scope":"The control system will connect to the client's network. This will potentially require either a DHCP reservation, or a static ip address to be provided to CCS by the client's IT department.", "selected":false, "questions":[ ] },
                                         { "prompt":"No", "scope":"", "selected":false, "questions":[ ] }
                                     ] 
                                 },
                                 { "name":"AV Devices", "prompt":"Do any of our AV devices connect to the client's network?", "answers": [ 
-                                        { "prompt":"Yes", "scope":"", "selected":false, "questions":[ ] },
+                                        { "prompt":"Yes", "scope":"Some av devices will connect to the client's network. This will potentially require either DHCP reservations or static ip addresses provided by the client's IT department.", "selected":false, "questions":[ ] },
                                         { "prompt":"No", "scope":"", "selected":false, "questions":[ ] }
                                     ] 
                                 },
                                 { "name":"Client Network Devices", "prompt":"Are we going to be controlling any client devices that are connected to the their network?", "answers": [ 
-                                        { "prompt":"Yes", "scope":"", "selected":false, "questions":[ ] },
+                                        { "prompt":"Yes", "scope":"The av system will be controlling devices living on the client's network. This will potentially require either DHCP reservations or static ip addresses provided by the client's IT department.", "selected":false, "questions":[ ] },
                                         { "prompt":"No", "scope":"", "selected":false, "questions":[ ] }
                                     ] 
                                 },
                                 { "name":"IT Department Contact", "prompt":"Do you know the contact details for the IT Department for us to coordinate networking details?", "answers": [ 
-                                        { "prompt":"Yes", "scope":"", "selected":false, "questions":[ ] },
+                                        { "prompt":"Yes", "scope":"The salesperson has and will provide the contact details for the IT department for the project management & installation team.", "selected":false, "questions":[ ] },
                                         { "prompt":"No", "scope":"", "selected":false, "questions":[ ] }
                                     ] 
                                 }
                             ]
                         },
                         { 
-                            "prompt":"No", "scope":"", "selected":false, "questions":[] 
+                            "prompt":"No", "scope":"The av system will not touch the clients network, or control devices living on the clients network. If changes in this regard are made, a CO will be required to account for additional programming, configuration or installation required by the functionality desired.", "selected":false, "questions":[] 
                         }
                     ] 
                 }
