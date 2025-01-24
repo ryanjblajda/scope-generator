@@ -128,6 +128,12 @@ textarea:focus{
     color: $custom-details-text-color;
 }
 
+.download-container {
+    background: $footer-background;
+    display: flex;
+    justify-content: center;
+}
+
 app-section {
     flex: 1 1 0;
     padding: .2em;
@@ -140,6 +146,11 @@ app-section {
     justify-content: center;
     background: $footer-background;
     color: $footer-text-color;
+
+    span {
+        padding: 0.2em;
+        font-size: larger;
+    }
 }
 
 @media screen and (min-width: 600px) {
