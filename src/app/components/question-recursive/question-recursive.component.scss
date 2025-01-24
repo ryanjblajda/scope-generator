@@ -24,12 +24,25 @@ button.active {
     color: $button-selected-text-color
 }
 
+.question { 
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.prompt {
+    flex: 1 1 0;
+    padding: 0.2em;
+}
+
 .answer-section {
     display: flex;
     flex-direction: column;
+    align-content: start;
     align-items: stretch;
     gap: 0.5em;
     padding: 0.5em;
+    flex: 1 1 70%;
 }
 
 @media screen and (min-width: 600px) {
@@ -53,6 +66,7 @@ button.active {
         display: flex;
         flex-direction: row;
         justify-content: center;
+        align-items: stretch;
         flex-wrap: wrap;
 
         app-question-recursive {
