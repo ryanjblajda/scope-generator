@@ -3,19 +3,23 @@
     <span class="header-name">{{title}}</span>
   </header>
   <section class="scope-details">
-    <article class="scope-details-item"><span><h2>Project Number</h2></span><input [placeholder]="projectNumber()"/></article>
-    <article class="scope-details-item"><span><h2>Client Name</h2></span><input [placeholder]="projectClientName()"/></article>
-    <article class="scope-details-item"><span><h2>Project Description</h2></span><input [placeholder]="projectDescription()"/></article>
+    <article class="scope-details-item"><span><h2>Project Number</h2></span><input [placeholder]="projectNumberPlaceholder()" (input)="onInput('project-num', $event)"/></article>
+    <article class="scope-details-item"><span><h2>Client Name</h2></span><input [placeholder]="projectClientNamePlaceholder()" (input)="onInput('project-client', $event)"/></article>
+    <article class="scope-details-item"><span><h2>Project Description</h2></span><input [placeholder]="projectDescriptionPlaceholder()" (input)="onInput('project-description', $event)"/></article>
   </section>
   <section *ngIf="success()" class="question-list">
     <app-section *ngFor="let section of questions.sections" [section]="section"/>
   </section>
   <section *ngIf="success()" class="custom-details">
     <span><h3>Additional Details</h3></span>
-    <textarea placeholder="enter additional details not captured via the questions, such as IT contact details or advanced functionality, like room combining or overflow"></textarea>
+    <textarea placeholder="enter additional details not captured via the questions, such as IT contact details or advanced functionality, like room combining or overflow" (input)="onInput('custom-details', $event)"></textarea>
   </section>
+  <article class="download-container" *ngIf="downloadReady()">
+    <a [href]="downloadURL()" target="_blank" [download]="downloadName()"><button (click)="downloaded()" (touchstart)="downloaded()">Download</button></a>
+  </article>
   <footer *ngIf="success()" class="footer">
-    <button (click)="generateScope()">Generate Scope</button>
+    <button (click)="onGenerateScopeClicked()">Generate Scope</button>
+    <!--<span>Please complete the form, once complete you will be able to generate your scope.</span>-->
   </footer>
   <section *ngIf="loading() || !success()" class="container error">
     <section *ngIf="loading()" class="error-popup">
