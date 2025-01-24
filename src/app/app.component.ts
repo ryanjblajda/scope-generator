@@ -156,7 +156,7 @@ export class AppComponent implements OnInit {
     //generate a new file to download
     let file = new Blob([scope], {type: '.txt'});
     this.downloadURL.set(URL.createObjectURL(file));
-    this.downloadName.set(`${this.projectNumber}_${this.projectClientName}_functional_scope.txt`);
+    this.downloadName.set(`${this.projectNumber}_${this.projectClientName}_functional_scope.txt`.replaceAll(" ", "_").toLowerCase());
     this.downloadReady.set(true);
   }
 
