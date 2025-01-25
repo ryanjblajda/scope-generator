@@ -135,7 +135,7 @@ export class AppComponent implements OnInit {
       //grab the section name
       fileTextData += section.name + "\r\n\t";
       //parse all the questions for this section recursively
-      fileTextData += this.parseQuestionRecursive(section.questions) + "\r\n";
+      fileTextData += this.parseQuestionRecursive(section.questions) + "\r\n\r\n";
     });
     //return the completed scope
     return fileTextData;
@@ -167,7 +167,7 @@ export class AppComponent implements OnInit {
     //generate a new file to download
     let file = new Blob([scope], {type: '.txt'});
     this.downloadURL.set(URL.createObjectURL(file));
-    this.downloadName.set(`${this.projectNumber}_${this.projectClientName}_functional_scope.txt`.replaceAll(" ", "_").toLowerCase());
+    this.downloadName.set(`${this.projectNumber.toUpperCase()}_${this.projectClientName}_functional_scope.txt`.replaceAll(" ", "_").toLowerCase());
     this.downloadReady.set(true);
   }
 
