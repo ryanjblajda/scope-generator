@@ -3,6 +3,7 @@ import { Component, computed, OnInit } from '@angular/core';
 import { Question, QuestionList } from './components/interfaces/interfaces';
 import { signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { FormGroup, FormControl, Validators, Form } from '@angular/forms'; 
 
 @Component({
   selector: 'app-root',
@@ -33,6 +34,11 @@ export class AppComponent implements OnInit {
   downloadName = signal<string>('scope.txt');
   downloadURL = signal<string>('/scope.txt');
 
+  projectNumberRequiredMessage = 'A project number is required!!';
+  projectNumberInvalidMessage = 'Please enter a valid project number!!';
+
+  details!:FormGroup;
+
   private httpClient: HttpClient;
 
   constructor(http: HttpClient) {
@@ -40,6 +46,11 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    //generate form group to validate input
+    this.details = new FormGroup({
+      projectnumber: new FormControl('', [Validators.required, Validators.pattern(/[Pp][Rr]-[\d]+$/)]) 
+    });
+
     //set defaults for generation to placeholders
     this.projectClientName = this.projectClientNamePlaceholder();
     this.projectDescription = this.projectDescriptionPlaceholder();

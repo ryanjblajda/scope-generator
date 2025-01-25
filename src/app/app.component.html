@@ -2,10 +2,20 @@
   <header class="header">
     <span class="header-name">{{title}}</span>
   </header>
-  <section class="scope-details">
-    <article class="scope-details-item"><span><h2>Project Number</h2></span><input [placeholder]="projectNumberPlaceholder()" (input)="onInput('project-num', $event)"/></article>
-    <article class="scope-details-item"><span><h2>Client Name</h2></span><input [placeholder]="projectClientNamePlaceholder()" (input)="onInput('project-client', $event)"/></article>
-    <article class="scope-details-item"><span><h2>Project Description</h2></span><input [placeholder]="projectDescriptionPlaceholder()" (input)="onInput('project-description', $event)"/></article>
+  <section class="scope-details" [formGroup]="details">
+      <article class="scope-details-item">
+        <span><h2>Project Number</h2></span><input class="project-number" formControlName="projectnumber" required [placeholder]="projectNumberPlaceholder()" (input)="onInput('project-num', $event)" minlength="8"/>
+        <div *ngIf="details.controls['projectnumber']?.invalid || details.controls['projectnumber']?.dirty">
+          <div class="required-message" *ngIf="details.controls['projectnumber']?.errors?.['required']">{{projectNumberRequiredMessage}}</div>
+          <div class="invalid-message" *ngIf="details.controls['projectnumber']?.invalid && details.controls['projectnumber']?.touched">{{projectNumberInvalidMessage}}</div>
+        </div>
+      </article>
+      <article class="scope-details-item">
+        <span><h2>Client Name</h2></span><input [placeholder]="projectClientNamePlaceholder()" (input)="onInput('project-client', $event)"/>
+      </article>
+      <article class="scope-details-item">
+        <span><h2>Project Description</h2></span><input [placeholder]="projectDescriptionPlaceholder()" (input)="onInput('project-description', $event)"/>
+      </article>
   </section>
   <section *ngIf="success()" class="question-list">
     <app-section *ngFor="let section of questions.sections" [section]="section"/>

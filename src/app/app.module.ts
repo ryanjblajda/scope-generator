@@ -4,6 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SectionComponent } from './components/section/section.component';
+import { FormGroup, FormControl, Validators, Form } from '@angular/forms'; 
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,7 @@ import { SectionComponent } from './components/section/section.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    SectionComponent
+    SectionComponent, FormsModule, ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
