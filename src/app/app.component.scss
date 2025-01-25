@@ -55,6 +55,16 @@ input:focus {
     outline-width: 0;
 }
 
+.project-number {
+    text-transform: uppercase;
+}
+
+.required-message, .invalid-message {
+    color: darkred;
+    font-weight: bolder;
+    font-size: larger;
+}
+
 span {
     display: block;
     text-align: center;
