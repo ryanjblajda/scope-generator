@@ -101,7 +101,7 @@
             ]
         },
         {
-            "name":"Audio",
+            "name":"Speech Reinforcement & Recording",
             "questions": [
                 { 
                     "name":"Microphones", 
@@ -153,7 +153,7 @@
             ]
         },
         {
-            "name":"USB",
+            "name":"USB Soft Conferencing",
             "questions": [
                 { 
                     "name":"Conferencing", 
