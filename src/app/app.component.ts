@@ -165,6 +165,8 @@ export class AppComponent implements OnInit {
   onDeleteSystem(system: System):void {
     let index = this.project.systems.indexOf(system);
     this.project.systems.splice(index, 1);
+    //set the selected system to 0 if we deleted all but one system so that we dont show no tab by accident
+    if (this.project.systems.length == 1) { this.systemSelected.set(0); }
   }
 
   onSelectSystem(index: number) {
