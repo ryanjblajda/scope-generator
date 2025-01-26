@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { NgFor } from '@angular/common';
-import { Section } from '../interfaces/interfaces';
+import { Section } from '../classes/classes';
 import { QuestionRecursiveComponent } from '../question-recursive/question-recursive.component';
 
 @Component({
