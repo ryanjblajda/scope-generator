@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Answer, Question } from '../interfaces/interfaces';
+import { Answer, Question } from '../classes/interfaces';
 import { NgFor, NgIf } from '@angular/common';
 
 @Component({
