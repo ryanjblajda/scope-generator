@@ -87,20 +87,70 @@ textarea:focus{
     outline: 0;
 }
 
-.project-details {
+.project {
+    background: $scope-background;
+}
+
+.details {
     display: flex;
     flex-direction: column;
     flex: 1 1 5%;
     gap: 0.2em;
     padding: 0.2em;
     padding-bottom: 0.5em;
-    background: $scope-background;
     color: $scope-details-text-color;
 }
 
-.project-details-item {
+.details-item {
     display: flex;
     flex-direction: column;
+}
+
+.project-system-container {
+    display:flex;
+    flex-direction: column;
+    flex: 1 1 85%;
+    background-color: $global-color-tertiary;
+    color: $global-color-eee;
+}
+
+.project-system-tab-list {
+    display: flex;
+    flex-direction: row;
+    flex: 0 1 5%;
+
+    * {
+        background-color: $global-color-tertiary-2;
+        padding: 4px 12px;
+        border-radius: 4px 4px 0 0;
+        position: relative;
+    }
+
+    .active {
+        border-bottom: 1px solid transparent;
+        background-color: $global-color-secondary;
+      }
+}
+
+.project-system-list {
+    border-top: 1px solid $global-color-secondary;
+    flex: 1 1 0;
+    display: flex;
+}
+
+.project-system {
+    flex: 1 1 0;
+    background-color: $global-color-secondary;
+
+    header {
+        button {
+            min-height: 0;
+        }
+    }
+}
+
+.hidden {
+    display: none;
 }
 
 .question-list {
@@ -108,7 +158,6 @@ textarea:focus{
     flex-direction: column;
     flex: 1 1 85%;
     width: 100%;
-    background: $questions-background;
     border: none;
 }
 
@@ -164,9 +213,21 @@ app-section {
 }
 
 @media screen and (min-width: 600px) {
-    .scope-details {
+    .details {
         flex-direction: row;
         justify-content: center;
+        padding-left: 2em;
+        padding-right: 2em;
+    }
+
+    .details-item {
+        flex: 1 1 0;
+    }
+
+    .project-system {
+        header {
+            align-items: center;
+        }
     }
 
     button { 

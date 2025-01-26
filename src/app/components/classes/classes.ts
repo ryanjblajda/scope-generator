@@ -22,12 +22,14 @@ export class Answer {
 
 export class System {
     questions:QuestionList | QuestionList = new QuestionList;
-    name:string | string = "System Name";
-    description:string | string = ''
+    name:string | string = "New AV System";
+    description:string | string = 'a small huddle room, lecture hall, boardroom';
+    customDetails:string | string = 'custom requirements';
 }
 
 export class Project {
-    systems:System[] | System[] = [];
-    name:string | string = "PR-XXXXX";
-    description: string | string = '';
+    systems:System[] | System[] = [new System()]
+    number:string | string = "PR-XXXXX";
+    clientname:string | string = 'Project Client Name';
+    description: string | string = 'Project Description';
 }
