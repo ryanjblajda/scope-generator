@@ -87,7 +87,7 @@ textarea:focus{
     outline: 0;
 }
 
-.scope-details {
+.project-details {
     display: flex;
     flex-direction: column;
     flex: 1 1 5%;
@@ -98,7 +98,7 @@ textarea:focus{
     color: $scope-details-text-color;
 }
 
-.scope-details-item {
+.project-details-item {
     display: flex;
     flex-direction: column;
 }

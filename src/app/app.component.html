@@ -2,27 +2,33 @@
   <header class="header">
     <span class="header-name">{{title}}</span>
   </header>
-  <section class="scope-details" [formGroup]="details">
-      <article class="scope-details-item">
+  <section class="project-details" [formGroup]="details">
+      <article class="project-details-item">
         <span><h2>Project Number</h2></span><input name="project-number" class="project-number" formControlName="projectnumber" required [placeholder]="projectNumberPlaceholder()" (input)="onInput('project-num', $event)" minlength="8"/>
         <div *ngIf="details.controls['projectnumber']?.invalid || details.controls['projectnumber']?.dirty">
           <div class="required-message" *ngIf="details.controls['projectnumber']?.errors?.['required']">{{projectNumberRequiredMessage}}</div>
           <div class="invalid-message" *ngIf="details.controls['projectnumber']?.invalid && details.controls['projectnumber']?.touched">{{projectNumberInvalidMessage}}</div>
         </div>
       </article>
-      <article class="scope-details-item">
+      <article class="project-details-item">
         <span><h2>Client Name</h2></span><input name="project-client-name" [placeholder]="projectClientNamePlaceholder()" (input)="onInput('project-client', $event)"/>
       </article>
-      <article class="scope-details-item">
+      <article class="project-details-item">
         <span><h2>Project Description</h2></span><input name="project-description" [placeholder]="projectDescriptionPlaceholder()" (input)="onInput('project-description', $event)"/>
       </article>
   </section>
+  <section>
+    
+  <!--
+    hiding this currently for development of the multiple system feature
   <section *ngIf="success()" class="question-list">
     <app-section *ngFor="let section of questions.sections" [section]="section"/>
   </section>
   <section *ngIf="success()" class="custom-details">
     <span><h3>Additional Details</h3></span>
     <textarea placeholder="enter additional details not captured via the questions, such as IT contact details or advanced functionality, like room combining or overflow" (input)="onInput('custom-details', $event)"></textarea>
+  </section>
+  -->
   </section>
   <article class="download-container" *ngIf="downloadReady()">
     <a [href]="downloadURL()" [download]="downloadName()"><button (click)="downloaded()">Download</button></a>
