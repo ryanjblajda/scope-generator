@@ -1,6 +1,6 @@
 import { Component, computed, OnInit } from '@angular/core';
 //import data from '../assets/scope_questions.json';
-import { Question, QuestionList } from './components/interfaces/interfaces';
+import { Question, QuestionList } from './components/classes/interfaces';
 import { signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormControl, Validators, Form } from '@angular/forms'; 
