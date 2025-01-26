@@ -158,6 +158,7 @@ export class AppComponent implements OnInit {
 
   onAddNewSystem():void {
     let system = new System;
+    //create a copy of the system questions because we dont want all systems to view the same object.
     system.questions = JSON.parse(JSON.stringify(this.questions));
     this.project.systems.push(system);
   }
