@@ -161,6 +161,8 @@ export class AppComponent implements OnInit {
     //create a copy of the system questions because we dont want all systems to view the same object.
     system.questions = JSON.parse(JSON.stringify(this.questions));
     this.project.systems.push(system);
+    //set the page to the current system the user just added
+    this.systemSelected.set(this.project.systems.length - 1);
   }
 
   onDeleteSystem(system: System):void {
