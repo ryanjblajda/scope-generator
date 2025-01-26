@@ -1,6 +1,6 @@
 import { Component, computed, OnInit } from '@angular/core';
 //import data from '../assets/scope_questions.json';
-import { Question, QuestionList } from './components/classes/interfaces';
+import { Question, QuestionList } from './components/classes/classes';
 import { signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormControl, Validators, Form } from '@angular/forms'; 
@@ -27,8 +27,6 @@ export class AppComponent implements OnInit {
 
   success = signal<boolean>(false);
   loading = signal<boolean>(true);
-
-  formCompleted = computed<boolean>(() => this.checkQuestionsStatus());
   
   downloadReady = signal<boolean>(false);
   downloadName = signal<string>('scope.txt');
@@ -80,50 +78,30 @@ export class AppComponent implements OnInit {
     //}, 3000);
   }
 
-  checkQuestionsRecursive(questions: Question[]):boolean {
-    let status = false;
-    questions.forEach(question => {
-      question.answers.forEach(answer => {
-        if (answer.selected) {
-          console.log('answer selected')
-          status = true;
-          return;
-        }
-      });
-    });
-    console.log(`return ${status}`)
-    return status;
-  }
-
-  checkQuestionsStatus():boolean {
-    let status = false;
-    this.questions.sections.forEach(section => {
-      status = this.checkQuestionsRecursive(section.questions);
-    });
-    return status;
-  }
-
   parseQuestionRecursive(questions:Question[]): string {
     let questionTextData:string = "";
     //loop through all the questions
-    questions.forEach(question => {
-      //loop through all the answers for the question we are on
-      question.answers.forEach(answer => {
-        //only return an answer if its selected
-        if (answer.selected) {
-          //if the scope field is empty, return the question prompt instead.
-          if (answer.scope.length > 0) { questionTextData += answer.scope + " "; }
-          else { 
-            if (answer.prompt.toLowerCase() == "no" || answer.prompt.toLowerCase() == "yes") { /* dont return anything */ }
-            else { questionTextData += answer.prompt + " ";   }
-          }
-          //if the answer has children questions, parse recursively
-          if (answer.questions != undefined) {
-            if (answer.questions.length > 0) { questionTextData += this.parseQuestionRecursive(answer.questions); + "\r\n"; }
-          }
-        }
-      });
-    });
+    
+    //questions.forEach(question => {
+    //  //loop through all the answers for the question we are on
+    //  
+    //  question.answers.forEach(answer => {
+    //    //only return an answer if its selected
+    //    if (answer.selected) {
+    //      //if the scope field is empty, return the question prompt instead.
+    //      if (answer.scope.length > 0) { questionTextData += answer.scope + " "; }
+    //      else { 
+    //        if (answer.prompt.toLowerCase() == "no" || answer.prompt.toLowerCase() == "yes") { /* dont return anything */ }
+    //        else { questionTextData += answer.prompt + " ";   }
+    //      }
+    //      //if the answer has children questions, parse recursively
+    //      if (answer.questions != undefined) {
+    //        if (answer.questions.length > 0) { questionTextData += this.parseQuestionRecursive(answer.questions); + "\r\n"; }
+    //      }
+    //    }
+    //  });
+    //});
+    
     //return the string
     return questionTextData;
   }
@@ -131,6 +109,7 @@ export class AppComponent implements OnInit {
   parseResponses(list:QuestionList): string {
     let fileTextData:string = "";
     //loop through each section
+    /*
     list.sections.forEach(section => {
       //grab the section name
       fileTextData += section.name + "\r\n\t";
@@ -138,6 +117,7 @@ export class AppComponent implements OnInit {
       fileTextData += this.parseQuestionRecursive(section.questions) + "\r\n\r\n";
     });
     //return the completed scope
+    */
     return fileTextData;
   }
 
