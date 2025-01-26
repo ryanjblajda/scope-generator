@@ -117,12 +117,13 @@ textarea:focus{
 .project-system-tab-list {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     flex: 0 1 5%;
 
     * {
         background-color: $global-color-tertiary-2;
         padding: 4px 12px;
-        border-radius: 4px 4px 0 0;
+        border-radius: .5em .5em 0 0;
         position: relative;
     }
 
@@ -130,6 +131,14 @@ textarea:focus{
         border-bottom: 1px solid transparent;
         background-color: $global-color-secondary;
       }
+}
+
+.tab {
+    font-size: x-large;
+}
+
+.tab:active {
+    background-color: $global-color-accent;
 }
 
 .project-system-list {
@@ -145,6 +154,8 @@ textarea:focus{
     header {
         button {
             min-height: 0;
+            margin-left: 2em;
+            margin-right: 2em;
         }
     }
 }
@@ -216,8 +227,8 @@ app-section {
     .details {
         flex-direction: row;
         justify-content: center;
-        padding-left: 2em;
-        padding-right: 2em;
+        gap: 1em;
+        padding: .1em 20em .1em 20em;
     }
 
     .details-item {
@@ -227,6 +238,9 @@ app-section {
     .project-system {
         header {
             align-items: center;
+            button {
+                margin: 0.1em;
+            }
         }
     }
 

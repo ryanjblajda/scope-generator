@@ -19,8 +19,8 @@
   </section>
   <section class="project-system-container">
     <header class="project-system-tab-list">
-      <nav class="project-system-tab" *ngFor="let system of project.systems, let first = first, let i = index" [class.active]="i == systemSelected()" (click)="onSelectSystem(i)">{{system.name}}</nav>
-      <nav class="project-add-tab" (click)="onAddNewSystem()">Add System</nav>
+      <nav class="project-system-tab tab" *ngFor="let system of project.systems, let i = index" [class.active]="i == systemSelected()" (click)="onSelectSystem(i)">{{system.name}}</nav>
+      <nav class="project-add-tab tab" (click)="onAddNewSystem()">Add System</nav>
     </header>
     <section class="project-system-list">
       <section class="project-system" *ngFor="let system of project.systems, let first = first, let i = index" [class.hidden]="i != systemSelected()">
