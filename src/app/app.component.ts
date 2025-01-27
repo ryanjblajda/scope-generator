@@ -133,9 +133,9 @@ export class AppComponent implements OnInit {
     let scope:string = `CCS Presentation Systems\r\n\r\n${this.project.clientname}\r\n${this.project.number} // ${this.project.description}\r\n\r\nFunctional Programming Scope\r\n\r\n`;
     //generate the main body of the scope, looping through every single system in the project
     this.project.systems.forEach(system => {
-      scope += "\r\n\r\n" + system.name + "\r\n\r\n" + system.description + "\r\n\r\n\t";
+      scope += "\r\n\r\n" + system.name + "\r\n\r\n" + system.description + "\r\n\r\n";
       scope += this.parseResponses(system.questions);
-      scope += "\tCustom Requirements\r\n\r\n" + system.customDetails + "\r\n\r\n";
+      scope += "Custom Requirements\r\n\r\n\t" + system.customDetails + "\r\n\r\n";
     });
 
     return scope;
