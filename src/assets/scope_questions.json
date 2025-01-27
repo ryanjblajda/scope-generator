@@ -304,6 +304,16 @@
                                     { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 },
+                                { "name":"Address/Phonebook", "prompt":"Should user interfaces provide address/phonebook controls?", "answers": [ 
+                                    { "prompt":"Yes", "scope":"The user interfaces will provide the ability to browse an address book and dial a contact contained within it. Creation and management of the contacts within the address book will be the responsibility of the client.", "selected":false, "questions":[] },
+                                    { "prompt":"No", "scope":"", "selected":false, "questions":[] }
+                                    ] 
+                                },
+                                { "name":"Do Not Disturb", "prompt":"Should user interfaces provide do-not-disturb buttons?", "answers": [ 
+                                    { "prompt":"Yes", "scope":"The user interfaces will provide a do-not-disturb button for prevent unwanted ringing of the system.", "selected":false, "questions":[] },
+                                    { "prompt":"No", "scope":"", "selected":false, "questions":[] }
+                                    ] 
+                                },
                                 { "name":"Camera Controls", "prompt":"Should user interfaces provide camera controls?", "answers": [ 
                                     { 
                                         "prompt":"Yes", 
@@ -324,16 +334,6 @@
                                             }
                                         ] 
                                     },
-                                    { "prompt":"No", "scope":"", "selected":false, "questions":[] }
-                                    ] 
-                                },
-                                { "name":"Address/Phonebook", "prompt":"Should user interfaces provide address/phonebook controls?", "answers": [ 
-                                    { "prompt":"Yes", "scope":"The user interfaces will provide the ability to browse an address book and dial a contact contained within it. Creation and management of the contacts within the address book will be the responsibility of the client.", "selected":false, "questions":[] },
-                                    { "prompt":"No", "scope":"", "selected":false, "questions":[] }
-                                    ] 
-                                },
-                                { "name":"Do Not Disturb", "prompt":"Should user interfaces provide do-not-disturb buttons?", "answers": [ 
-                                    { "prompt":"Yes", "scope":"The user interfaces will provide a do-not-disturb button for prevent unwanted ringing of the system.", "selected":false, "questions":[] },
                                     { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 }
