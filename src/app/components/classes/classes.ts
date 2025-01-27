@@ -22,7 +22,7 @@ export class Answer {
 
 export class System {
     questions:QuestionList | QuestionList = new QuestionList;
-    name:string | string = "New AV System";
+    name:string | string = "System Name";
     description:string | string = 'a small huddle room, lecture hall, boardroom';
     customDetails:string | string = 'custom requirements';
 }
