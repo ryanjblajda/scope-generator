@@ -240,7 +240,7 @@ app-section {
 }
 
 //adjust formatting for desktop browsers
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 1000px) {
     .details {
         flex-direction: row;
         justify-content: center;
