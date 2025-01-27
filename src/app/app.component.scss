@@ -1,11 +1,20 @@
 @import '../styles/variables.scss';
 
+img {
+    margin: 1em;
+}
+
 .container {
     height: 100vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
     text-align: center;
+}
+
+.top-line {
+    height: 10px;
+    background: $line-background;
 }
 
 .header {
@@ -99,6 +108,10 @@ textarea:focus{
     padding: 0.2em;
     padding-bottom: 0.5em;
     color: $scope-details-text-color;
+}
+
+.project-details {
+    color: $project-details-text-color;
 }
 
 .details-item {

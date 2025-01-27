@@ -1,5 +1,7 @@
 <section class="container">
   <header class="header">
+    <section class="top-line"></section>
+    <img src="https://ccsnewengland.com/wp-content/uploads/2020/09/CCS-Logo.png"/>
     <span class="header-name">{{title}}</span>
   </header>
   <section class="details project" [formGroup]="details">
@@ -24,7 +26,7 @@
     </header>
     <section class="project-system-list">
       <section class="project-system" *ngFor="let system of project.systems, let first = first, let i = index" [class.hidden]="i != systemSelected()">
-        <header class="details">
+        <header class="details project-details">
           <article class="details-item">
             <span><h3>System Name</h3></span><input name="name" autocomplete="home" [placeholder]="system.name" (input)="onSystemInput('name', system, $event)"/>
           </article>

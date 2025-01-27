@@ -20,11 +20,15 @@ $global-typography-accent-font-weight: 500;
 $error-background-color: $global-color-primary;
 $error-background-text-color: $global-color-eee;
 
-$header-text-color: $global-color-eee;
-$scope-details-text-color: $global-color-3621085d;
+$line-background: $global-color-primary;
+
+$header-text-color: $global-color-secondary;
+$scope-details-text-color: $global-color-tertiary;
 $color-text: $global-color-text;
 
-$header-background: $global-color-primary;
+$project-details-text-color: $global-color-eee;
+
+$header-background: $global-color-eee;
 
 $scope-background: $global-color-accent;
 
