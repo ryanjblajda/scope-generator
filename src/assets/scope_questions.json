@@ -65,7 +65,7 @@
                         },
                         {"prompt":"No",  "scope":"", "selected":false, "questions":[]}
                     ]  
-                  },
+                },
                 {
                     "name":"User Interface Development",
                     "prompt":"Does this project require CCS to develop a user interface from scratch?",

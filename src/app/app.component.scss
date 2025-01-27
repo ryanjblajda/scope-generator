@@ -236,6 +236,7 @@ app-section {
     }
 }
 
+//adjust formatting for desktop browsers
 @media screen and (min-width: 600px) {
     .details {
         flex-direction: row;
@@ -260,5 +261,17 @@ app-section {
     button { 
         min-height: 5em;
         flex: 0 1 10%;
+    }
+}
+
+//adjust for ultrawide browsers
+@media screen and (min-width: 1921px) {
+    .question-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    app-section {
+        flex: 1 1 40%;
     }
 }
