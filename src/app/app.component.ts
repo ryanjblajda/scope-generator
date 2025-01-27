@@ -24,9 +24,6 @@ export class AppComponent implements OnInit {
 
   systemSelected = signal<number>(0);
 
-  //holds the value of the custom details
-  customDetails:string | string = '';
-
   //shows a wait or error screen as needed
   success = signal<boolean>(false);
   loading = signal<boolean>(true);
@@ -138,9 +135,9 @@ export class AppComponent implements OnInit {
     this.project.systems.forEach(system => {
       scope += "\r\n\r\n" + system.name + "\r\n\r\n" + system.description + "\r\n\r\n\t";
       scope += this.parseResponses(system.questions);
+      scope += "\tCustom Requirements\r\n\r\n" + system.customDetails + "\r\n\r\n";
     });
-    //if the custom details section has a length, add it to the bottom of the scope
-    if (this.customDetails.length > 0 ) { scope += `Custom Scope Requirements\r\n\r\n\t${this.customDetails}`; }
+
     return scope;
   }
 
