@@ -1,38 +1,41 @@
 @import './styles/variables.scss';
 
 @font-face {
-    font-family: 'Segoe UI Variable Small';
-    src:
-      local('Segoe UI Variable Small'),
-      url('/fonts/SegoeUIVF-all.tff') format('truetype-variations');
-    font-variation-settings: 'opsz' 1;
-    font-weight: 300 700;
-    font-style: normal;
-  }
-  @font-face {
-    font-family: 'Segoe UI Variable Text';
-    src:
-      local('Segoe UI Variable Text'),
-      url('/fonts/SegoeUIVF-all.tff') format('truetype-variations');
-    font-variation-settings: 'opsz' 10.5;
-    font-weight: 300 700;
-    font-style: normal;
-  }
-  @font-face {
-    font-family: 'Segoe UI Variable Display';
-    src:
-      local('Segoe UI Variable Display'),
-      url('/fonts/SegoeUIVF-all.tff') format('truetype-variations');
-    font-variation-settings: 'opsz' 36;
-    font-weight: 300 700;
-    font-style: normal;
-  }
+  font-family: 'Segoe UI Variable Small';
+  src:
+    local('Segoe UI Variable Small'),
+    url('/fonts/SegoeUIVF-all.tff') format('truetype-variations');
+  font-variation-settings: 'opsz' 1;
+  font-weight: 300 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Segoe UI Variable Text';
+  src:
+    local('Segoe UI Variable Text'),
+    url('/fonts/SegoeUIVF-all.tff') format('truetype-variations');
+  font-variation-settings: 'opsz' 10.5;
+  font-weight: 300 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Segoe UI Variable Display';
+  src:
+    local('Segoe UI Variable Display'),
+    url('/fonts/SegoeUIVF-all.tff') format('truetype-variations');
+  font-variation-settings: 'opsz' 36;
+  font-weight: 300 700;
+  font-style: normal;
+}
 
 html, body {
     margin: 0px;
     padding: 0px;
     color: $color-text;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: $global-typography-text-font-family;
+    font-weight: $global-typography-text-font-weight;
     background: $body-background;
 }
 
