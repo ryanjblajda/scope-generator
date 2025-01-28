@@ -176,17 +176,17 @@
                     "prompt":"How should source audio be routed by the system?", 
                     "answers": [ 
                         { 
-                            "prompt":"Dedicated Audio Destination\rThere will be a dedicated audio destination on user interfaces, as a point source destination, which a user will touch, after selecting the source they wish to hear on the speakers.", 
-                            "scope":"", 
+                            "prompt":"There will be a dedicated audio destination on user interfaces, which a user will touch to route the source they have selected to the speakers.", 
+                            "scope":"There will be a dedicated audio destination on user interfaces, which a user will touch to route the source they have selected to the speakers", 
                             "selected":false
                         },
                         { 
-                            "prompt":"Last Source Routed\rThe speakers will play back the source that was last routed to a valid point source destination in the room.", 
+                            "prompt":"The speakers will play back the source that was last routed to a valid point source destination in the room.", 
                             "scope":"The speakers will play back the source that was last routed to a valid point source destination in the room. The specific displays that will trigger this routing will be determined during the ui submittals process.", 
                             "selected":false
                         },
                         { 
-                            "prompt":"Audio Follows Video\rThere is only one display present in the system, or only one display that will be primarily viewed by the audience, audio will follow this display.", 
+                            "prompt":"There is only one display present in the system, or only one display that will be primarily viewed by the audience, audio will follow this display.", 
                             "scope":"There is only one display present in the system, or only one display that will be primarily viewed by the audience, therefore source audio heard on the speakers will always be the same source that is routed to this destination. This destination to be specified during the ui submittals process.", 
                             "selected":false
                         }
