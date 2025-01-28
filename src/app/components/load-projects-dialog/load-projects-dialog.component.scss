@@ -1,4 +1,10 @@
 @import '../../../styles/variables.scss';
+@import '../../../styles/buttons.scss';
+
+button.active {
+    background: $global-color-secondary;
+    color: $global-color-eee;
+}
 
 .container {
     display: flex;
@@ -19,8 +25,34 @@
 }
 
 .text-container {
+    display: flex;
     text-align: center;
     color: $global-color-eee;
+
+    * {
+        flex: 1 1 0;
+    }
+
+    .exit {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    button {
+        max-width: 5em;
+        min-width: 5em;
+    }
+}
+
+.project-btn-container, .project-load-container {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project-btn-container {
+    flex: 1 1 0;
 }
 
 article {

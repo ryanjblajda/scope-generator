@@ -1,11 +1,15 @@
 <section class="container">
     <div class="secondary-container">
-        <header class="text-container"><h1>{{header}}</h1></header>
-        <section>
-            <button *ngFor="let project of data.projects">{{project.number}}</button>
+        <header class="text-container">
+            <div></div>
+            <div><h1>{{header}}</h1></div>
+            <div class="exit"><button (click)="close()">Exit</button></div>
+        </header>
+        <section class="project-btn-container">
+            <button class='select-btn' (click)="onSelectProject(i)" [class.active]="selected() == i" *ngFor="let project of data.projects, let i = index">{{project.number}}</button>
         </section>
-        <section>
-            <button>Load Selected Project</button>
+        <section class='project-load-container'>
+            <button class='load-btn' (click)="loadSelectedProject()">Load Selected Project</button>
         </section>
     </div>
 </section>
