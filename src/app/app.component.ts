@@ -121,7 +121,9 @@ export class AppComponent implements OnInit {
 
   saveCurrentProject():void {
     this.setBrowserData();
-    console.log('save')
+    console.log('save');
+    if (this.getBrowserData() != null) { this.browserDataAvailable.set(true); }
+
   }
 
   loadExistingProject():void {

@@ -47,10 +47,12 @@ export class ProjectComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['project']) {
       this.project = changes['project'].currentValue;
+      //make sure form is not undefined
       if (this.details != undefined) {
-        this.details.controls['projectnumber'].setValue(this.project.number);
-        this.details.controls['projectclient'].setValue(this.project.clientname);
-        this.details.controls['projectdescription'].setValue(this.project.description);
+        //if it is equal to the placeholder leave the field blank
+        if (this.project.number != this.projectNumberPlaceholder) this.details.controls['projectnumber'].setValue(this.project.number);
+        if (this.project.clientname != this.projectClientNamePlaceholder) this.details.controls['projectclient'].setValue(this.project.clientname);
+        if (this.project.description != this.projectDescriptionPlaceholder) this.details.controls['projectdescription'].setValue(this.project.description);
       }
       console.log(`Loaded Project`);
     }
