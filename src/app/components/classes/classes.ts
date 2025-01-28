@@ -33,3 +33,7 @@ export class Project {
     clientname:string | string = 'Project Client Name';
     description: string | string = 'Project Description';
 }
+
+export class BrowserData {
+    projects:Project[] | Project[] = []
+}
