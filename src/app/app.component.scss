@@ -42,7 +42,6 @@ img {
 
 .save, .load {
     button {
-        flex: 1 1 0;
         color: $header-text-color;
         padding: 1em;
     }
@@ -51,14 +50,6 @@ img {
         background-color: $global-color-primary;
         color: $global-color-eee;
     }
-}
-
-.save {
-    align-items: flex-end;
-}
-
-.load {
-    align-items: flex-start;
 }
 
 app-fullscreen-message {
@@ -99,5 +90,19 @@ app-project {
 @media screen and (min-width: 600px) {
     .header {
         flex-direction: row;
+    }
+
+    .save, .load {
+        button {
+            flex: 1 1 0;
+        }
+    }
+
+    .save {
+        align-items: flex-end;
+    }
+    
+    .load {
+        align-items: flex-start;
     }
 }
