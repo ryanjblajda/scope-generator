@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { QuestionList, Question, Project } from './components/classes/classes';
+import { QuestionList, Question, Project, BrowserData } from './components/classes/classes';
 import { LocalStorageService } from './service/localstorage/localstorage.service';
 
 @Component({
@@ -19,6 +19,10 @@ export class AppComponent implements OnInit {
   //shows a wait or error screen as needed
   loaded = signal<boolean>(false);
   loading = signal<boolean>(true);
+  savedProject = signal<boolean>(false);
+
+  test = 'existing!';
+  testMessage = 'test data';
 
   //error message texts
   errorHeader = 'Error';
@@ -45,7 +49,10 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     //attempt to load the question json so we can generate the body of the page
     this.getQuestionList();
-    this.getBrowserData();
+    let saved = this.getBrowserData();
+    if (saved != null) {
+      this.savedProject.set(true);
+    }
   }
 
   getQuestionList():void {
@@ -78,25 +85,45 @@ export class AppComponent implements OnInit {
 
   getBrowserData() {
     let localdata = this.localBrowserStorage.getData('ccs-projects');
-    if(localdata != null) { console.log('browser data!'); }
+    if(localdata != null) { 
+      console.log('browser data!'); 
+    }
+    //console.log(localdata);
     //if there is local data, try and load it
-    return localdata
+    return localdata;
   }
 
   setBrowserData():void {
     let current = this.getBrowserData();
     if (current != null) {
       console.log('overwriting project with matching pr number in existing data')
+      try {
+        let data = JSON.parse(current) as BrowserData;
+        let found = data.projects.find(project => project.number.toLowerCase() == this.project.number.toLowerCase())
+
+        if (found != undefined) {
+          data.projects[data.projects.indexOf(found)] = this.project;
+        }
+
+        this.localBrowserStorage.saveData('ccs-projects', JSON.stringify({'projects':data.projects}))
+      }
+      catch(error) {
+        console.log('error parsing browser data');
+      }
     }
     else {
       console.log('creating new browser data object!')
-      this.localBrowserStorage.saveData('ccs-projects', JSON.stringify({"projects":[this.project]}))
+      this.localBrowserStorage.saveData('ccs-projects', JSON.stringify({'projects':[this.project]}))
     }
   }
 
   saveCurrentProject():void {
     this.setBrowserData();
     console.log('save')
+  }
+
+  loadExistingProject():void {
+    this.getBrowserData();
   }
 
   parseQuestionRecursive(questions:Question[]): string {
@@ -144,15 +171,13 @@ export class AppComponent implements OnInit {
 
   generateScope():string {
     //create the initial string, and generate the header details
-    let scope:string = '';
-    //let scope:string = `CCS Presentation Systems\r\n\r\n${this.project.clientname}\r\n${this.project.number} // ${this.project.description}\r\n\r\nFunctional Programming Scope\r\n\r\n`;
+    let scope:string = `CCS Presentation Systems\r\n\r\n${this.project.clientname}\r\n${this.project.number} // ${this.project.description}\r\n\r\nFunctional Programming Scope\r\n\r\n`;
     //generate the main body of the scope, looping through every single system in the project
-    //this.project.systems.forEach(system => {
-    //  scope += "\r\n\r\n" + system.name + "\r\n\r\n" + system.description + "\r\n\r\n\t";
-    //  scope += this.parseResponses(system.questions);
-    //});
-    //if the custom details section has a length, add it to the bottom of the scope
-    //if (this.customDetails.length > 0 ) { scope += `Custom Scope Requirements\r\n\r\n\t${this.customDetails}`; }
+    this.project.systems.forEach(system => {
+      scope += system.name + "\r\n\r\n" + system.description + "\r\n\r\n";
+      scope += this.parseResponses(system.questions);
+      scope += `${system.name} Custom Requirements:` + system.customDetails;
+    });
     return scope;
   }
 
