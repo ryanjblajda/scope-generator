@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
   //shows a wait or error screen as needed
   loaded = signal<boolean>(false);
   loading = signal<boolean>(true);
+  loadingExistingProject = signal<boolean>(false);
   savedProject = signal<boolean>(false);
 
   browserDataAvailable = signal<boolean>(false);
