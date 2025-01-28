@@ -181,8 +181,8 @@
                             "selected":false
                         },
                         { 
-                            "prompt":"The speakers will play back the source that was last routed to a valid point source destination in the room.", 
-                            "scope":"The speakers will play back the source that was last routed to a valid point source destination in the room. The specific displays that will trigger this routing will be determined during the ui submittals process.", 
+                            "prompt":"The speakers will play back the source that was last routed to a destination in the system.", 
+                            "scope":"The speakers will play back the source that was last routed to a destination in the system. The specific displays that will trigger this routing will be determined during the ui submittals process.", 
                             "selected":false
                         },
                         { 
