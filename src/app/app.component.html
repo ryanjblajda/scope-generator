@@ -1,10 +1,11 @@
 <!-- error container should fill the whole window -->
 <app-fullscreen-message *ngIf="loading()" [header]="loadingHeader" [message]="loadingMessage"></app-fullscreen-message>
 <app-fullscreen-message *ngIf="!loaded()" [header]="errorHeader" [message]="errorMessage"></app-fullscreen-message>
+<app-fullscreen-message *ngIf="errorLoadingBrowserData()" [header]="errorHeader" [message]="browserMessage"></app-fullscreen-message>
 <section class="container">
   <section class="top-line"></section>
   <header class="header container">
-    <section class="header-item load"><button (click)="loadExistingProject()">Load Project</button></section>
+    <section class="header-item load"><button *ngIf="browserDataAvailable()" (click)="loadExistingProject()">Load Project</button></section>
     <section class="header-item">
       <img src="https://ccsnewengland.com/wp-content/uploads/2020/09/CCS-Logo.png"/>
       <span class="header-name">{{title}}</span>

@@ -21,11 +21,14 @@ export class AppComponent implements OnInit {
   loaded = signal<boolean>(false);
   loading = signal<boolean>(true);
   savedProject = signal<boolean>(false);
-  erorrLoadingBrowserData = signal<boolean>(false);
+
+  browserDataAvailable = signal<boolean>(false);
+  errorLoadingBrowserData = signal<boolean>(false);
 
   //error message texts
   errorHeader = 'Error';
   errorMessage = 'Please contact Ryan B. apparently something has gone terribly wrong, and the questions list cannot be loaded.';
+  browserMessage = 'We were unable to load the saved projects stored in your browser data for some reason. The error we encountered is '
 
   //loading message texts
   loadingHeader = 'Loading';
@@ -48,6 +51,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     //attempt to load the question json so we can generate the body of the page
     this.getQuestionList();
+    if (this.getBrowserData() != null) { this.browserDataAvailable.set(true); }
   }
 
   getQuestionList():void {
@@ -123,10 +127,11 @@ export class AppComponent implements OnInit {
         this.browserData = JSON.parse(data) as BrowserData
       }
       catch(error) {
+        this.browserMessage += `\r\n\r\n${error}`;
         this.errorLoadingBrowserData.set(true);
         setTimeout(() => {
           this.errorLoadingBrowserData.set(false);
-        }, (1500));
+        }, (7000));
       }
     }
   }
@@ -181,7 +186,8 @@ export class AppComponent implements OnInit {
     this.project.systems.forEach(system => {
       scope += system.name + "\r\n\r\n" + system.description + "\r\n\r\n";
       scope += this.parseResponses(system.questions);
-      scope += `${system.name} Custom Requirements:` + system.customDetails;
+      //only add the custom details section if there is data there
+      if (system.customDetails.length > 0) { scope += `${system.name} Custom Requirements\r\n\r\n\t` + system.customDetails; }
     });
     return scope;
   }
@@ -195,7 +201,7 @@ export class AppComponent implements OnInit {
     //generate a new file to download
     let file = new Blob([scope], {type: '.txt'});
     this.downloadURL.set(URL.createObjectURL(file));
-    //this.downloadName.set(`${this.project.number.toUpperCase()}_${this.project.clientname}_functional_scope.txt`.replaceAll(" ", "_").toLowerCase());
+    this.downloadName.set(`${this.project.number.toUpperCase()}_${this.project.clientname}_functional_scope.txt`.replaceAll(" ", "_").toLowerCase());
     this.downloadReady.set(true);
   }
 
