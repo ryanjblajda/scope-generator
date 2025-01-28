@@ -14,16 +14,5 @@
   </footer>
 </section>
 <!-- error container should fill the whole window -->
-<section *ngIf="loading() || !success()" class="container error">
-  <section *ngIf="loading()" class="error-popup">
-    <h2>Please Wait...</h2>
-    <br/>
-    <span class="error-message">Configuration Loading...</span>
-  </section>
-  <section *ngIf="!loading() && !success()" class="error-popup">
-    <h2>Fatal Error</h2>
-    <br/>
-    <span class="error-message">Configuration Load Failed!</span>
-    <span>Contact the programming department to resolve this issue.</span>
-  </section>
-</section>
+<app-fullscreen-message [header]="loadingHeader" [message]="loadingMessage"></app-fullscreen-message>
+<app-fullscreen-message [header]="errorHeader" [message]="errorMessage"></app-fullscreen-message>

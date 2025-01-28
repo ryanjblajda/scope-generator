@@ -32,22 +32,13 @@ img {
     font-size: x-large;
 }
 
-.error {
-    justify-content: center;
-    align-items: center;
-}
-
-.error-popup {
-    padding: 1em;
-    border-radius: 1em;
-    background-color: $error-background-color;
-    color: $error-background-text-color;
-    margin: 0.5em;
-}
-
-.error-message {
-    font-size: xx-large;
-    margin-bottom: 2em;
+app-fullscreen-message {
+    height: 100vw;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 10;
 }
 
 .download-container {
