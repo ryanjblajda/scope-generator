@@ -94,13 +94,17 @@ export class AppComponent implements OnInit {
   setBrowserData():void {
     let current = this.getBrowserData();
     if (current != null) {
-      console.log('overwriting project with matching pr number in existing data')
       try {
         let data = JSON.parse(current) as BrowserData;
         let found = data.projects.find(project => project.number.toLowerCase() == this.project.number.toLowerCase())
 
         if (found != undefined) {
+          console.log('overwriting project with matching pr number in existing data')
           data.projects[data.projects.indexOf(found)] = this.project;
+        }
+        else { 
+          console.log('adding new project number to browser data')
+          data.projects.push(this.project);
         }
 
         this.localBrowserStorage.saveData('ccs-projects', JSON.stringify({'projects':data.projects}))
@@ -138,8 +142,14 @@ export class AppComponent implements OnInit {
     }
   }
 
+  closeLoadProject() {
+    this.showLoadProjectDialog.set(false);
+  }
+
   loadProject(project:Project) {
+    this.showLoadProjectDialog.set(false);
     this.project = project;
+    console.log('Loaded Project from Dialog');
   }
 
   parseQuestionRecursive(questions:Question[]): string {
