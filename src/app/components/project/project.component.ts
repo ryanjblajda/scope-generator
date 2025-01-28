@@ -33,7 +33,9 @@ export class ProjectComponent implements OnInit, OnChanges {
   ngOnInit() {
     //generate form group to validate input
     this.details = new FormGroup({
-      projectnumber: new FormControl('', [Validators.required, Validators.pattern(/[Pp][Rr]-[\d]+$/)]) 
+      projectnumber: new FormControl('', [Validators.required, Validators.pattern(/[Pp][Rr]-[\d]+$/)]),
+      projectclient: new FormControl(),
+      projectdescription: new FormControl()
     });
 
     //set defaults for generation to placeholders
@@ -45,7 +47,9 @@ export class ProjectComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['project']) {
       this.project = changes['project'].currentValue;
-
+      this.details.controls['projectnumber'].setValue(this.project.number);
+      this.details.controls['projectclient'].setValue(this.project.clientname);
+      this.details.controls['projectdescription'].setValue(this.project.description);
       console.log(`Loaded Project`);
     }
     else if (changes['questions']) { 

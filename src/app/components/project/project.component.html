@@ -7,10 +7,10 @@
       </div>
     </article>
     <article class="details-item">
-      <span><h2>Client Name</h2></span><input name="project-client-name" [placeholder]="project.clientname" (input)="onProjectInput('client', $event)"/>
+      <span><h2>Client Name</h2></span><input name="project-client-name" formControlName="projectclient" [placeholder]="project.clientname" (input)="onProjectInput('client', $event)"/>
     </article>
     <article class="details-item">
-      <span><h2>Project Description</h2></span><input name="project-description" [placeholder]="project.description" (input)="onProjectInput('description', $event)"/>
+      <span><h2>Project Description</h2></span><input name="project-description" formControlName="projectdescription" [placeholder]="project.description" (input)="onProjectInput('description', $event)"/>
     </article>
 </section>
 <section class="project-system-container">
