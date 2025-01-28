@@ -13,6 +13,7 @@ import { LocalStorageService } from './service/localstorage/localstorage.service
 export class AppComponent implements OnInit {
   title = 'Functional Scope Generator';
 
+  browserData!:BrowserData;
   project:Project = new Project;
   questions:QuestionList = new QuestionList;
 
@@ -20,9 +21,7 @@ export class AppComponent implements OnInit {
   loaded = signal<boolean>(false);
   loading = signal<boolean>(true);
   savedProject = signal<boolean>(false);
-
-  test = 'existing!';
-  testMessage = 'test data';
+  erorrLoadingBrowserData = signal<boolean>(false);
 
   //error message texts
   errorHeader = 'Error';
@@ -49,10 +48,6 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     //attempt to load the question json so we can generate the body of the page
     this.getQuestionList();
-    let saved = this.getBrowserData();
-    if (saved != null) {
-      this.savedProject.set(true);
-    }
   }
 
   getQuestionList():void {
@@ -88,8 +83,6 @@ export class AppComponent implements OnInit {
     if(localdata != null) { 
       console.log('browser data!'); 
     }
-    //console.log(localdata);
-    //if there is local data, try and load it
     return localdata;
   }
 
@@ -123,7 +116,19 @@ export class AppComponent implements OnInit {
   }
 
   loadExistingProject():void {
-    this.getBrowserData();
+    let data = this.getBrowserData();
+    if (data != null) 
+    {
+      try {
+        this.browserData = JSON.parse(data) as BrowserData
+      }
+      catch(error) {
+        this.errorLoadingBrowserData.set(true);
+        setTimeout(() => {
+          this.errorLoadingBrowserData.set(false);
+        }, (1500));
+      }
+    }
   }
 
   parseQuestionRecursive(questions:Question[]): string {
