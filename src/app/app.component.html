@@ -4,13 +4,13 @@
 <section class="container">
   <section class="top-line"></section>
   <header class="header container">
-    <section class="header-item"></section>
+    <section class="header-item load"><button (click)="loadExistingProject()">Load Project</button></section>
     <section class="header-item">
       <img src="https://ccsnewengland.com/wp-content/uploads/2020/09/CCS-Logo.png"/>
       <span class="header-name">{{title}}</span>
     </section>
     <section class="header-item save">
-      <button (click)="saveCurrentProject()">Save Progress</button>
+      <button (click)="saveCurrentProject()">Save Project</button>
     </section>
   </header>
   <app-project *ngIf="!loading() || loaded()" [project]="project" [questions]="questions"></app-project>
