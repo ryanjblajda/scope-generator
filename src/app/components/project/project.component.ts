@@ -49,12 +49,17 @@ export class ProjectComponent implements OnInit, OnChanges {
       this.project = changes['project'].currentValue;
       //make sure form is not undefined
       if (this.details != undefined) {
-        //if it is equal to the placeholder leave the field blank
-        if (this.project.number != this.projectNumberPlaceholder) this.details.controls['projectnumber'].setValue(this.project.number);
-        if (this.project.clientname != this.projectClientNamePlaceholder) this.details.controls['projectclient'].setValue(this.project.clientname);
-        if (this.project.description != this.projectDescriptionPlaceholder) this.details.controls['projectdescription'].setValue(this.project.description);
+        //if it is equal to the placeholder reset the field to empty
+        if (this.project.number != this.projectNumberPlaceholder) { this.details.controls['projectnumber'].setValue(this.project.number); }
+        else { this.details.controls['projectnumber'].setValue(''); }
+        
+        if (this.project.clientname != this.projectClientNamePlaceholder) { this.details.controls['projectclient'].setValue(this.project.clientname); }
+        else { this.details.controls['projectclient'].setValue(''); }
+
+        if (this.project.description != this.projectDescriptionPlaceholder) { this.details.controls['projectdescription'].setValue(this.project.description); }
+        else { this.details.controls['projectdescription'].setValue(''); }
       }
-      console.log(`Loaded Project`);
+      console.log(`Updated Project Details OnChange`);
     }
     else if (changes['questions']) { 
       this.questions = changes['questions'].currentValue;
