@@ -47,9 +47,11 @@ export class ProjectComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['project']) {
       this.project = changes['project'].currentValue;
-      this.details.controls['projectnumber'].setValue(this.project.number);
-      this.details.controls['projectclient'].setValue(this.project.clientname);
-      this.details.controls['projectdescription'].setValue(this.project.description);
+      if (this.details != undefined) {
+        this.details.controls['projectnumber'].setValue(this.project.number);
+        this.details.controls['projectclient'].setValue(this.project.clientname);
+        this.details.controls['projectdescription'].setValue(this.project.description);
+      }
       console.log(`Loaded Project`);
     }
     else if (changes['questions']) { 
