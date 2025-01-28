@@ -11,7 +11,7 @@
 .secondary-container {
     background-color: $global-color-tertiary-2;
     border-radius: 1em;
-    margin: 10em .5em 10em .5em;
+    margin: 20em .5em 20em .5em;
     flex: 1 1 0;
 
     display: flex;
@@ -21,10 +21,6 @@
 .text-container {
     text-align: center;
     color: $global-color-eee;
-}
-
-header {
-    flex: 1 1 10%;
 }
 
 article {
@@ -41,4 +37,14 @@ article {
 
 span {
     display: block;
+}
+
+@media screen and (min-width: 600px) {
+    .secondary-container {
+        margin: auto;
+        padding: 1em;
+        max-height: 50em;
+        min-height: 25em;
+        max-width: 50em;
+    }
 }
