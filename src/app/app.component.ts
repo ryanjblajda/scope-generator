@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Project, Question, QuestionList, System } from './components/classes/classes';
 import { signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FormGroup, FormControl, Validators, Form } from '@angular/forms'; 
+import { QuestionList, Question } from './components/classes/classes';
 
 @Component({
   selector: 'app-root',
@@ -12,19 +11,9 @@ import { FormGroup, FormControl, Validators, Form } from '@angular/forms';
 
 export class AppComponent implements OnInit {
   title = 'Functional Scope Generator';
-
-  project:Project = new Project;
-  questions:QuestionList = new QuestionList;
   
-  //placeholders for project details to prompt the user
-  projectNumberPlaceholder:string | string = 'PR-XXXXX';
-  projectDescriptionPlaceholder:string | string ='a new building, an existing room to update';
-  projectClientNamePlaceholder:string | string ='company, school, entity name';
-
-  systemSelected = signal<number>(0);
-
-  //holds the value of the custom details
-  customDetails:string | string = '';
+  //question list
+  questions:QuestionList = new QuestionList;
 
   //shows a wait or error screen as needed
   success = signal<boolean>(false);
@@ -35,12 +24,6 @@ export class AppComponent implements OnInit {
   downloadName = signal<string>('scope.txt');
   downloadURL = signal<string>('/scope.txt');
 
-  //lets us validate the form input
-  details!:FormGroup;
-
-  projectNumberRequiredMessage = 'A project number is required!!';
-  projectNumberInvalidMessage = 'Please enter a valid project number!!';
-
   //lets us grab the json scope questions as text
   private httpClient: HttpClient;
 
@@ -49,16 +32,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    //generate form group to validate input
-    this.details = new FormGroup({
-      projectnumber: new FormControl('', [Validators.required, Validators.pattern(/[Pp][Rr]-[\d]+$/)]) 
-    });
-
-    //set defaults for generation to placeholders
-    this.project.clientname = this.projectClientNamePlaceholder;
-    this.project.description = this.projectDescriptionPlaceholder;
-    this.project.number = this.projectNumberPlaceholder;
-
     //attempt to load the question json so we can generate the body of the page
     try {
       this.httpClient.get('assets/scope_questions.json', {responseType: 'text'}).subscribe(data => {
@@ -67,9 +40,9 @@ export class AppComponent implements OnInit {
           this.questions = JSON.parse(data) as QuestionList;
           //set success true will only occur if the catch block doesnt fire
           //setTimeout(() => {
-          this.project.systems.forEach(system => {
-            system.questions = JSON.parse(JSON.stringify(this.questions));
-          })
+          //this.project.systems.forEach(system => {
+          //  system.questions = JSON.parse(JSON.stringify(this.questions));
+          //});s
           this.success.set(true);
           //}, 1000);
         }
@@ -141,41 +114,6 @@ export class AppComponent implements OnInit {
     //if the custom details section has a length, add it to the bottom of the scope
     if (this.customDetails.length > 0 ) { scope += `Custom Scope Requirements\r\n\r\n\t${this.customDetails}`; }
     return scope;
-  }
-
-  onProjectInput(sender:string, event:Event): void {
-    if (sender == 'number') { this.project.number = (event.target as HTMLInputElement).value; }
-    else if (sender == 'client') { this.project.clientname = (event.target as HTMLInputElement).value; }
-    else if (sender == 'description') { this.project.description = (event.target as HTMLInputElement).value; }
-  }
-
-  onSystemInput(sender:string, system:System, event:Event): void {
-    if (sender == 'name') { system.name = (event.target as HTMLInputElement).value; }
-    else if (sender == 'details') { system.customDetails = (event.target as HTMLInputElement).value; }
-    else if (sender == 'description') { system.description = (event.target as HTMLInputElement).value; }
-  }
-
-  onAddNewSystem():void {
-    let system = new System;
-    //create a copy of the system questions because we dont want all systems to view the same object.
-    system.questions = JSON.parse(JSON.stringify(this.questions));
-    this.project.systems.push(system);
-    //set the page to the current system the user just added
-    this.systemSelected.set(this.project.systems.length - 1);
-  }
-
-  onDeleteSystem(system: System):void {
-    let index = this.project.systems.indexOf(system);
-    //set the selected system to 0 if we deleted all but one system so that we dont show no tab by accident
-    if (this.project.systems.length == 1) { this.systemSelected.set(0); }
-    //if the system to delete is the last one in the list, then we should set systemselected to the new last project in the list
-    else if ((this.project.systems.length - 1) == index) { this.systemSelected.set(this.project.systems.length - 2); }
-    //delete the item
-    this.project.systems.splice(index, 1);
-  }
-
-  onSelectSystem(index: number) {
-    this.systemSelected.set(index);
   }
 
   onGenerateScopeClicked():void {

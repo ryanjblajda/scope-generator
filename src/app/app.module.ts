@@ -4,12 +4,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SectionComponent } from './components/section/section.component';
-import { FormGroup, FormControl, Validators, Form } from '@angular/forms'; 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ProjectComponent } from './components/project/project.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ProjectComponent,
   ],
   imports: [
     BrowserModule,

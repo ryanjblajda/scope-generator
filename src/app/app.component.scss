@@ -52,138 +52,6 @@ button.active {
     background-color: $button-selected-background-color;
 }
 
-input {
-    border: none;
-    border-radius: .5em;
-    font-size: medium;
-    padding: .2em;
-}
-
-input:focus {
-    text-decoration: none;
-    outline-width: 0;
-}
-
-.project-number {
-    text-transform: uppercase;
-}
-
-.required-message, .invalid-message {
-    color: darkred;
-    font-weight: bolder;
-    font-size: larger;
-}
-
-span {
-    display: block;
-    text-align: center;
-    margin: 0.2em;
-}
-
-textarea {
-    display: block;
-    border: none;
-    border-radius: .5em;
-    resize: none;
-    flex: 1 1 0;
-    min-height: 10em;
-    margin: .5em;
-    font-size: large;
-}
-
-textarea:focus{
-    text-decoration: none;
-    outline: 0;
-}
-
-.project {
-    background: $scope-background;
-}
-
-.details {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 5%;
-    gap: 0.2em;
-    padding: .2em 2em 2em 2em;
-    color: $scope-details-text-color;
-}
-
-.project-details {
-    color: $project-details-text-color;
-}
-
-.details-item {
-    display: flex;
-    flex-direction: column;
-}
-
-.project-system-container {
-    display:flex;
-    flex-direction: column;
-    flex: 1 1 85%;
-    background-color: $global-color-tertiary;
-    color: $global-color-eee;
-}
-
-.project-system-tab-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    flex: 0 1 5%;
-
-    * {
-        background-color: $global-color-tertiary-2;
-        padding: 4px 12px;
-        border-radius: .5em .5em 0 0;
-        position: relative;
-    }
-
-    .active {
-        border-bottom: 1px solid transparent;
-        background-color: $global-color-secondary;
-      }
-}
-
-.tab {
-    font-size: x-large;
-}
-
-.tab:active {
-    background-color: $global-color-accent;
-}
-
-.project-system-list {
-    border-top: 1px solid $global-color-secondary;
-    flex: 1 1 0;
-    display: flex;
-}
-
-.project-system {
-    flex: 1 1 0;
-    background-color: $global-color-secondary;
-
-    header {
-        button {
-            min-height: 0;
-            margin-left: 2em;
-            margin-right: 2em;
-        }
-    }
-}
-
-.hidden {
-    display: none;
-}
-
-.question-list {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 85%;
-    width: 100%;
-    border: none;
-}
-
 .error {
     justify-content: center;
     align-items: center;
@@ -202,26 +70,10 @@ textarea:focus{
     margin-bottom: 2em;
 }
 
-.custom-details {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    background: $custom-details-background;
-    color: $custom-details-text-color;
-}
-
 .download-container {
     background: $footer-background;
     display: flex;
     justify-content: center;
-}
-
-app-section {
-    flex: 1 1 0;
-    padding: .2em;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 1em;
-    margin: .5em;
 }
 
 .footer {
@@ -235,48 +87,5 @@ app-section {
     span {
         padding: 0.2em;
         font-size: larger;
-    }
-}
-
-//adjust formatting for desktop browsers
-@media screen and (min-width: 1000px) {
-    .details {
-        flex-direction: row;
-        justify-content: center;
-        gap: 1em;
-        padding: .1em 20em .1em 20em;
-    }
-
-    .details-item {
-        flex: 1 1 0;
-    }
-
-    .project-system {
-        header {
-            align-items: center;
-            button {
-                margin: 0.1em;
-            }
-        }
-    }
-
-    app-section {
-        flex: 1 1 40%;
-
-    }
-
-    button { 
-        min-height: 5em;
-        flex: 0 1 10%;
-    }
-}
-
-//adjust for ultrawide browsers
-@media screen and (min-width: 1921px) {
-    .question-list {
-        flex-direction: row;
-        flex-wrap: wrap;
-        margin-top: 0.5em;
-        margin-bottom: 0.5em;
     }
 }
