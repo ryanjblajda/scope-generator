@@ -3,6 +3,7 @@ import { signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { QuestionList, Question, Project, BrowserData } from './components/classes/classes';
 import { LocalStorageService } from './service/localstorage/localstorage.service';
+import { PatternValidator, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,8 @@ import { LocalStorageService } from './service/localstorage/localstorage.service
 
 export class AppComponent implements OnInit {
   title = 'Functional Scope Generator';
+
+  projectNumberPattern = new RegExp(/[Pp][Rr]-[\d]+$/);
 
   browserData!:BrowserData;
   project:Project = new Project;
@@ -47,6 +50,7 @@ export class AppComponent implements OnInit {
   constructor(http: HttpClient, localStore: LocalStorageService) {
     this.httpClient = http;
     this.localBrowserStorage = localStore;
+    
   }
 
   ngOnInit() {
@@ -120,10 +124,15 @@ export class AppComponent implements OnInit {
   }
 
   saveCurrentProject():void {
-    this.setBrowserData();
-    console.log('save');
-    if (this.getBrowserData() != null) { this.browserDataAvailable.set(true); }
-
+    if (this.project.number != undefined) {
+      if (this.projectNumberPattern.test(this.project.number) && this.project.number.length >= 8) {
+        this.setBrowserData();
+        console.log('save');
+        if (this.getBrowserData() != null) { this.browserDataAvailable.set(true); }
+      }
+      else { console.log('invalid project name'); }
+    }
+    else { console.log('undefined project name'); }
   }
 
   loadExistingProject():void {
