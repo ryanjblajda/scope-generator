@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
   //shows a wait or error screen as needed
   loaded = signal<boolean>(false);
   loading = signal<boolean>(true);
-  loadingExistingProject = signal<boolean>(false);
+  showLoadProjectDialog = signal<boolean>(false);
   savedProject = signal<boolean>(false);
 
   browserDataAvailable = signal<boolean>(false);
@@ -126,6 +126,7 @@ export class AppComponent implements OnInit {
     {
       try {
         this.browserData = JSON.parse(data) as BrowserData
+        this.showLoadProjectDialog.set(true);
       }
       catch(error) {
         this.browserMessage += `\r\n\r\n${error}`;

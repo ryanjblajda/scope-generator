@@ -2,7 +2,7 @@
 <app-fullscreen-message *ngIf="loading()" [header]="loadingHeader" [message]="loadingMessage"></app-fullscreen-message>
 <app-fullscreen-message *ngIf="!loaded()" [header]="errorHeader" [message]="errorMessage"></app-fullscreen-message>
 <app-fullscreen-message *ngIf="errorLoadingBrowserData()" [header]="errorHeader" [message]="browserMessage"></app-fullscreen-message>
-<app-load-projects-dialog *ngIf="loadingExistingProject()" [data]="browserData" (onprojectselected)="loadProject($event)"></app-load-projects-dialog>
+<app-load-projects-dialog *ngIf="showLoadProjectDialog()" [data]="browserData" (onprojectselected)="loadProject($event)"></app-load-projects-dialog>
 <section class="container">
   <section class="top-line"></section>
   <header class="header container">
