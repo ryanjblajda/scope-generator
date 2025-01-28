@@ -8,6 +8,8 @@ button.active {
 
 .container {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: rgba(0, 0, 0, 0.9);
     height: 100%;
     width: 100%;
@@ -17,17 +19,23 @@ button.active {
 .secondary-container {
     background-color: $global-color-tertiary-2;
     border-radius: 1em;
-    margin: 20em .5em 20em .5em;
-    flex: 1 1 0;
-
+    padding: 1em;
     display: flex;
     flex-direction: column;
+    margin: 1em;
+    flex: 1 1 10%;
 }
 
 .text-container {
     display: flex;
     text-align: center;
     color: $global-color-eee;
+
+    button {
+        max-width: 5em;
+        min-width: 5em;
+        max-height: 2em;
+    }
 
     * {
         flex: 1 1 0;
@@ -36,19 +44,13 @@ button.active {
     .exit {
         display: flex;
         flex-direction: column;
-        align-items: flex-end;
-    }
-
-    button {
-        max-width: 5em;
-        min-width: 5em;
+        justify-content: center;
     }
 }
 
 .project-btn-container, .project-load-container {
     display:flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .project-btn-container {
@@ -71,12 +73,14 @@ span {
     display: block;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 1000px) {
+    .text-container {
+        .exit {
+            align-items: flex-end;
+        }
+    }
+
     .secondary-container {
-        margin: auto;
-        padding: 1em;
-        max-height: 50em;
-        min-height: 25em;
-        max-width: 50em;
+        margin: 5rem 20rem;
     }
 }
