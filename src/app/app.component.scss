@@ -40,18 +40,25 @@ img {
     flex-direction: column;
 }
 
-.save {
-    align-items: flex-end;
-
+.save, .load {
     button {
         flex: 1 1 0;
         color: $header-text-color;
+        padding: 1em;
     }
 
     button:hover {
         background-color: $global-color-primary;
         color: $global-color-eee;
     }
+}
+
+.save {
+    align-items: flex-end;
+}
+
+.load {
+    align-items: flex-start;
 }
 
 app-fullscreen-message {
