@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { QuestionList, Question } from './components/classes/classes';
+import { QuestionList, Question, Project } from './components/classes/classes';
+import { LocalStorageService } from './service/localstorage/localstorage.service';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +12,8 @@ import { QuestionList, Question } from './components/classes/classes';
 
 export class AppComponent implements OnInit {
   title = 'Functional Scope Generator';
-  
-  //question list
+
+  project:Project = new Project;
   questions:QuestionList = new QuestionList;
 
   //shows a wait or error screen as needed
@@ -34,13 +35,20 @@ export class AppComponent implements OnInit {
 
   //lets us grab the json scope questions as text
   private httpClient: HttpClient;
+  private localBrowserStorage: LocalStorageService;
 
-  constructor(http: HttpClient) {
+  constructor(http: HttpClient, localStore: LocalStorageService) {
     this.httpClient = http;
+    this.localBrowserStorage = localStore;
   }
 
   ngOnInit() {
     //attempt to load the question json so we can generate the body of the page
+    this.getQuestionList();
+    this.getBrowserData();
+  }
+
+  getQuestionList():void {
     try {
       this.httpClient.get('assets/scope_questions.json', {responseType: 'text'}).subscribe(data => {
         //console.log(data);
@@ -48,9 +56,9 @@ export class AppComponent implements OnInit {
           this.questions = JSON.parse(data) as QuestionList;
           //set success true will only occur if the catch block doesnt fire
           //setTimeout(() => {
-          //this.project.systems.forEach(system => {
-          //  system.questions = JSON.parse(JSON.stringify(this.questions));
-          //});s
+          this.project.systems.forEach(system => {
+            system.questions = JSON.parse(JSON.stringify(this.questions));
+          });
           this.loaded.set(true);
           //}, 1000);
         }
@@ -66,6 +74,29 @@ export class AppComponent implements OnInit {
     //setTimeout(() => {
       this.loading.set(false);
     //}, 3000);
+  }
+
+  getBrowserData() {
+    let localdata = this.localBrowserStorage.getData('ccs-projects');
+    if(localdata != null) { console.log('browser data!'); }
+    //if there is local data, try and load it
+    return localdata
+  }
+
+  setBrowserData():void {
+    let current = this.getBrowserData();
+    if (current != null) {
+      console.log('overwriting project with matching pr number in existing data')
+    }
+    else {
+      console.log('creating new browser data object!')
+      this.localBrowserStorage.saveData('ccs-projects', JSON.stringify({"projects":[this.project]}))
+    }
+  }
+
+  saveCurrentProject():void {
+    this.setBrowserData();
+    console.log('save')
   }
 
   parseQuestionRecursive(questions:Question[]): string {
