@@ -9,10 +9,18 @@
 }
 
 .secondary-container {
-    background-color: ;
+    background-color: $global-color-tertiary-2;
     border-radius: 1em;
     margin: 10em .5em 10em .5em;
     flex: 1 1 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.text-container {
+    text-align: center;
+    color: $global-color-eee;
 }
 
 header {
@@ -21,4 +29,16 @@ header {
 
 article {
     flex: 1 1 90%;
+    font-size: larger;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.message {
+    flex: 1 1 0;
+}
+
+span {
+    display: block;
 }
