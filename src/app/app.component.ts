@@ -16,16 +16,16 @@ export class AppComponent implements OnInit {
   questions:QuestionList = new QuestionList;
 
   //shows a wait or error screen as needed
-  success = signal<boolean>(false);
+  loaded = signal<boolean>(false);
   loading = signal<boolean>(true);
 
   //error message texts
-  errorHeader = '';
-  errorMessage = '';
+  errorHeader = 'Error';
+  errorMessage = 'Please contact Ryan B. apparently something has gone terribly wrong, and the questions list cannot be loaded.';
 
   //loading message texts
-  loadingHeader = '';
-  loadingMessage = '';
+  loadingHeader = 'Loading';
+  loadingMessage = 'Please wait, the question list is loading...';
   
   //lets the user know when the scope is ready to download
   downloadReady = signal<boolean>(false);
@@ -51,7 +51,7 @@ export class AppComponent implements OnInit {
           //this.project.systems.forEach(system => {
           //  system.questions = JSON.parse(JSON.stringify(this.questions));
           //});s
-          //this.success.set(true);
+          this.loaded.set(true);
           //}, 1000);
         }
         catch(error) {
