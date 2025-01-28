@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormGroup, FormControl, Validators, Form } from '@angular/forms'; 
 import { Project, Question, QuestionList, System } from '../classes/classes';
 import { signal, Input } from '@angular/core';
@@ -9,10 +9,9 @@ import { signal, Input } from '@angular/core';
   styleUrls: ['./project.component.scss']
 })
 
-export class ProjectComponent implements OnInit {
-  //passed from main app component
+export class ProjectComponent implements OnInit, OnChanges {
+  @Input() project:Project = new Project;
   @Input() questions:QuestionList = new QuestionList;
-  @Input() project:Project = new Project;  
   
   //placeholders for project details to prompt the user
   projectNumberPlaceholder:string | string = 'PR-XXXXX';
@@ -32,15 +31,26 @@ export class ProjectComponent implements OnInit {
   projectNumberInvalidMessage = 'Please enter a valid project number!!';
 
   ngOnInit() {
-        //generate form group to validate input
-        this.details = new FormGroup({
-          projectnumber: new FormControl('', [Validators.required, Validators.pattern(/[Pp][Rr]-[\d]+$/)]) 
-        });
-    
-        //set defaults for generation to placeholders
-        this.project.clientname = this.projectClientNamePlaceholder;
-        this.project.description = this.projectDescriptionPlaceholder;
-        this.project.number = this.projectNumberPlaceholder;
+    //generate form group to validate input
+    this.details = new FormGroup({
+      projectnumber: new FormControl('', [Validators.required, Validators.pattern(/[Pp][Rr]-[\d]+$/)]) 
+    });
+
+    //set defaults for generation to placeholders
+    this.project.clientname = this.projectClientNamePlaceholder;
+    this.project.description = this.projectDescriptionPlaceholder;
+    this.project.number = this.projectNumberPlaceholder;
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['project']) {
+      this.project = changes['project'].currentValue; 
+      console.log(`Loaded Project`);
+    }
+    else if (changes['questions']) { 
+      this.questions = changes['questions'].currentValue;
+      console.log(`Loaded Questions`);
+    }
   }
 
   onProjectInput(sender:string, event:Event): void {
