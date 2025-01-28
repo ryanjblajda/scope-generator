@@ -22,16 +22,16 @@ export class Answer {
 
 export class System {
     questions:QuestionList | QuestionList = new QuestionList;
-    name:string | string = "System Name";
-    description:string | string = 'a small huddle room, lecture hall, boardroom';
+    name!:string;
+    description!:string;
     customDetails:string | string = '';
 }
 
 export class Project {
     systems:System[] | System[] = [new System()]
-    number:string | string = "PR-XXXXX";
-    clientname:string | string = 'Project Client Name';
-    description: string | string = 'Project Description';
+    number!:string;
+    clientname!:string
+    description!: string
 }
 
 export class BrowserData {
