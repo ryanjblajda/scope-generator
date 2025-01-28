@@ -1,7 +1,10 @@
 @import '../styles/variables.scss';
+@import '../styles/buttons.scss';
 
 img {
     margin: 1em;
+    max-height: 75px;
+    object-fit: contain;
 }
 
 .container {
@@ -13,201 +16,69 @@ img {
 }
 
 .top-line {
-    height: 10px;
+    min-height: 10px;
     background: $line-background;
 }
 
 .header {
     width: 100%;
     text-align: center;
-    flex: 1 1 5%;
+    flex: 0 1 5%;
     background: $header-background;
     color: $header-text-color;
+    display:flex;
+    flex-direction: column;
 }
 
 .header-name {
     font-size: x-large;
 }
 
-button {
-    border: none;
-    border-radius: .2em;
-    background-color: $button-background-color;
-    color: $button-text-color;
-    padding: .2em;
-    font-size: x-large;
-    margin: .2em;
-    min-height: 2em;
-}
-
-button:active {
-    background-color: $button-touched-background-color;
-}
-
-button:hover {
-    background-color: $button-hover-background-color;
-}
-
-button.active {
-    background-color: $button-selected-background-color;
-}
-
-input {
-    border: none;
-    border-radius: .5em;
-    font-size: medium;
-    padding: .2em;
-}
-
-input:focus {
-    text-decoration: none;
-    outline-width: 0;
-}
-
-.project-number {
-    text-transform: uppercase;
-}
-
-.required-message, .invalid-message {
-    color: darkred;
-    font-weight: bolder;
-    font-size: larger;
-}
-
-span {
-    display: block;
-    text-align: center;
-    margin: 0.2em;
-}
-
-textarea {
-    display: block;
-    border: none;
-    border-radius: .5em;
-    resize: none;
+.header-item {
     flex: 1 1 0;
-    min-height: 10em;
-    margin: .5em;
-    font-size: large;
-}
-
-textarea:focus{
-    text-decoration: none;
-    outline: 0;
-}
-
-.project {
-    background: $scope-background;
-}
-
-.details {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 5%;
-    gap: 0.2em;
-    padding: .2em 2em 2em 2em;
-    color: $scope-details-text-color;
-}
-
-.project-details {
-    color: $project-details-text-color;
-}
-
-.details-item {
     display: flex;
     flex-direction: column;
 }
 
-.project-system-container {
-    display:flex;
-    flex-direction: column;
-    flex: 1 1 85%;
-    background-color: $global-color-tertiary;
-    color: $global-color-eee;
+.load {
+    order: 0;
 }
 
-.project-system-tab-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    flex: 0 1 5%;
+.save {
+    order: 1;
+}
 
-    * {
-        background-color: $global-color-tertiary-2;
-        padding: 4px 12px;
-        border-radius: .5em .5em 0 0;
-        position: relative;
+.logo {
+    order: 2;
+}
+
+.save, .load {
+    button {
+        color: $header-text-color;
+        padding: 1em;
+        border: 1px solid #ccc;
     }
 
-    .active {
-        border-bottom: 1px solid transparent;
-        background-color: $global-color-secondary;
-      }
-}
-
-.tab {
-    font-size: x-large;
-}
-
-.tab:active {
-    background-color: $global-color-accent;
-}
-
-.project-system-list {
-    border-top: 1px solid $global-color-secondary;
-    flex: 1 1 0;
-    display: flex;
-}
-
-.project-system {
-    flex: 1 1 0;
-    background-color: $global-color-secondary;
-
-    header {
-        button {
-            min-height: 0;
-            margin-left: 2em;
-            margin-right: 2em;
-        }
+    button:hover {
+        background-color: $global-color-primary;
+        color: $global-color-eee;
+        border: none;
     }
 }
 
-.hidden {
-    display: none;
-}
-
-.question-list {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 85%;
+app-fullscreen-message, app-load-projects-dialog {
+    height: 100%;
     width: 100%;
-    border: none;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 10;
 }
 
-.error {
-    justify-content: center;
-    align-items: center;
-}
-
-.error-popup {
-    padding: 1em;
-    border-radius: 1em;
-    background-color: $error-background-color;
-    color: $error-background-text-color;
-    margin: 0.5em;
-}
-
-.error-message {
-    font-size: xx-large;
-    margin-bottom: 2em;
-}
-
-.custom-details {
+app-project {
+    flex: 1 1 0;
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    background: $custom-details-background;
-    color: $custom-details-text-color;
 }
 
 .download-container {
@@ -216,17 +87,9 @@ textarea:focus{
     justify-content: center;
 }
 
-app-section {
-    flex: 1 1 0;
-    padding: .2em;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 1em;
-    margin: .5em;
-}
-
 .footer {
     width: 100%;
-    flex: 1 1 5%;
+    flex: 0 1 5%;
     display: flex;
     justify-content: center;
     background: $footer-background;
@@ -238,45 +101,24 @@ app-section {
     }
 }
 
-//adjust formatting for desktop browsers
-@media screen and (min-width: 1000px) {
-    .details {
+@media screen and (min-width: 600px) {
+    .header {
         flex-direction: row;
-        justify-content: center;
-        gap: 1em;
-        padding: .1em 20em .1em 20em;
     }
 
-    .details-item {
-        flex: 1 1 0;
-    }
-
-    .project-system {
-        header {
-            align-items: center;
-            button {
-                margin: 0.1em;
-            }
+    .save, .load {
+        button {
+            flex: 1 1 0;
         }
     }
 
-    app-section {
-        flex: 1 1 40%;
-
+    .save {
+        align-items: flex-end;
+        order: 3;
     }
-
-    button { 
-        min-height: 5em;
-        flex: 0 1 10%;
-    }
-}
-
-//adjust for ultrawide browsers
-@media screen and (min-width: 1921px) {
-    .question-list {
-        flex-direction: row;
-        flex-wrap: wrap;
-        margin-top: 0.5em;
-        margin-bottom: 0.5em;
+    
+    .load {
+        align-items: flex-start;
+        order: 0;
     }
 }

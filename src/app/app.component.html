@@ -1,68 +1,26 @@
+<!-- error container should fill the whole window -->
+<app-fullscreen-message *ngIf="loading()" [header]="loadingHeader" [message]="loadingMessage"></app-fullscreen-message>
+<app-fullscreen-message *ngIf="!loaded()" [header]="errorHeader" [message]="errorMessage"></app-fullscreen-message>
+<app-fullscreen-message *ngIf="errorLoadingBrowserData()" [header]="errorHeader" [message]="browserMessage"></app-fullscreen-message>
+<app-load-projects-dialog *ngIf="showLoadProjectDialog()" [data]="browserData" (onprojectselected)="loadProject($event)" (onclose)="closeLoadProject()"></app-load-projects-dialog>
 <section class="container">
-  <header class="header">
-    <section class="top-line"></section>
-    <img src="https://ccsnewengland.com/wp-content/uploads/2020/09/CCS-Logo.png"/>
-    <span class="header-name">{{title}}</span>
-  </header>
-  <section class="details project" [formGroup]="details">
-      <article class="details-item">
-        <span><h2>Project Number</h2></span><input name="project-number" class="project-number" formControlName="projectnumber" required [placeholder]="project.number" (input)="onProjectInput('number', $event)" minlength="8"/>
-        <div *ngIf="details.controls['projectnumber']?.invalid || details.controls['projectnumber']?.dirty">
-          <div class="required-message" *ngIf="details.controls['projectnumber']?.errors?.['required']">{{projectNumberRequiredMessage}}</div>
-          <div class="invalid-message" *ngIf="details.controls['projectnumber']?.invalid && details.controls['projectnumber']?.touched">{{projectNumberInvalidMessage}}</div>
-        </div>
-      </article>
-      <article class="details-item">
-        <span><h2>Client Name</h2></span><input name="project-client-name" [placeholder]="project.clientname" (input)="onProjectInput('client', $event)"/>
-      </article>
-      <article class="details-item">
-        <span><h2>Project Description</h2></span><input name="project-description" [placeholder]="project.description" (input)="onProjectInput('description', $event)"/>
-      </article>
-  </section>
-  <section class="project-system-container">
-    <header class="project-system-tab-list">
-      <nav class="project-system-tab tab" *ngFor="let system of project.systems, let i = index" [class.active]="i == systemSelected()" (click)="onSelectSystem(i)">{{system.name}}</nav>
-      <nav class="project-add-tab tab" (click)="onAddNewSystem()">Add System</nav>
-    </header>
-    <section class="project-system-list">
-      <section class="project-system" *ngFor="let system of project.systems, let first = first, let i = index" [class.hidden]="i != systemSelected()">
-        <header class="details project-details">
-          <article class="details-item">
-            <span><h3>System Name</h3></span><input name="name" autocomplete="home" [placeholder]="system.name" (input)="onSystemInput('name', system, $event)"/>
-          </article>
-          <article class="details-item">
-            <span><h3>System Description</h3></span><input name="description" [placeholder]="system.description" (input)="onSystemInput('description', system, $event)"/>
-          </article>
-          <button *ngIf="!first" (click)="onDeleteSystem(system)">Delete System</button>
-        </header>
-        <section *ngIf="success()" class="question-list">
-          <app-section *ngFor="let section of system.questions.sections" [section]="section"/>
-        </section>
-        <section *ngIf="success()" class="custom-details">
-          <span><h3>Additional Details</h3></span>
-          <textarea name="custom-details" placeholder="enter additional details not captured via the questions, such as IT contact details or advanced functionality, like room combining or overflow" (input)="onSystemInput('details', system, $event)"></textarea>
-        </section>
-      </section>
+  <section class="top-line"></section>
+  <header class="header container">
+    <section class="header-item load"><button *ngIf="browserDataAvailable()" (click)="loadExistingProject()">Load Project</button></section>
+    <section class="header-item logo">
+      <img src="https://ccsnewengland.com/wp-content/uploads/2020/09/CCS-Logo.png"/>
+      <span class="header-name">{{title}}</span>
     </section>
-  </section>
+    <section class="header-item save">
+      <button (click)="saveCurrentProject()">Save Project</button>
+    </section>
+  </header>
+  <app-project *ngIf="!loading() || loaded()" [project]="project" [questions]="questions"></app-project>
   <article class="download-container" *ngIf="downloadReady()">
     <a [href]="downloadURL()" [download]="downloadName()"><button (click)="downloaded()">Download</button></a>
   </article>
-  <footer *ngIf="success()" class="footer">
+  <footer *ngIf="loaded()" class="footer">
     <button (click)="onGenerateScopeClicked()">Generate Scope</button>
     <!--<span>Please complete the form, once complete you will be able to generate your scope.</span>-->
   </footer>
-  <section *ngIf="loading() || !success()" class="container error">
-    <section *ngIf="loading()" class="error-popup">
-      <h2>Please Wait...</h2>
-      <br/>
-      <span class="error-message">Configuration Loading...</span>
-    </section>
-    <section *ngIf="!loading() && !success()" class="error-popup">
-      <h2>Fatal Error</h2>
-      <br/>
-      <span class="error-message">Configuration Load Failed!</span>
-      <span>Contact the programming department to resolve this issue.</span>
-    </section>
-  </section>
 </section>

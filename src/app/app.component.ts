@@ -1,9 +1,9 @@
-import { Component, computed, OnInit } from '@angular/core';
-//import data from '../assets/scope_questions.json';
-import { Project, Question, QuestionList, System } from './components/classes/classes';
+import { Component, OnInit } from '@angular/core';
 import { signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FormGroup, FormControl, Validators, Form } from '@angular/forms'; 
+import { QuestionList, Question, Project, BrowserData } from './components/classes/classes';
+import { LocalStorageService } from './service/localstorage/localstorage.service';
+import { PatternValidator, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -14,50 +14,52 @@ import { FormGroup, FormControl, Validators, Form } from '@angular/forms';
 export class AppComponent implements OnInit {
   title = 'Functional Scope Generator';
 
+  projectNumberPattern = new RegExp(/[Pp][Rr]-[\d]+$/);
+
+  browserData!:BrowserData;
   project:Project = new Project;
   questions:QuestionList = new QuestionList;
-  
-  //placeholders for project details to prompt the user
-  projectNumberPlaceholder:string | string = 'PR-XXXXX';
-  projectDescriptionPlaceholder:string | string ='a new building, an existing room to update';
-  projectClientNamePlaceholder:string | string ='company, school, entity name';
-
-  systemSelected = signal<number>(0);
 
   //shows a wait or error screen as needed
-  success = signal<boolean>(false);
+  loaded = signal<boolean>(false);
   loading = signal<boolean>(true);
+  showLoadProjectDialog = signal<boolean>(false);
+  savedProject = signal<boolean>(false);
+
+  browserDataAvailable = signal<boolean>(false);
+  errorLoadingBrowserData = signal<boolean>(false);
+
+  //error message texts
+  errorHeader = 'Error';
+  errorMessage = 'Please contact Ryan B. apparently something has gone terribly wrong, and the questions list cannot be loaded.';
+  browserMessage = 'We were unable to load the saved projects stored in your browser data for some reason. The error we encountered is '
+
+  //loading message texts
+  loadingHeader = 'Loading';
+  loadingMessage = 'Please wait, the question list is loading...';
   
   //lets the user know when the scope is ready to download
   downloadReady = signal<boolean>(false);
   downloadName = signal<string>('scope.txt');
   downloadURL = signal<string>('/scope.txt');
 
-  //lets us validate the form input
-  details!:FormGroup;
-
-  projectNumberRequiredMessage = 'A project number is required!!';
-  projectNumberInvalidMessage = 'Please enter a valid project number!!';
-
   //lets us grab the json scope questions as text
   private httpClient: HttpClient;
+  private localBrowserStorage: LocalStorageService;
 
-  constructor(http: HttpClient) {
+  constructor(http: HttpClient, localStore: LocalStorageService) {
     this.httpClient = http;
+    this.localBrowserStorage = localStore;
+    
   }
 
   ngOnInit() {
-    //generate form group to validate input
-    this.details = new FormGroup({
-      projectnumber: new FormControl('', [Validators.required, Validators.pattern(/[Pp][Rr]-[\d]+$/)]) 
-    });
-
-    //set defaults for generation to placeholders
-    this.project.clientname = this.projectClientNamePlaceholder;
-    this.project.description = this.projectDescriptionPlaceholder;
-    this.project.number = this.projectNumberPlaceholder;
-
     //attempt to load the question json so we can generate the body of the page
+    this.getQuestionList();
+    if (this.getBrowserData() != null) { this.browserDataAvailable.set(true); }
+  }
+
+  getQuestionList():void {
     try {
       this.httpClient.get('assets/scope_questions.json', {responseType: 'text'}).subscribe(data => {
         //console.log(data);
@@ -67,8 +69,8 @@ export class AppComponent implements OnInit {
           //setTimeout(() => {
           this.project.systems.forEach(system => {
             system.questions = JSON.parse(JSON.stringify(this.questions));
-          })
-          this.success.set(true);
+          });
+          this.loaded.set(true);
           //}, 1000);
         }
         catch(error) {
@@ -83,6 +85,82 @@ export class AppComponent implements OnInit {
     //setTimeout(() => {
       this.loading.set(false);
     //}, 3000);
+  }
+
+  getBrowserData() {
+    let localdata = this.localBrowserStorage.getData('ccs-projects');
+    if(localdata != null) { 
+      console.log('browser data!'); 
+    }
+    return localdata;
+  }
+
+  setBrowserData():void {
+    let current = this.getBrowserData();
+    if (current != null) {
+      try {
+        let data = JSON.parse(current) as BrowserData;
+        let found = data.projects.find(project => project.number.toLowerCase() == this.project.number.toLowerCase())
+
+        if (found != undefined) {
+          console.log('overwriting project with matching pr number in existing data')
+          data.projects[data.projects.indexOf(found)] = this.project;
+        }
+        else { 
+          console.log('adding new project number to browser data')
+          data.projects.push(this.project);
+        }
+
+        this.localBrowserStorage.saveData('ccs-projects', JSON.stringify({'projects':data.projects}))
+      }
+      catch(error) {
+        console.log('error parsing browser data');
+      }
+    }
+    else {
+      console.log('creating new browser data object!')
+      this.localBrowserStorage.saveData('ccs-projects', JSON.stringify({'projects':[this.project]}))
+    }
+  }
+
+  saveCurrentProject():void {
+    if (this.project.number != undefined) {
+      if (this.projectNumberPattern.test(this.project.number) && this.project.number.length >= 8) {
+        this.setBrowserData();
+        console.log('save');
+        if (this.getBrowserData() != null) { this.browserDataAvailable.set(true); }
+      }
+      else { console.log('invalid project name'); }
+    }
+    else { console.log('undefined project name'); }
+  }
+
+  loadExistingProject():void {
+    let data = this.getBrowserData();
+    if (data != null) 
+    {
+      try {
+        this.browserData = JSON.parse(data) as BrowserData
+        this.showLoadProjectDialog.set(true);
+      }
+      catch(error) {
+        this.browserMessage += `\r\n\r\n${error}`;
+        this.errorLoadingBrowserData.set(true);
+        setTimeout(() => {
+          this.errorLoadingBrowserData.set(false);
+        }, (7000));
+      }
+    }
+  }
+
+  closeLoadProject() {
+    this.showLoadProjectDialog.set(false);
+  }
+
+  loadProject(project:Project) {
+    this.showLoadProjectDialog.set(false);
+    this.project = project;
+    console.log('Loaded Project from Dialog');
   }
 
   parseQuestionRecursive(questions:Question[]): string {
@@ -133,47 +211,12 @@ export class AppComponent implements OnInit {
     let scope:string = `CCS Presentation Systems\r\n\r\n${this.project.clientname}\r\n${this.project.number} // ${this.project.description}\r\n\r\nFunctional Programming Scope\r\n\r\n`;
     //generate the main body of the scope, looping through every single system in the project
     this.project.systems.forEach(system => {
-      scope += "\r\n\r\n" + system.name + "\r\n\r\n" + system.description + "\r\n\r\n";
+      scope += system.name + "\r\n\r\n" + system.description + "\r\n\r\n";
       scope += this.parseResponses(system.questions);
-      scope += "Custom Requirements\r\n\r\n\t" + system.customDetails + "\r\n\r\n";
+      //only add the custom details section if there is data there
+      if (system.customDetails.length > 0) { scope += `${system.name} Custom Requirements\r\n\r\n\t` + system.customDetails; }
     });
-
     return scope;
-  }
-
-  onProjectInput(sender:string, event:Event): void {
-    if (sender == 'number') { this.project.number = (event.target as HTMLInputElement).value; }
-    else if (sender == 'client') { this.project.clientname = (event.target as HTMLInputElement).value; }
-    else if (sender == 'description') { this.project.description = (event.target as HTMLInputElement).value; }
-  }
-
-  onSystemInput(sender:string, system:System, event:Event): void {
-    if (sender == 'name') { system.name = (event.target as HTMLInputElement).value; }
-    else if (sender == 'details') { system.customDetails = (event.target as HTMLInputElement).value; }
-    else if (sender == 'description') { system.description = (event.target as HTMLInputElement).value; }
-  }
-
-  onAddNewSystem():void {
-    let system = new System;
-    //create a copy of the system questions because we dont want all systems to view the same object.
-    system.questions = JSON.parse(JSON.stringify(this.questions));
-    this.project.systems.push(system);
-    //set the page to the current system the user just added
-    this.systemSelected.set(this.project.systems.length - 1);
-  }
-
-  onDeleteSystem(system: System):void {
-    let index = this.project.systems.indexOf(system);
-    //set the selected system to 0 if we deleted all but one system so that we dont show no tab by accident
-    if (this.project.systems.length == 1) { this.systemSelected.set(0); }
-    //if the system to delete is the last one in the list, then we should set systemselected to the new last project in the list
-    else if ((this.project.systems.length - 1) == index) { this.systemSelected.set(this.project.systems.length - 2); }
-    //delete the item
-    this.project.systems.splice(index, 1);
-  }
-
-  onSelectSystem(index: number) {
-    this.systemSelected.set(index);
   }
 
   onGenerateScopeClicked():void {

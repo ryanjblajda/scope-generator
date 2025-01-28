@@ -1,0 +1,86 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/buttons.scss';
+
+button.active {
+    background: $global-color-secondary;
+    color: $global-color-eee;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    height: 100%;
+    width: 100%;
+    gap: 0.5em;
+}
+
+.secondary-container {
+    background-color: $global-color-tertiary-2;
+    border-radius: 1em;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+    flex: 1 1 10%;
+}
+
+.text-container {
+    display: flex;
+    text-align: center;
+    color: $global-color-eee;
+
+    button {
+        max-width: 5em;
+        min-width: 5em;
+        max-height: 2em;
+    }
+
+    * {
+        flex: 1 1 0;
+    }
+
+    .exit {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+.project-btn-container, .project-load-container {
+    display:flex;
+    flex-direction: column;
+}
+
+.project-btn-container {
+    flex: 1 1 0;
+}
+
+article {
+    flex: 1 1 90%;
+    font-size: larger;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.message {
+    flex: 1 1 0;
+}
+
+span {
+    display: block;
+}
+
+@media screen and (min-width: 1000px) {
+    .text-container {
+        .exit {
+            align-items: flex-end;
+        }
+    }
+
+    .secondary-container {
+        margin: 5rem 20rem;
+    }
+}
