@@ -101,7 +101,7 @@
             ]
         },
         {
-            "name":"Speech Reinforcement & Recording",
+            "name":"Audio",
             "questions": [
                 { 
                     "name":"Microphones", 
@@ -149,6 +149,79 @@
                             "prompt":"No", "scope":"", "selected":false, "questions":[] 
                         }
                     ] 
+                },
+                { 
+                    "name":"Source", 
+                    "prompt":"Are there video sources capable of playing audio [laptop wallplates, apple tv, barco clickshare, bluray player, etc], or audio only sources [bluetooth wallplate, auxilliary inputs] present in the design?", 
+                    "answers": [ 
+                        { 
+                            "prompt":"Yes", 
+                            "scope":"", 
+                            "selected":false, 
+                            "questions": [ 
+                                { "name":"Source Level Controls", "prompt":"Should user interfaces provide a source level fader?", "answers": [ 
+                                        { "prompt":"Yes", "scope":"The user interfaces will provide a source level fader, which adjusts the overall level of the currently routed video source.", "selected":false, "questions":[ ] },
+                                        { "prompt":"No", "scope":"", "selected":false, "questions":[ ] }
+                                    ] 
+                                }
+                            ]
+                        },
+                        { 
+                            "prompt":"No", "scope":"There are not video sources, or audio-only sources that can be play audio in the design, therfore user interfaces shall not provide a source level fader.", "selected":false, "questions":[] 
+                        }
+                    ] 
+                },
+                { 
+                    "name":"Source Audio Routing", 
+                    "prompt":"How should source audio be routed by the system?", 
+                    "answers": [ 
+                        { 
+                            "prompt":"Dedicated Audio Destination\rThere will be a dedicated audio destination on user interfaces, as a point source destination, which a user will touch, after selecting the source they wish to hear on the speakers.", 
+                            "scope":"", 
+                            "selected":false
+                        },
+                        { 
+                            "prompt":"Last Source Routed\rThe speakers will play back the source that was last routed to a valid point source destination in the room.", 
+                            "scope":"The speakers will play back the source that was last routed to a valid point source destination in the room. The specific displays that will trigger this routing will be determined during the ui submittals process.", 
+                            "selected":false
+                        },
+                        { 
+                            "prompt":"Audio Follows Video\rThere is only one display present in the system, or only one display that will be primarily viewed by the audience, audio will follow this display.", 
+                            "scope":"There is only one display present in the system, or only one display that will be primarily viewed by the audience, therefore source audio heard on the speakers will always be the same source that is routed to this destination. This destination to be specified during the ui submittals process.", 
+                            "selected":false
+                        }
+                    ] 
+                }
+            ]
+        },
+        {
+            "name":"Video",
+            "questions":[
+                {
+                    "name":"Sources",
+                    "prompt":"Are there video sources present in the design?",
+                    "answers":[
+                        {
+                            "prompt":"Yes",
+                            "scope":"",
+                            "selected":false,
+                            "questions":[
+                                {
+                                    "name":"Routing",
+                                    "prompt":"How will sources be routed to destinations by the user?",
+                                    "answers":[
+                                        {"prompt":"Basic Source Selection", "scope":"Sources will be routed to all appropriate destinations immediately when selected on a user interface by the user.", "selected":false},
+                                        {"prompt":"Point Source Routing", "scope":"Sources will be routed to a specified destination once both have been selected on a user interface by the user.", "selected":false}
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "prompt":"No",
+                            "scope":"There are no video sources present in the design, so no video routing logic shall be programmed.",
+                            "selected":false
+                        }
+                    ]
                 }
             ]
         },
