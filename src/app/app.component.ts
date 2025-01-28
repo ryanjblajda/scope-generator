@@ -137,6 +137,10 @@ export class AppComponent implements OnInit {
     }
   }
 
+  loadProject(project:Project) {
+    this.project = project;
+  }
+
   parseQuestionRecursive(questions:Question[]): string {
     let questionTextData:string = "";
     //loop through all the questions
