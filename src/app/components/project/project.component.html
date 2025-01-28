@@ -1,9 +1,9 @@
-<section class="details project" [formGroup]="details">
+<section class="details project" [formGroup]="projectDetails">
     <article class="details-item">
       <span><h2>Project Number</h2></span><input name="project-number" class="project-number" formControlName="projectnumber" required [placeholder]="projectNumberPlaceholder" (input)="onProjectInput('number', $event)" minlength="8"/>
-      <div *ngIf="details.controls['projectnumber']?.invalid || details.controls['projectnumber']?.dirty">
-        <div class="required-message" *ngIf="details.controls['projectnumber']?.errors?.['required']">{{projectNumberRequiredMessage}}</div>
-        <div class="invalid-message" *ngIf="details.controls['projectnumber']?.invalid && details.controls['projectnumber']?.touched">{{projectNumberInvalidMessage}}</div>
+      <div *ngIf="projectDetails.controls['projectnumber']?.invalid || projectDetails.controls['projectnumber']?.dirty">
+        <div class="required-message" *ngIf="projectDetails.controls['projectnumber']?.errors?.['required']">{{projectNumberRequiredMessage}}</div>
+        <div class="invalid-message" *ngIf="projectDetails.controls['projectnumber']?.invalid && projectDetails.controls['projectnumber']?.touched">{{projectNumberInvalidMessage}}</div>
       </div>
     </article>
     <article class="details-item">
@@ -22,10 +22,10 @@
     <section class="project-system" *ngFor="let system of project.systems, let first = first, let i = index" [class.hidden]="i != systemSelected()">
       <header class="details project-details">
         <article class="details-item">
-          <span><h3>System Name</h3></span><input name="name" autocomplete="home" placeholder="System Name" (input)="onSystemInput('name', system, $event)"/>
+          <span><h3>System Name</h3></span><input name="name" autocomplete="home" placeholder="System Name" [value]="system.name || ''" (input)="onSystemInput('name', system, $event)"/>
         </article>
         <article class="details-item">
-          <span><h3>System Description</h3></span><input name="description" placeholder="a huddle room, lecture hall, etc" (input)="onSystemInput('description', system, $event)"/>
+          <span><h3>System Description</h3></span><input name="description" placeholder="a huddle room, lecture hall, etc" [value]="system.description || ''" (input)="onSystemInput('description', system, $event)"/>
         </article>
         <button *ngIf="!first" (click)="onDeleteSystem(system)">Delete System</button>
       </header>
@@ -34,7 +34,7 @@
       </section>
       <section *ngIf="questions" class="custom-details">
         <span><h3>Additional Details</h3></span>
-        <textarea name="custom-details" placeholder="enter additional details not captured via the questions, such as IT contact details or advanced functionality, like room combining or overflow" (input)="onSystemInput('details', system, $event)"></textarea>
+        <textarea name="custom-details" [value]="system.customDetails || ''" placeholder="enter additional details not captured via the questions, such as IT contact details or advanced functionality, like room combining or overflow" (input)="onSystemInput('details', system, $event)"></textarea>
       </section>
     </section>
   </section>

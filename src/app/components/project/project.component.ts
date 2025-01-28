@@ -24,7 +24,7 @@ export class ProjectComponent implements OnInit, OnChanges {
   customDetails:string | string = '';
   
   //lets us validate the form input
-  details!:FormGroup;
+  projectDetails!:FormGroup;
 
   //project error messages
   projectNumberRequiredMessage = 'A project number is required!!';
@@ -32,7 +32,7 @@ export class ProjectComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     //generate form group to validate input
-    this.details = new FormGroup({
+    this.projectDetails = new FormGroup({
       projectnumber: new FormControl('', [Validators.required, Validators.pattern(/[Pp][Rr]-[\d]+$/)]),
       projectclient: new FormControl(),
       projectdescription: new FormControl()
@@ -48,16 +48,16 @@ export class ProjectComponent implements OnInit, OnChanges {
     if (changes['project']) {
       this.project = changes['project'].currentValue;
       //make sure form is not undefined
-      if (this.details != undefined) {
+      if (this.projectDetails != undefined) {
         //if it is equal to the placeholder reset the field to empty
-        if (this.project.number != this.projectNumberPlaceholder) { this.details.controls['projectnumber'].setValue(this.project.number); }
-        else { this.details.controls['projectnumber'].setValue(''); }
+        if (this.project.number != this.projectNumberPlaceholder) { this.projectDetails.controls['projectnumber'].setValue(this.project.number); }
+        else { this.projectDetails.controls['projectnumber'].setValue(''); }
         
-        if (this.project.clientname != this.projectClientNamePlaceholder) { this.details.controls['projectclient'].setValue(this.project.clientname); }
-        else { this.details.controls['projectclient'].setValue(''); }
+        if (this.project.clientname != this.projectClientNamePlaceholder) { this.projectDetails.controls['projectclient'].setValue(this.project.clientname); }
+        else { this.projectDetails.controls['projectclient'].setValue(''); }
 
-        if (this.project.description != this.projectDescriptionPlaceholder) { this.details.controls['projectdescription'].setValue(this.project.description); }
-        else { this.details.controls['projectdescription'].setValue(''); }
+        if (this.project.description != this.projectDescriptionPlaceholder) { this.projectDetails.controls['projectdescription'].setValue(this.project.description); }
+        else { this.projectDetails.controls['projectdescription'].setValue(''); }
       }
       console.log(`Updated Project Details OnChange`);
     }
