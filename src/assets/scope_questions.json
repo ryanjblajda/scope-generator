@@ -167,7 +167,7 @@
                             ]
                         },
                         { 
-                            "prompt":"No", "scope":"There are not video sources, or audio-only sources that can be play audio in the design, therfore user interfaces shall not provide a source level fader.", "selected":false, "questions":[] 
+                            "prompt":"No", "scope":"There are no video sources, or audio-only sources that can be play audio in the design, therfore user interfaces shall not provide a source level fader.", "selected":false, "questions":[] 
                         }
                     ] 
                 },
