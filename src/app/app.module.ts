@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { SectionComponent } from './components/section/section.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ProjectComponent } from './components/project/project.component';
+import { FullscreenMessageComponent } from './components/fullscreen-message/fullscreen-message.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProjectComponent,
+    FullscreenMessageComponent,
   ],
   imports: [
     BrowserModule,
