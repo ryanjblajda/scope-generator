@@ -10,8 +10,9 @@ import { signal, Input } from '@angular/core';
 })
 
 export class ProjectComponent implements OnInit {
-  @Input() project:Project = new Project;
-  questions:QuestionList = new QuestionList;
+  //passed from main app component
+  @Input() questions:QuestionList = new QuestionList;
+  @Input() project:Project = new Project;  
   
   //placeholders for project details to prompt the user
   projectNumberPlaceholder:string | string = 'PR-XXXXX';

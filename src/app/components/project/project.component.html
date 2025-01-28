@@ -29,10 +29,10 @@
         </article>
         <button *ngIf="!first" (click)="onDeleteSystem(system)">Delete System</button>
       </header>
-      <section *ngIf="success()" class="question-list">
+      <section *ngIf="questions" class="question-list">
         <app-section *ngFor="let section of system.questions.sections" [section]="section"/>
       </section>
-      <section *ngIf="success()" class="custom-details">
+      <section *ngIf="questions" class="custom-details">
         <span><h3>Additional Details</h3></span>
         <textarea name="custom-details" placeholder="enter additional details not captured via the questions, such as IT contact details or advanced functionality, like room combining or overflow" (input)="onSystemInput('details', system, $event)"></textarea>
       </section>

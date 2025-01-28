@@ -105,14 +105,15 @@ export class AppComponent implements OnInit {
 
   generateScope():string {
     //create the initial string, and generate the header details
-    let scope:string = `CCS Presentation Systems\r\n\r\n${this.project.clientname}\r\n${this.project.number} // ${this.project.description}\r\n\r\nFunctional Programming Scope\r\n\r\n`;
+    let scope:string = '';
+    //let scope:string = `CCS Presentation Systems\r\n\r\n${this.project.clientname}\r\n${this.project.number} // ${this.project.description}\r\n\r\nFunctional Programming Scope\r\n\r\n`;
     //generate the main body of the scope, looping through every single system in the project
-    this.project.systems.forEach(system => {
-      scope += "\r\n\r\n" + system.name + "\r\n\r\n" + system.description + "\r\n\r\n\t";
-      scope += this.parseResponses(system.questions);
-    });
+    //this.project.systems.forEach(system => {
+    //  scope += "\r\n\r\n" + system.name + "\r\n\r\n" + system.description + "\r\n\r\n\t";
+    //  scope += this.parseResponses(system.questions);
+    //});
     //if the custom details section has a length, add it to the bottom of the scope
-    if (this.customDetails.length > 0 ) { scope += `Custom Scope Requirements\r\n\r\n\t${this.customDetails}`; }
+    //if (this.customDetails.length > 0 ) { scope += `Custom Scope Requirements\r\n\r\n\t${this.customDetails}`; }
     return scope;
   }
 
@@ -125,7 +126,7 @@ export class AppComponent implements OnInit {
     //generate a new file to download
     let file = new Blob([scope], {type: '.txt'});
     this.downloadURL.set(URL.createObjectURL(file));
-    this.downloadName.set(`${this.project.number.toUpperCase()}_${this.project.clientname}_functional_scope.txt`.replaceAll(" ", "_").toLowerCase());
+    //this.downloadName.set(`${this.project.number.toUpperCase()}_${this.project.clientname}_functional_scope.txt`.replaceAll(" ", "_").toLowerCase());
     this.downloadReady.set(true);
   }
 
