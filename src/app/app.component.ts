@@ -1,5 +1,4 @@
-import { Component, computed, OnInit } from '@angular/core';
-//import data from '../assets/scope_questions.json';
+import { Component, OnInit } from '@angular/core';
 import { Project, Question, QuestionList, System } from './components/classes/classes';
 import { signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
