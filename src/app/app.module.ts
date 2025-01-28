@@ -7,12 +7,14 @@ import { SectionComponent } from './components/section/section.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ProjectComponent } from './components/project/project.component';
 import { FullscreenMessageComponent } from './components/fullscreen-message/fullscreen-message.component';
+import { LoadProjectsDialogComponent } from './components/load-projects-dialog/load-projects-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProjectComponent,
     FullscreenMessageComponent,
+    LoadProjectsDialogComponent,
   ],
   imports: [
     BrowserModule,
