@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-fullscreen-message',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./fullscreen-message.component.scss']
 })
 export class FullscreenMessageComponent {
-
+  @Input() header:string = 'header';
+  @Input() message:string = 'message';
 }

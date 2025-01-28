@@ -18,6 +18,14 @@ export class AppComponent implements OnInit {
   //shows a wait or error screen as needed
   success = signal<boolean>(false);
   loading = signal<boolean>(true);
+
+  //error message texts
+  errorHeader = '';
+  errorMessage = '';
+
+  //loading message texts
+  loadingHeader = '';
+  loadingMessage = '';
   
   //lets the user know when the scope is ready to download
   downloadReady = signal<boolean>(false);
