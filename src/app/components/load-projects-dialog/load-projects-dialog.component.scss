@@ -28,11 +28,11 @@ button.active {
 
 .text-container {
     display: flex;
+    flex-direction: column;
     text-align: center;
     color: $global-color-eee;
 
     button {
-        max-width: 5em;
         min-width: 5em;
         max-height: 2em;
     }
@@ -41,7 +41,16 @@ button.active {
         flex: 1 1 0;
     }
 
+    .notice {
+        order: 2;
+    }
+
+    .header {
+        order: 3;
+    }
+
     .exit {
+        order: 1;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -75,10 +84,27 @@ span {
 
 @media screen and (min-width: 1000px) {
     .text-container {
+        flex-direction: row;
+
+        .header {
+            order: 0;
+        }
+    
+        .notice {
+            order: 0;
+        }
+    
         .exit {
+            order: 0;
             align-items: flex-end;
         }
+
+        button {
+            max-width: 5em;
+        }
     }
+
+
 
     .secondary-container {
         margin: 5rem 20rem;
