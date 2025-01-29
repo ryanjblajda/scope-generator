@@ -14,7 +14,7 @@
                             "questions": [
                                 {
                                     "name":"User Interface Synchronization", 
-                                    "prompt":"Since there are multiple user interfaces in the system, how will they act?",
+                                    "prompt":"How will the multiple user interfaces behave?",
                                     "answers":[
                                         {"prompt":"The user interfaces will be synchronized, always showing the same page at the same time.", "scope":"", "selected":false, "questions":[]},
                                         {"prompt":"The user interfaces will not be synchronized, allowing for different control pages to be viewed by different user interfaces at the same time.", "scope":"", "selected":false, "questions":[]}
@@ -22,7 +22,7 @@
                                 },
                                 {
                                     "name":"Technican Controls", 
-                                    "prompt":"Since there are multiple user interfaces in the system, will certain user interfaces have access to technician/advanced controls?",
+                                    "prompt":"Will certain user interfaces have access to technician/advanced controls?",
                                     "answers":[
                                         {"prompt":"Certain user interfaces will be for basic users, and certain user interfaces will have advanced technician functionality.", "scope":"", "selected":false, "questions":[]},
                                         {"prompt":"All user interfaces will have access to the same functionality", "scope":"", "selected":false, "questions":[]}
