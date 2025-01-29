@@ -213,6 +213,14 @@
                                         {"prompt":"Basic Source Selection", "scope":"Sources will be routed to all appropriate destinations immediately when selected on a user interface by the user.", "selected":false},
                                         {"prompt":"Point Source Routing", "scope":"Sources will be routed to a specified destination once both have been selected on a user interface by the user.", "selected":false}
                                     ]
+                                },
+                                {
+                                    "name":"Control",
+                                    "prompt":"Do any of these sources require control via the AV system [bluray players, cable tv boxes, airmedia or other wireless presentation gateways]",
+                                    "answers":[
+                                        {"prompt":"Yes", "scope":"The user interfaces will provide control of some av sources, the specifics of the controls and which sources will be controlled will be determined by engineering, sales and/or programming during the ui submittals process.", "selected":false},
+                                        {"prompt":"No", "scope":"The user interfaces will not provide control of any av sources present in the system and/or there are no sources capable of being controlled specified in the design.", "selected":false}
+                                    ]
                                 }
                             ]
                         },
