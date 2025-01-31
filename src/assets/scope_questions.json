@@ -57,7 +57,7 @@
                   },
                 {
                   "name":"xPanel Functionality",
-                  "prompt":"Will there be an xPanel available for technicians or end-users?",
+                  "prompt":"Does the system design include a Virtual User Interface [xPanel, Extron Virtual TLP, Q-SYS Web/Reflect UCI] for technicians or end-users?",
                   "answers": [
                     {"prompt":"Yes", "scope":"There will be an xPanel for either technicians or end users to control the av system.", "selected":false, "questions":[
                         {
@@ -75,7 +75,7 @@
                 },
                 {
                     "name":"iPad Functionality",
-                    "prompt":"Will there be an iPad/Android Tablet available for technicians or end-users?",
+                    "prompt":"Does the system design include an iPad/Android Tablet for technicians or end-users?",
                     "answers": [
                         {
                             "prompt":"Yes", 
@@ -290,17 +290,17 @@
                                     { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 },
-                                { "name":"Privacy Mute Sync", "prompt":"Is the specified hardware capable of providing privacy mute control of the BYOD device?", "answers": [ 
+                                { "name":"Privacy Mute Sync", "prompt":"Is the specified design hardware capable of providing privacy mute control of the BYOD device?", "answers": [ 
                                     { "prompt":"Yes", "scope":"The system will reflect the privacy mute status of a BYOD device connected.", "selected":false, "questions":[] },
                                     { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 },
-                                { "name":"Meeting Automation", "prompt":"Is the specified hardware capable of turning the system on when a meeting starts?", "answers": [ 
+                                { "name":"Meeting Automation", "prompt":"Is the specified design hardware capable of turning the system on when a meeting starts?", "answers": [ 
                                     { "prompt":"Yes", "scope":"The av system will automatically turn on, routing the appropriate source when a meeting starts.", "selected":false, "questions":[] },
                                     { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 },
-                                { "name":"One Touch Meeting Join", "prompt":"Is the specified hardware capable of joining a meeting with one-touch via user interfaces?", "answers": [ 
+                                { "name":"One Touch Meeting Join", "prompt":"Is the specified design hardware capable of joining a meeting with one-touch via user interfaces?", "answers": [ 
                                     { "prompt":"Yes", "scope":"The av system will join meetings [when available] with a single button press from user interfaces.", "selected":false, "questions":[] },
                                     { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
@@ -318,7 +318,7 @@
                                                 ] 
                                             },
                                             { 
-                                                "name":"ACPR", "prompt":"Is the camera & audio hardware capable of automated preset recall?", "answers": [ 
+                                                "name":"ACPR", "prompt":"Does the system design include automated preset recall [Q-SYS ACPR or Crestron [formerly OneBeyond]]?", "answers": [ 
                                                     { "prompt":"Yes", "scope":"The av system will automatically recall camera presets based on speaker positions in the space. The specific number of presets will be determined by the physical space.", "selected":false, "questions":[] },
                                                     { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                                 ] 
@@ -438,7 +438,7 @@
                                                 ] 
                                             },
                                             { 
-                                                "name":"ACPR", "prompt":"Is the camera & audio hardware capable of automated preset recall?", "answers": [ 
+                                                "name":"ACPR", "prompt":"Does the system design include automated preset recall [Q-SYS ACPR or Crestron [formerly OneBeyond]]?", "answers": [ 
                                                     { "prompt":"Yes", "scope":"The av system will automatically recall camera presets based on speaker positions in the space. The specific number of presets will be determined by the physical space.", "selected":false, "questions":[] },
                                                     { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                                 ] 
