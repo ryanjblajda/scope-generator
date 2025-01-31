@@ -9,8 +9,8 @@
             <button class='select-btn' (click)="onSelectProject(i)" [class.active]="selected() == i" *ngFor="let project of data.projects, let i = index">{{project.number.toUpperCase()}}</button>
         </section>
         <section class='project-load-container'>
-            <button class='load-btn' (click)="loadSelectedProject()">Load Selected Project</button>
-            <button *ngIf='' class='delete-btn'>Delete Selected Project</button>
+            <button class='load-btn' (click)="loadSelectedProject()">Load Local Project</button>
+            <button *ngIf='' class='delete-btn'>Delete Local Project</button>
         </section>
     </div>
 </section>
