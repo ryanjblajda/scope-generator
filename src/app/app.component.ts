@@ -145,12 +145,12 @@ export class AppComponent implements OnInit {
   exportCurrentProject(): void {
     if (this.checkCurrentProjectNumber()) {
       let config = JSON.stringify(this.project);
-      let file = new Blob([config], {type: '.json'});
+      let file = new Blob([config], {type: '.ccsproject'});
       let url = URL.createObjectURL(file);
       let link = document.createElement('a');
       link.setAttribute('href', url);
       link.setAttribute('target', '_blank');
-      link.download = `${this.project.number}.json`;
+      link.download = `${this.project.number}.ccsproject`;
       document.body.appendChild(link);
       link.click();
       link.remove();

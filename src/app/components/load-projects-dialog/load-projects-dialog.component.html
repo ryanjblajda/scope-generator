@@ -13,7 +13,7 @@
         <section class='project-load-container'>
             <button *ngIf="" class='load-btn' (click)="loadSelectedProject()">Load Local Project</button>
             <button *ngIf="" class='delete-btn'>Delete Local Project</button>
-            <input ngForm class='hidden' type="file" (change)="onFileUpload($event)" #upload>
+            <input ngForm class='hidden' type="file"  accept=".ccsproject" (change)="onFileUpload($event)" #upload>
             <button (click)="upload.click()">Import Project File</button>
         </section>
     </div>
