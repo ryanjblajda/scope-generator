@@ -3,12 +3,13 @@ import { signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { QuestionList, Question, Project, BrowserData } from './components/classes/classes';
 import { LocalStorageService } from './service/localstorage/localstorage.service';
-import { PatternValidator, Validators } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  providers: [DatePipe],
 })
 
 export class AppComponent implements OnInit {
@@ -46,11 +47,12 @@ export class AppComponent implements OnInit {
   //lets us grab the json scope questions as text
   private httpClient: HttpClient;
   private localBrowserStorage: LocalStorageService;
+  private datePipe: DatePipe;
 
-  constructor(http: HttpClient, localStore: LocalStorageService) {
+  constructor(http: HttpClient, localStore: LocalStorageService, datePipe: DatePipe) {
     this.httpClient = http;
     this.localBrowserStorage = localStore;
-    
+    this.datePipe = datePipe;
   }
 
   ngOnInit() {
@@ -150,7 +152,8 @@ export class AppComponent implements OnInit {
       let link = document.createElement('a');
       link.setAttribute('href', url);
       link.setAttribute('target', '_blank');
-      link.download = `${this.project.number}.ccsproject`;
+      let now = this.datePipe.transform(new Date(), 'MM-dd-yyyy_HH-mm-ss');
+      link.download = `${this.project.number}_${now}.ccsproject`;
       document.body.appendChild(link);
       link.click();
       link.remove();
