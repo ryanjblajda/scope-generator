@@ -10,6 +10,7 @@ button.active {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     background-color: rgba(0, 0, 0, 0.9);
     height: 100%;
     width: 100%;
@@ -20,6 +21,11 @@ button.active {
     display: none;
 }
 
+span {
+    text-align: center;
+    margin: 2em;
+}
+
 .secondary-container {
     background-color: $global-color-tertiary-2;
     border-radius: 1em;
@@ -27,7 +33,6 @@ button.active {
     display: flex;
     flex-direction: column;
     margin: 1em;
-    flex: 1 1 10%;
 }
 
 .text-container {
@@ -108,9 +113,7 @@ span {
         }
     }
 
-
-
     .secondary-container {
-        margin: 5rem 20rem;
+        min-width: 50em;
     }
 }

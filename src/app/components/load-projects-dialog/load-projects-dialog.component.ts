@@ -11,7 +11,7 @@ export class LoadProjectsDialogComponent {
   @Output() onprojectselected = new EventEmitter<Project>();
   @Output() onclose = new EventEmitter();
   
-  header = 'Select A Local Project';
+  header = 'Load Project';
   fileName = null;
   selected = signal<number>(-1);
 

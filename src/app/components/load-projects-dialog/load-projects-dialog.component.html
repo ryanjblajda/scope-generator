@@ -8,7 +8,7 @@
         </header>
         <section class="project-btn-container">
             <!--<button class='select-btn' (click)="onSelectProject(i)" [class.active]="selected() == i" *ngFor="let project of data.projects, let i = index">{{project.number.toUpperCase()}}</button>-->
-            {{fileName || "Please select a project to upload"}}
+            <span>{{fileName || "Please click the button below to open a saved project file."}}</span>
         </section>
         <section class='project-load-container'>
             <button *ngIf="" class='load-btn' (click)="loadSelectedProject()">Load Local Project</button>
