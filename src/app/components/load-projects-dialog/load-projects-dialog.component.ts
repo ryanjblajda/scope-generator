@@ -12,10 +12,42 @@ export class LoadProjectsDialogComponent {
   @Output() onclose = new EventEmitter();
   
   header = 'Select A Local Project';
+  fileName = null;
   selected = signal<number>(-1);
 
   onSelectProject(index: number) {
     this.selected.set(index);
+  }
+
+  onFileUpload(event:any): void {
+    //console.log(event);
+    try {
+      let file = event.target.files[0];
+      let reader = new FileReader();
+      try {
+        reader.onload = (e: any) => {
+          const fileContent = e.target.result;
+          // Do something with the file content
+          //console.log(fileContent);
+
+          try {
+            let imported = JSON.parse(fileContent) as Project;
+            this.onprojectselected.emit(imported);
+          }
+          catch(json) {
+            console.log(json);
+          }
+        };
+  
+        reader.readAsText(file); // Read the file as text
+      }
+      catch(reader) {
+        console.log(reader);
+      }
+    }
+    catch(file) {
+      console.log(file);
+    }
   }
 
   loadSelectedProject() {

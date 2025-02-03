@@ -1,17 +1,20 @@
 <section class="container">
     <div class="secondary-container">
         <header class="text-container">
-            <div class="notice"><i>Projects are currently stored in your local browser's data. Clearing your browser history will remove this data if you wish. Make sure to use the same browser when building projects to resume them.</i></div>
+            <!--<div class="notice"><i>Projects are currently stored in your local browser's data. Clearing your browser history will remove this data if you wish. Make sure to use the same browser when building projects to resume them.</i></div>-->
+            <div></div>
             <div class="header"><h1>{{header}}</h1></div>
             <div class="exit"><button (click)="close()">Exit</button></div>
         </header>
         <section class="project-btn-container">
-            <button class='select-btn' (click)="onSelectProject(i)" [class.active]="selected() == i" *ngFor="let project of data.projects, let i = index">{{project.number.toUpperCase()}}</button>
+            <!--<button class='select-btn' (click)="onSelectProject(i)" [class.active]="selected() == i" *ngFor="let project of data.projects, let i = index">{{project.number.toUpperCase()}}</button>-->
+            {{fileName || "Please select a project to upload"}}
         </section>
         <section class='project-load-container'>
-            <button class='load-btn' (click)="loadSelectedProject()">Load Local Project</button>
+            <button *ngIf="" class='load-btn' (click)="loadSelectedProject()">Load Local Project</button>
             <button *ngIf="" class='delete-btn'>Delete Local Project</button>
-            <button *ngIf="">Import Project File</button>
+            <input ngForm class='hidden' type="file" (change)="onFileUpload($event)" #upload>
+            <button (click)="upload.click()">Import Project File</button>
         </section>
     </div>
 </section>

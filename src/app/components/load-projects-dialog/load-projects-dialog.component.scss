@@ -16,6 +16,10 @@ button.active {
     gap: 0.5em;
 }
 
+.hidden { 
+    display: none;
+}
+
 .secondary-container {
     background-color: $global-color-tertiary-2;
     border-radius: 1em;

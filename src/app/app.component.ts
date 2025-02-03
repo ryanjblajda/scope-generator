@@ -123,16 +123,38 @@ export class AppComponent implements OnInit {
     }
   }
 
-  saveCurrentProject():void {
+  checkCurrentProjectNumber():boolean {
     if (this.project.number != undefined) {
       if (this.projectNumberPattern.test(this.project.number) && this.project.number.length >= 8) {
-        this.setBrowserData();
-        console.log('save');
-        if (this.getBrowserData() != null) { this.browserDataAvailable.set(true); }
+        return true;
       }
       else { console.log('invalid project name'); }
     }
     else { console.log('undefined project name'); }
+    return false;
+  }
+  
+  saveCurrentProject():void {
+    if (this.checkCurrentProjectNumber()) {
+      this.setBrowserData();
+      console.log('save');
+      if (this.getBrowserData() != null) { this.browserDataAvailable.set(true); }
+    }
+  }
+
+  exportCurrentProject(): void {
+    if (this.checkCurrentProjectNumber()) {
+      let config = JSON.stringify(this.project);
+      let file = new Blob([config], {type: '.json'});
+      let url = URL.createObjectURL(file);
+      let link = document.createElement('a');
+      link.setAttribute('href', url);
+      link.setAttribute('target', '_blank');
+      link.download = `${this.project.number}.json`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    }
   }
 
   loadExistingProject():void {
@@ -158,6 +180,7 @@ export class AppComponent implements OnInit {
   }
 
   loadProject(project:Project) {
+    //console.log(project);
     this.showLoadProjectDialog.set(false);
     this.project = project;
     console.log('Loaded Project from Dialog');
