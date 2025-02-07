@@ -161,21 +161,7 @@ export class AppComponent implements OnInit {
   }
 
   loadExistingProject():void {
-    let data = this.getBrowserData();
-    if (data != null) 
-    {
-      try {
-        this.browserData = JSON.parse(data) as BrowserData
-        this.showLoadProjectDialog.set(true);
-      }
-      catch(error) {
-        this.browserMessage += `\r\n\r\n${error}`;
-        this.errorLoadingBrowserData.set(true);
-        setTimeout(() => {
-          this.errorLoadingBrowserData.set(false);
-        }, (7000));
-      }
-    }
+    this.showLoadProjectDialog.set(true);
   }
 
   closeLoadProject() {
