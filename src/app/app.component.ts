@@ -67,7 +67,7 @@ export class AppComponent implements OnInit {
         //console.log(data);
         try {
           this.questions = JSON.parse(data) as QuestionList;
-          //set success true will only occur if the catch block doesnt fire
+          //set success true will only occur if the catch block doesn't fire
           //setTimeout(() => {
           this.project.systems.forEach(system => {
             system.questions = JSON.parse(JSON.stringify(this.questions));
@@ -153,7 +153,7 @@ export class AppComponent implements OnInit {
       link.setAttribute('href', url);
       link.setAttribute('target', '_blank');
       let now = this.datePipe.transform(new Date(), 'MM-dd-yyyy_HH-mm-ss');
-      link.download = `${this.project.number}_${now}.ccsproject`;
+      link.download = `${this.project.number.toLowerCase()}_${now}.ccsproject`;
       document.body.appendChild(link);
       link.click();
       link.remove();
@@ -240,7 +240,7 @@ export class AppComponent implements OnInit {
     //generate a new file to download
     let file = new Blob([scope], {type: '.txt'});
     this.downloadURL.set(URL.createObjectURL(file));
-    this.downloadName.set(`${this.project.number.toUpperCase()}_${this.project.clientname}_functional_scope.txt`.replaceAll(" ", "_").toLowerCase());
+    this.downloadName.set(`${this.project.number.toLowerCase()}_${this.project.clientname}_functional_scope.txt`.replaceAll(" ", "_").toLowerCase());
     this.downloadReady.set(true);
   }
 
