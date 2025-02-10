@@ -60,7 +60,6 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     //attempt to load the question json so we can generate the body of the page
     this.getQuestionList();
-    if (this.getBrowserData() != null) { this.browserDataAvailable.set(true); }
   }
 
   getQuestionList():void {
