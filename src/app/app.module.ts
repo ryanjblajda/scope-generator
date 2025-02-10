@@ -8,6 +8,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ProjectComponent } from './components/project/project.component';
 import { FullscreenMessageComponent } from './components/fullscreen-message/fullscreen-message.component';
 import { LoadProjectsDialogComponent } from './components/load-projects-dialog/load-projects-dialog.component';
+import { HelpComponent } from './components/help/help.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { LoadProjectsDialogComponent } from './components/load-projects-dialog/l
     ProjectComponent,
     FullscreenMessageComponent,
     LoadProjectsDialogComponent,
+    HelpComponent,
   ],
   imports: [
     BrowserModule,
