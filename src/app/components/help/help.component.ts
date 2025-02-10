@@ -16,7 +16,8 @@ export class HelpComponent {
         [
           "To load an existing project click the \"Load Project\" button", 
           "This button is located in the top right corner [or top on mobile] of the screen", 
-          "Upon successful import of a .ccsproject file, any answered questions and project/system details will appear. If you attempt to import an invalid file, nothing will occur"
+          "Upon successful import of a .ccsproject file, any answered questions and project/system details will appear",
+          "Attempting to import any other type of file, or a corrupted .ccsproject file will result in an error message being displayed"
         ]
     },
     {
@@ -24,8 +25,8 @@ export class HelpComponent {
       "tasks":
         [
           "To save your progress, once you've entered a valid project number, you can click the \"Save Project\" button", 
-          "This will download a file that you can use to continue this project anywhere you [or someone else] has access to the scope generator.",
-          "You should save this file to a teams folder so that it is held in the cloud. [Sorry, haven't implemented fancy features like that yet...]"
+          "This will download a .ccsproject file that you can use to continue to work on this scope anywhere you [or someone else] has access to the scope generator",
+          "You should save this file to a teams folder so that it is held in the cloud. [Sorry, haven't implemented any way to directly save it to the cloud or teams yet...]"
         ]
     },
     {
@@ -33,8 +34,9 @@ export class HelpComponent {
       "tasks":
         [
           "Once you have completed all of the available questions, you will see the \"Generate Scope\" button at the bottom of the page", 
-          "Press this to generate a new scope document.", "Once generated a download button will appear", 
-          "Clicking this button will download a file containing a simple text file that can be imported into the CCS SOW template"
+          "Pressing this will generate the scope of work based on how you answered the questions", 
+          "Once the file is ready, a download button will appear on-screen", 
+          "Clicking this button will download a plain text file, this can be imported into the CCS SOW template so the customer may agree to it, and sign off on it"
         ]
     }
   ]
