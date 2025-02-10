@@ -90,42 +90,6 @@ export class AppComponent implements OnInit {
     //}, 3000);
   }
 
-  getBrowserData() {
-    let localdata = this.localBrowserStorage.getData('ccs-projects');
-    if(localdata != null) { 
-      console.log('browser data!'); 
-    }
-    return localdata;
-  }
-
-  setBrowserData():void {
-    let current = this.getBrowserData();
-    if (current != null) {
-      try {
-        let data = JSON.parse(current) as BrowserData;
-        let found = data.projects.find(project => project.number.toLowerCase() == this.project.number.toLowerCase())
-
-        if (found != undefined) {
-          console.log('overwriting project with matching pr number in existing data')
-          data.projects[data.projects.indexOf(found)] = this.project;
-        }
-        else { 
-          console.log('adding new project number to browser data')
-          data.projects.push(this.project);
-        }
-
-        this.localBrowserStorage.saveData('ccs-projects', JSON.stringify({'projects':data.projects}))
-      }
-      catch(error) {
-        console.log('error parsing browser data');
-      }
-    }
-    else {
-      console.log('creating new browser data object!')
-      this.localBrowserStorage.saveData('ccs-projects', JSON.stringify({'projects':[this.project]}))
-    }
-  }
-
   checkCurrentProjectNumber():boolean {
     if (this.project.number != undefined) {
       if (this.projectNumberPattern.test(this.project.number) && this.project.number.length >= 8) {
@@ -137,14 +101,6 @@ export class AppComponent implements OnInit {
     return false;
   }
   
-  saveCurrentProject():void {
-    if (this.checkCurrentProjectNumber()) {
-      this.setBrowserData();
-      console.log('save');
-      if (this.getBrowserData() != null) { this.browserDataAvailable.set(true); }
-    }
-  }
-
   exportCurrentProject(): void {
     if (this.checkCurrentProjectNumber()) {
       let config = JSON.stringify(this.project);
