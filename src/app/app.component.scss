@@ -1,6 +1,11 @@
 @import '../styles/variables.scss';
 @import '../styles/buttons.scss';
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 img {
     margin: 1em;
     max-height: 75px;
@@ -103,6 +108,8 @@ app-project {
     justify-content: center;
     background: $footer-background;
     color: $footer-text-color;
+    flex-direction: column;
+    align-items: center;
 
     span {
         padding: 0.2em;
