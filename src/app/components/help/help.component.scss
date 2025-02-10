@@ -91,6 +91,15 @@ span {
     display: block;
 }
 
+.task-name {
+    font-size: large;
+    color: $global-color-accent;
+}
+
+.task-item {
+    color: $global-color-eee;
+}
+
 @media screen and (min-width: 1000px) {
     .text-container {
         flex-direction: row;
