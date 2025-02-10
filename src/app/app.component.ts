@@ -28,9 +28,6 @@ export class AppComponent implements OnInit {
   savedProject = signal<boolean>(false);
   help = signal<boolean>(false);
 
-  browserDataAvailable = signal<boolean>(false);
-  errorLoadingBrowserData = signal<boolean>(false);
-
   //error message texts
   errorHeader = 'Error';
   errorMessage = 'Please contact Ryan B. apparently something has gone terribly wrong, and the questions list cannot be loaded.';
