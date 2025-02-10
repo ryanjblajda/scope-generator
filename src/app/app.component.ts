@@ -61,10 +61,6 @@ export class AppComponent implements OnInit {
     this.getQuestionList();
     if (this.getBrowserData() != null) { this.browserDataAvailable.set(true); }
   }
-  
-  toggle(sig:any): void {
-    sig.set(!sig());
-  }
 
   getQuestionList():void {
     try {
