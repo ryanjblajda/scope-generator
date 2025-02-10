@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Signal } from '@angular/core';
 import { signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { QuestionList, Question, Project, BrowserData } from './components/classes/classes';
@@ -26,6 +26,7 @@ export class AppComponent implements OnInit {
   loading = signal<boolean>(true);
   showLoadProjectDialog = signal<boolean>(false);
   savedProject = signal<boolean>(false);
+  help = signal<boolean>(false);
 
   browserDataAvailable = signal<boolean>(false);
   errorLoadingBrowserData = signal<boolean>(false);
@@ -38,7 +39,7 @@ export class AppComponent implements OnInit {
   //loading message texts
   loadingHeader = 'Loading';
   loadingMessage = 'Please wait, the question list is loading...';
-  
+
   //lets the user know when the scope is ready to download
   downloadReady = signal<boolean>(false);
   downloadName = signal<string>('scope.txt');
@@ -59,6 +60,10 @@ export class AppComponent implements OnInit {
     //attempt to load the question json so we can generate the body of the page
     this.getQuestionList();
     if (this.getBrowserData() != null) { this.browserDataAvailable.set(true); }
+  }
+  
+  toggle(sig:any): void {
+    sig.set(!sig());
   }
 
   getQuestionList():void {
