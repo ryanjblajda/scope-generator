@@ -13,16 +13,16 @@
     </section>
     <section class="header-item right">
       <!--<button (click)="saveCurrentProject()">Save Project</button>-->
-      <button (click)="loadExistingProject()">Load Project</button>
-      <button (click)="exportCurrentProject()">Save Project</button>
+      <button (click)="loadExistingProject()"><i class="bi bi bi-upload"></i><span>Load Project</span></button>
+      <button (click)="exportCurrentProject()"><i class="bi bi-floppy"></i><span>Save Project</span></button>
     </section>
   </header>
   <app-project *ngIf="!loading() || loaded()" [project]="project" [questions]="questions"></app-project>
   <article class="download-container" *ngIf="downloadReady()">
-    <a [href]="downloadURL()" [download]="downloadName()"><button (click)="downloaded()">Download</button></a>
+    <a [href]="downloadURL()" [download]="downloadName()"><button (click)="downloaded()"><i class="bi bi-cloud-download"></i><span>Save Project</span></button></a>
   </article>
   <footer *ngIf="loaded()" class="footer">
-    <button (click)="onGenerateScopeClicked()">Generate Scope</button>
+    <button (click)="onGenerateScopeClicked()"><i class="bi bi-arrow-clockwise"></i><span>Generate Scope</span></button>
     <!--<span>Please complete the form, once complete you will be able to generate your scope.</span>-->
   </footer>
 </section>
