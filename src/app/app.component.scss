@@ -37,22 +37,24 @@ img {
 .header-item {
     flex: 1 1 0;
     display: flex;
+}
+
+.left {
+    order: 0;
     flex-direction: column;
 }
 
-.load {
-    order: 0;
-}
-
-.save {
+.right {
     order: 1;
+    flex-direction: column;
 }
 
 .logo {
     order: 2;
+    flex-direction: column;
 }
 
-.save, .load {
+.left, .right {
     button {
         color: $header-text-color;
         padding: 1em;
@@ -106,18 +108,19 @@ app-project {
         flex-direction: row;
     }
 
-    .save, .load {
+    .left, .right {
+
         button {
             flex: 1 1 0;
         }
     }
 
-    .save {
-        align-items: flex-end;
+    .right {
         order: 3;
+        flex-direction:  row;
     }
     
-    .load {
+    .left {
         align-items: flex-start;
         order: 0;
     }

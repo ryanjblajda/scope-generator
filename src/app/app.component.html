@@ -6,13 +6,14 @@
 <section class="container">
   <section class="top-line"></section>
   <header class="header container">
-    <section class="header-item load"><button (click)="loadExistingProject()">Load Project</button></section>
+    <section class="header-item left"><button><i class="bi bi-info-circle"></i><span>Help</span></button></section>
     <section class="header-item logo">
       <img src="https://ccsnewengland.com/wp-content/uploads/2020/09/CCS-Logo.png"/>
       <span class="header-name">{{title}}</span>
     </section>
-    <section class="header-item save">
+    <section class="header-item right">
       <!--<button (click)="saveCurrentProject()">Save Project</button>-->
+      <button (click)="loadExistingProject()">Load Project</button>
       <button (click)="exportCurrentProject()">Save Project</button>
     </section>
   </header>
