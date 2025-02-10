@@ -7,8 +7,14 @@
             <div class="exit"><button (click)="close()">Exit</button></div>
         </header>
         <section class="project-btn-container">
-        </section>
-        <section class='project-load-container'>
+            <ul>
+                <li *ngFor="let step of steps" class="task-name">{{step['name']}}
+                    <ul>
+                        <li *ngFor="let task of step['tasks']" class="task-item">{{task}}</li>
+                    </ul>
+                    <br/>
+                </li>
+            </ul>
         </section>
     </div>
 </section>
