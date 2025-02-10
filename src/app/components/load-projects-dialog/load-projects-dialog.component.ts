@@ -9,7 +9,8 @@ import { BrowserData, Project } from '../classes/classes';
 export class LoadProjectsDialogComponent {
   @Input() data:BrowserData = new BrowserData;
   @Output() onprojectselected = new EventEmitter<Project>();
-  @Output() onclose = new EventEmitter();
+  @Output() onerror = new EventEmitter();
+  @Output() onclose = new EventEmitter<string>();
   
   header = 'Load Project';
   fileName = null;
@@ -36,6 +37,7 @@ export class LoadProjectsDialogComponent {
           }
           catch(json) {
             console.log(json);
+            this.onerror.emit(json);
           }
         };
   
