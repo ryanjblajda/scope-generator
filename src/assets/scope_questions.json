@@ -21,7 +21,7 @@
                                     ]
                                 },
                                 {
-                                    "name":"Technican Controls", 
+                                    "name":"Technician Controls", 
                                     "prompt":"Will certain user interfaces have access to technician/advanced controls?",
                                     "answers":[
                                         {"prompt":"Certain user interfaces will be for basic users, and certain user interfaces will have advanced technician functionality.", "scope":"", "selected":false, "questions":[]},
@@ -65,7 +65,7 @@
                             "prompt":"Will the device be connected via the local CCS network, or connect to the control system via the client's LAN", 
                             "answers":[
                                 {"prompt":"Connected via CCS local network", "scope":"This xPanel will only be accessible by a device connected to the local AV network.", "selected":false, "questions":[]},
-                                {"prompt":"Connected via client LAN", "scope":"This xPanel will be able to connect from external networks, the specifics to be dictacted by the clients IT department.", "selected":false, "questions":[]}
+                                {"prompt":"Connected via client LAN", "scope":"This xPanel will be able to connect from external networks, the specifics to be dictated by the clients IT department.", "selected":false, "questions":[]}
                             ]
                             
                         }
@@ -169,7 +169,7 @@
                             "selected":false, 
                             "questions": [ 
                                 { "name":"Mix Controls", "prompt":"Should there be a separate set of controls for an advanced technician to adjust the levels to the recording hardware or outputs?", "answers": [ 
-                                        { "prompt":"Yes", "scope":"There will be a separate set of mix controls, or user interface, to control the audio feed to the recording hardware installed. The specifics will be determined during the ui submittals process", "selected":false, "questions":[ ] },
+                                        { "prompt":"Yes", "scope":"There will be a separate set of mix controls, or user interface, to control the audio feed to the recording hardware installed. The specifics will be determined during the ui submittal process", "selected":false, "questions":[ ] },
                                         { "prompt":"No", "scope":"", "selected":false, "questions":[ ] }
                                     ] 
                                 }
@@ -182,7 +182,7 @@
                 },
                 { 
                     "name":"Source", 
-                    "prompt":"Are there video sources capable of playing audio [laptop wallplates, apple tv, barco clickshare, bluray player, etc], or audio only sources [bluetooth wallplate, auxilliary inputs] present in the design?", 
+                    "prompt":"Are there video sources capable of playing audio [laptop wall-plates, Apple TV, Barco Clickshare, BluRay player, etc], or audio only sources [bluetooth wall-plate, auxiliary inputs] present in the design?", 
                     "answers": [ 
                         { 
                             "prompt":"Yes", 
@@ -197,7 +197,7 @@
                             ]
                         },
                         { 
-                            "prompt":"No", "scope":"There are no video sources, or audio-only sources that can be play audio in the design, therfore user interfaces shall not provide a source level fader.", "selected":false, "questions":[] 
+                            "prompt":"No", "scope":"There are no video sources, or audio-only sources that can be play audio in the design, therefore user interfaces shall not provide a source level fader.", "selected":false, "questions":[] 
                         }
                     ] 
                 },
@@ -212,12 +212,12 @@
                         },
                         { 
                             "prompt":"The speakers will play back the source that was last routed to a destination in the system.", 
-                            "scope":"The speakers will play back the source that was last routed to a destination in the system. The specific displays that will trigger this routing will be determined during the ui submittals process.", 
+                            "scope":"The speakers will play back the source that was last routed to a destination in the system. The specific displays that will trigger this routing will be determined during the ui submittal process.", 
                             "selected":false
                         },
                         { 
                             "prompt":"There is only one display present in the system, or only one display that will be primarily viewed by the audience, audio will follow this display.", 
-                            "scope":"There is only one display present in the system, or only one display that will be primarily viewed by the audience, therefore source audio heard on the speakers will always be the same source that is routed to this destination. This destination to be specified during the ui submittals process.", 
+                            "scope":"There is only one display present in the system, or only one display that will be primarily viewed by the audience, therefore source audio heard on the speakers will always be the same source that is routed to this destination. This destination to be specified during the ui submittal process.", 
                             "selected":false
                         }
                     ] 
@@ -246,9 +246,9 @@
                                 },
                                 {
                                     "name":"Control",
-                                    "prompt":"Do any of these sources require control via the AV system [bluray players, cable tv boxes, airmedia or other wireless presentation gateways]",
+                                    "prompt":"Do any of these sources require control via the AV system [BluRay players, cable tv boxes, AirMedia or other wireless presentation gateways]",
                                     "answers":[
-                                        {"prompt":"Yes", "scope":"The user interfaces will provide control of some av sources, the specifics of the controls and which sources will be controlled will be determined by engineering, sales and/or programming during the ui submittals process.", "selected":false},
+                                        {"prompt":"Yes", "scope":"The user interfaces will provide control of some av sources, the specifics of the controls and which sources will be controlled will be determined by engineering, sales and/or programming during the ui submittal process.", "selected":false},
                                         {"prompt":"No", "scope":"The user interfaces will not provide control of any av sources present in the system and/or there are no sources capable of being controlled specified in the design.", "selected":false}
                                     ]
                                 }
@@ -313,7 +313,7 @@
                                         "questions":[
                                             { 
                                                 "name":"Manual Preset Save/Recall", "prompt":"Should the user interfaces provide preset recall/saving controls?", "answers": [ 
-                                                    { "prompt":"Yes", "scope":"The user interfaces will provide camera preset recall & save functionality, the specific number of presets to be determined during the submittals process.", "selected":false, "questions":[] },
+                                                    { "prompt":"Yes", "scope":"The user interfaces will provide camera preset recall & save functionality, the specific number of presets to be determined during the submittal process.", "selected":false, "questions":[] },
                                                     { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                                 ] 
                                             },
@@ -411,7 +411,7 @@
                                     ] 
                                 },
                                 { "name":"Navigation Controls", "prompt":"Should user interfaces provide VTC navigation controls?", "answers": [ 
-                                    { "prompt":"Yes", "scope":"The user interfaces will provide navigation controls of the VTC hardware, the specifics of which will be determined during the submittals process.", "selected":false, "questions":[] },
+                                    { "prompt":"Yes", "scope":"The user interfaces will provide navigation controls of the VTC hardware, the specifics of which will be determined during the submittal process.", "selected":false, "questions":[] },
                                     { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 },
@@ -433,7 +433,7 @@
                                         "questions":[
                                             { 
                                                 "name":"Manual Preset Save/Recall", "prompt":"Should the user interfaces provide preset recall/saving controls?", "answers": [ 
-                                                    { "prompt":"Yes", "scope":"The user interfaces will provide camera preset recall & save functionality, the specific number of presets to be determined during the submittals process.", "selected":false, "questions":[] },
+                                                    { "prompt":"Yes", "scope":"The user interfaces will provide camera preset recall & save functionality, the specific number of presets to be determined during the submittal process.", "selected":false, "questions":[] },
                                                     { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                                 ] 
                                             },
@@ -470,7 +470,7 @@
                             "selected":false, 
                             "questions": [ 
                                 { "name":"Vacancy Automation", "prompt":"Should the system automatically turn off when vacancy is detected?", "answers": [ 
-                                        { "prompt":"Yes", "scope":"The av system will automatically turn off when vacancy has been detected, the specific vacancy timeout will be determined during the submittals process.", "selected":false, "questions":[] },
+                                        { "prompt":"Yes", "scope":"The av system will automatically turn off when vacancy has been detected, the specific vacancy timeout will be determined during the submittal process.", "selected":false, "questions":[] },
                                         { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 },
@@ -480,7 +480,7 @@
                                     ] 
                                 },
                                 { "name":"Occupancy Automation", "prompt":"Should the system automatically turn on when occupancy is detected?", "answers": [ 
-                                        { "prompt":"Yes", "scope":"The system will turn on automatically when occupancy has been determined. The default source to be determined during the submittals process.", "selected":false, "questions":[] },
+                                        { "prompt":"Yes", "scope":"The system will turn on automatically when occupancy has been determined. The default source to be determined during the submittal process.", "selected":false, "questions":[] },
                                         { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 }
@@ -501,12 +501,12 @@
                             "selected":false, 
                             "questions": [ 
                                 { "name":"System Power On", "prompt":"Should the system power on automatically when it detects signal on a user input?", "answers": [ 
-                                        { "prompt":"Yes", "scope":"When an end user devices has been connected, the system will automatically turn on, and route that input. The specific inputs capable of creating this event will be determined during the submittals process.", "selected":false, "questions":[] },
+                                        { "prompt":"Yes", "scope":"When an end user devices has been connected, the system will automatically turn on, and route that input. The specific inputs capable of creating this event will be determined during the submittal process.", "selected":false, "questions":[] },
                                         { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 },
                                 { "name":"System Power Off", "prompt":"Should the system power off automatically when it detects a lack of signal on all user inputs?", "answers": [ 
-                                        { "prompt":"Yes", "scope":"When all end user devices have been disconnected, the system will automatically turn off. The specific inputs capable of creating this event will be determined during the submittals process.", "selected":false, "questions":[] },
+                                        { "prompt":"Yes", "scope":"When all end user devices have been disconnected, the system will automatically turn off. The specific inputs capable of creating this event will be determined during the submittal process.", "selected":false, "questions":[] },
                                         { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 }
