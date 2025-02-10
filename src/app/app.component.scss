@@ -74,7 +74,14 @@ app-fullscreen-message, app-load-projects-dialog, app-help {
     top: 0;
     left: 0;
     position: fixed;
+}
+
+app-fullscreen-message, app-help {
     z-index: 10;
+}
+
+app-load-projects-dialog {
+    z-index: 5;
 }
 
 app-project {

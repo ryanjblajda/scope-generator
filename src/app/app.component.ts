@@ -117,6 +117,14 @@ export class AppComponent implements OnInit {
     }
   }
 
+  onLoadProjectError(error:string) {
+    this.loadExistingProjectMessage = error;
+    this.loadExistingError.set(true);
+    setTimeout(() => {
+      this.loadExistingError.set(false);
+    }, this.errorTimeout);
+  }
+
   loadExistingProject():void {
     this.showLoadProjectDialog.set(true);
   }
