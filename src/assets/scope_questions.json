@@ -46,7 +46,7 @@
                                     "name":"Dynamic",
                                     "prompt":"Does the client require this passcode to be changed by administrators during the course of system usage?",
                                     "answers": [
-                                        {"prompt":"Yes, the passcode should be able to be changed via specified user interfaces.", "scope":"The system's access passcode will be loaded dynamically, and can be changed via a page on the system's installed user interfaces.", "selected":false},
+                                        {"prompt":"Yes, the passcode should be able to be changed via specified user interfaces, without changing programming.", "scope":"The system's access passcode will be loaded dynamically, and can be changed via a page on the system's installed user interfaces.", "selected":false},
                                         {"prompt":"No the passcode will be set in the code once, when the system is commissioned and require additional programming to be changed.", "scope":"The system's access passcode will be programmed and approved by someone with the appropriate authority during the commissioning process. This passcode cannot be changed once programming is complete without programming labor and/or a return visit, which may require a CO.", "selected":false}
                                     ]
                                 }
