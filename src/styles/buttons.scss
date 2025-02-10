@@ -9,6 +9,10 @@ button {
     font-size: x-large;
     margin: .2em;
     min-height: 2em;
+
+    span { 
+        display: block;
+    }
 }
 
 button:active {
