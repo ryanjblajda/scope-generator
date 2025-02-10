@@ -31,7 +31,11 @@ export class AppComponent implements OnInit {
   //error message texts
   errorHeader = 'Error';
   errorMessage = 'Please contact Ryan B. apparently something has gone terribly wrong, and the questions list cannot be loaded.';
-  browserMessage = 'We were unable to load the saved projects stored in your browser data for some reason. The error we encountered is '
+
+  loadExistingHeader = 'Error Loading Project Data';
+  loadExistingProjectMessage = '';
+  loadExistingError = signal<boolean>(false);
+  errorTimeout = 5000;
 
   //loading message texts
   loadingHeader = 'Loading';
