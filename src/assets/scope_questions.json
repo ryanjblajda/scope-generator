@@ -216,7 +216,7 @@
                             "selected":false
                         },
                         { 
-                            "prompt":"There is only one display present in the system, or only one display that will be primarily viewed by the audience, audio will follow this display.", 
+                            "prompt":"There is only one display present in the system, or only one display that will be primarily viewed by the audience, speaker audio playback will follow this display.", 
                             "scope":"There is only one display present in the system, or only one display that will be primarily viewed by the audience, therefore source audio heard on the speakers will always be the same source that is routed to this destination. This destination to be specified during the ui submittal process.", 
                             "selected":false
                         },
