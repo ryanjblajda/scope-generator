@@ -1,8 +1,12 @@
 app-question-recursive {
-    font-size: x-large;
+    font-size: larger;
 }
 
 @media screen and (min-width: 600px) {
+    app-question-recursive { 
+        font-size: x-large;
+    }
+
     .container {
         text-align: center;
     }
