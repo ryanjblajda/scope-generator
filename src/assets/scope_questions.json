@@ -190,7 +190,7 @@
                             "selected":false, 
                             "questions": [ 
                                 { "name":"Source Level Controls", "prompt":"Should user interfaces provide a source level fader?", "answers": [ 
-                                        { "prompt":"Yes", "scope":"The user interfaces will provide a source level fader, which adjusts the overall level of the currently routed video source.", "selected":false, "questions":[ ] },
+                                        { "prompt":"Yes", "scope":"The user interfaces will provide a source level fader, which adjusts the overall level of the currently video source [if applicable], as well as any constantly-routed audio sources [such as bluetooth wall-plates].", "selected":false, "questions":[ ] },
                                         { "prompt":"No", "scope":"", "selected":false, "questions":[ ] }
                                     ] 
                                 }
