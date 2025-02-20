@@ -521,7 +521,7 @@
                 },
                 { 
                     "name":"Signal Detection Automation", 
-                    "prompt":"Is the specified hardware capable of detecting input signal status?", 
+                    "prompt":"Is the video hardware specified in the design capable of detecting input signal status?", 
                     "answers": [ 
                         { 
                             "prompt":"Yes", 
@@ -541,7 +541,7 @@
                             ]
                         },
                         { 
-                            "prompt":"No", "scope":"The av system is not capable of detecting when end-user devices have been connected. This will required end-users to interact with the user interfaces to turn the av system on or off as needed.", "selected":false, "questions":[] 
+                            "prompt":"No", "scope":"The av system is either not capable of detecting when end-user devices have been connected and/or will not be programmed to react to when end-user devices have been connected. This will required end-users to interact with the user interfaces to turn the av system on or off as needed.", "selected":false, "questions":[] 
                         }
                     ] 
                 }
