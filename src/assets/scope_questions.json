@@ -161,16 +161,39 @@
                 },
                 { 
                     "name":"Recording", 
-                    "prompt":"Is there hardware for recording lectures, etc, present in the design?", 
+                    "prompt":"Is there hardware for lecture capture or streaming, present in the design?", 
                     "answers": [ 
                         { 
                             "prompt":"Yes", 
-                            "scope":"", 
+                            "scope":"There is recording hardware for lecture capture, or streaming present in the design. The specific controls to be provide on user interfaces will be determined during the UI submittal process.", 
                             "selected":false, 
                             "questions": [ 
                                 { "name":"Mix Controls", "prompt":"Should there be a separate set of controls for an advanced technician to adjust the levels to the recording hardware or outputs?", "answers": [ 
-                                        { "prompt":"Yes", "scope":"There will be a separate set of mix controls, or user interface, to control the audio feed to the recording hardware installed. The specifics will be determined during the ui submittal process", "selected":false, "questions":[ ] },
+                                        { "prompt":"Yes", "scope":"There will be a separate set of mix controls, or user interface, to control the audio feed to the recording hardware installed. The specifics will be determined during the ui submittal process.", "selected":false, "questions":[ ] },
                                         { "prompt":"No", "scope":"", "selected":false, "questions":[ ] }
+                                    ] 
+                                },
+                                { "name":"Camera Controls", "prompt":"Should user interfaces provide camera controls?", "answers": [ 
+                                    { 
+                                        "prompt":"Yes", 
+                                        "scope":"The user interfaces will provide pan, tilt and zoom controls for any installed cameras [if they support such control]. If cameras have tracking functionality the specifics of what controls will be provided will be determined during the UI submittal process.", 
+                                        "selected":false, 
+                                        "questions":[
+                                            { 
+                                                "name":"Manual Preset Save/Recall", "prompt":"Should the user interfaces provide preset recall/saving controls?", "answers": [ 
+                                                    { "prompt":"Yes", "scope":"The user interfaces will provide camera preset recall & save functionality, the specific number of presets to be determined during the submittal process.", "selected":false, "questions":[] },
+                                                    { "prompt":"No", "scope":"", "selected":false, "questions":[] }
+                                                ] 
+                                            },
+                                            { 
+                                                "name":"ACPR", "prompt":"Does the system design include automated preset recall [Q-SYS ACPR or Crestron [formerly OneBeyond]]?", "answers": [ 
+                                                    { "prompt":"Yes", "scope":"The av system will automatically recall camera presets based on speaker positions in the space. The specific number of presets will be determined by the physical space.", "selected":false, "questions":[] },
+                                                    { "prompt":"No", "scope":"", "selected":false, "questions":[] }
+                                                ] 
+                                            }
+                                        ] 
+                                    },
+                                    { "prompt":"No", "scope":"There either are no cameras for recording, or no cameras specified in the design that support control that could be provided on a user interface.", "selected":false, "questions":[] }
                                     ] 
                                 }
                             ]
@@ -313,7 +336,7 @@
                                 { "name":"Camera Controls", "prompt":"Should user interfaces provide camera controls?", "answers": [ 
                                     { 
                                         "prompt":"Yes", 
-                                        "scope":"The user interfaces will provide pan, tilt and zoom controls for any installed cameras [if they support such control].", 
+                                        "scope":"The user interfaces will provide pan, tilt and zoom controls for any installed cameras [if they support such control]. If cameras have tracking functionality the specifics of what controls will be provided will be determined during the UI submittal process.", 
                                         "selected":false, 
                                         "questions":[
                                             { 
@@ -433,7 +456,7 @@
                                 { "name":"Camera Controls", "prompt":"Should user interfaces provide camera controls?", "answers": [ 
                                     { 
                                         "prompt":"Yes", 
-                                        "scope":"The user interfaces will provide pan, tilt and zoom controls for any installed cameras [if they support such control].", 
+                                        "scope":"The user interfaces will provide pan, tilt and zoom controls for any installed cameras [if they support such control]. If cameras have tracking functionality the specifics of what controls will be provided will be determined during the UI submittal process.", 
                                         "selected":false, 
                                         "questions":[
                                             { 
