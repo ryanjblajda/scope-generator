@@ -105,7 +105,7 @@
                         {"prompt":"No, the client has chosen to use a CCS standardized UI that will have colors and logos added only.", "scope":"The client has chosen to use one of CCS' standardized user interface templates, and as such only colors and logos will be changed or modified to match the clients brand.", "selected":false, "questions":[]},
                         {
                             "prompt":"Yes", 
-                            "scope":"CCS will design a new user interface for the client, providing N revisions.", 
+                            "scope":"CCS will design a new user interface for the client, providing 2 revisions.", 
                             "selected":false, 
                             "questions":[
                                 {
