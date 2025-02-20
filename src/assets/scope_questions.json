@@ -541,7 +541,7 @@
                             ]
                         },
                         { 
-                            "prompt":"No", "scope":"The av system is either not capable of detecting when end-user devices have been connected and/or will not be programmed to react to when end-user devices have been connected. This will required end-users to interact with the user interfaces to turn the av system on or off as needed.", "selected":false, "questions":[] 
+                            "prompt":"No", "scope":"The av system is either not capable of detecting when end-user devices have been connected and/or will not be programmed to react to when end-user devices have been connected. This will require end-users to interact with the user interfaces to turn the av system on or off as needed.", "selected":false, "questions":[] 
                         }
                     ] 
                 }
