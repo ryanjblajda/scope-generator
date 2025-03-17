@@ -642,21 +642,37 @@
                                     ] 
                                 },
                                 { "name":"Client Network Devices", "prompt":"Are we going to be controlling any client devices that are connected to the their network?", "answers": [ 
-                                        { "prompt":"Yes", "scope":"The av system will be controlling devices living on the client's network. This will potentially require either DHCP reservations or static ip addresses provided by the client's IT department.", "selected":false, "questions":[ ] },
-                                        { "prompt":"No", "scope":"", "selected":false, "questions":[ ] }
-                                    ] 
-                                },
-                                { "name":"IT Department Contact", "prompt":"Do you know the contact details for the IT Department for us to coordinate networking details?", "answers": [ 
-                                        { "prompt":"Yes", "scope":"The salesperson has and will provide the contact details for the IT department for the project management & installation team.", "selected":false, "questions":[ ] },
+                                        { "prompt":"Yes", "scope":"The av system will be controlling devices on the client's network. This will potentially require either DHCP reservations or static ip addresses provided by the client's IT department.", "selected":false, "questions":[ ] },
                                         { "prompt":"No", "scope":"", "selected":false, "questions":[ ] }
                                     ] 
                                 }
                             ]
                         },
                         { 
-                            "prompt":"No", "scope":"The av system will not touch the clients network, or control devices living on the clients network. If changes in this regard are made, a CO will be required to account for additional programming, configuration or installation required by the functionality desired.", "selected":false, "questions":[] 
+                            "prompt":"No", "scope":"The av system will not interact with the clients network, or control devices connected to the clients network. If changes in this regard are made, a CO will be required to account for additional programming, configuration or installation required by the functionality desired.", "selected":false, "questions":[] 
                         }
                     ] 
+                },
+                { "name":"IT Department Contact", "prompt":"Do you know the contact details for the IT Department for us to coordinate networking details?", "answers": [ 
+                    { "prompt":"Yes", "scope":"Contact details for the IT department for the project management, programming & installation team will be provided.", "selected":false, "questions":[ ] },
+                    { "prompt":"No", "scope":"", "selected":false, "questions":[ ] }
+                ] 
+                },
+                {
+                    "name":"OVRC",
+                    "prompt":"Is an OVRC remote management appliance included in the design?",
+                    "answers":[
+                        {
+                            "prompt":"Yes",
+                            "scope":"An OVRC remote management appliance will be installed in the system. This will require coordination between CCS and the client's IT department, and either a DHCP reservation, or a static ip address to be provided to CCS. This device will provide remote management, the specifics of which will be dictated by the current firmware & documented capabilities of the unit installed.",
+                            "selected":false
+                        },
+                        {
+                            "prompt":"No",
+                            "scope":"",
+                            "selected":false
+                        }
+                    ]
                 }
             ]
         }
