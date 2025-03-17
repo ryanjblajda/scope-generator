@@ -247,6 +247,11 @@
                             "prompt":"There is only one audio destination [or set of speakers] and no video displays present in the system. Any source audio shall be played back on this destination/speakers.", 
                             "scope":"", 
                             "selected":false
+                        },
+                        { 
+                            "prompt":"Other - The audio routing functionality will be defined in the addutional details section.", 
+                            "scope":"The audio routing within the system shall be defined as specified in the additional details section.", 
+                            "selected":false
                         }
                     ] 
                 }
