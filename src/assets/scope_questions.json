@@ -249,7 +249,7 @@
                             "selected":false
                         },
                         { 
-                            "prompt":"Other - The audio routing functionality will be defined in the addutional details section.", 
+                            "prompt":"Other - The audio routing functionality will be defined in the additional details section.", 
                             "scope":"The audio routing within the system shall be defined as specified in the additional details section.", 
                             "selected":false
                         }
