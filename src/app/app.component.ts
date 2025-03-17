@@ -191,7 +191,9 @@ export class AppComponent implements OnInit {
       scope += system.name + "\r\n\r\n" + system.description + "\r\n\r\n";
       scope += this.parseResponses(system.questions);
       //only add the custom details section if there is data there
-      if (system.customDetails.length > 0) { scope += `${system.name} Custom Requirements\r\n\r\n\t` + system.customDetails + '\r\n'; }
+      if (system.customDetails.length > 0) { scope += `${system.name} Custom Requirements\r\n\r\n\t` + system.customDetails }
+      //add 2 lines between system scopes
+      scope += '\r\n\r\n';
     });
     return scope;
   }
