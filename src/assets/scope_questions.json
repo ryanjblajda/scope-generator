@@ -135,7 +135,7 @@
             "questions": [
                 { 
                     "name":"Microphones", 
-                    "prompt":"Are microphones present in the design?", 
+                    "prompt":"Are microphones for speech reinforcement present in the design?", 
                     "answers": [ 
                         { 
                             "prompt":"Yes", 
