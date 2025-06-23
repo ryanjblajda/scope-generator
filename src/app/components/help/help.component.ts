@@ -35,8 +35,8 @@ export class HelpComponent {
         [
           "Once you have completed all of the available questions, you will see the \"Generate Scope\" button at the bottom of the page", 
           "Pressing this will generate the scope of work based on how you answered the questions", 
-          "Once the file is ready, a download button will appear on-screen", 
-          "Clicking this button will download a plain text file, this can be imported into the CCS SOW template so the customer may agree to it, and sign off on it"
+          "Once complete the file will automatically be downloaded to your computer as a plain text file",
+          "You can now import this data into the CCS SOW template in Jetbuilt so the customer may agree to it, and sign off on it"
         ]
     }
   ]
