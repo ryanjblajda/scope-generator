@@ -24,7 +24,7 @@ export class HelpComponent {
       "name":"Saving Your Progress", 
       "tasks":
         [
-          "To save your progress, once you've entered a valid project number, you can click the \"Save Project\" button", 
+          "To save your progress, click the \"Save Project\" button", 
           "This will download a .ccsproject file that you can use to continue to work on this scope anywhere you [or someone else] has access to the scope generator",
           "You should save this file to a teams folder so that it is held in the cloud. [Sorry, haven't implemented any way to directly save it to the cloud or teams yet...]"
         ]

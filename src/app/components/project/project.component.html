@@ -1,11 +1,11 @@
 <section class="details project" [formGroup]="projectDetails">
-    <article class="details-item">
+    <!--<article class="details-item">
       <span><h2>Project Number</h2></span><input name="project-number" class="project-number" formControlName="projectnumber" required [placeholder]="projectNumberPlaceholder" (input)="onProjectInput('number', $event)" minlength="8"/>
       <div *ngIf="projectDetails.controls['projectnumber']?.invalid || projectDetails.controls['projectnumber']?.dirty">
         <div class="required-message" *ngIf="projectDetails.controls['projectnumber']?.errors?.['required']">{{projectNumberRequiredMessage}}</div>
         <div class="invalid-message" *ngIf="projectDetails.controls['projectnumber']?.invalid && projectDetails.controls['projectnumber']?.touched">{{projectNumberInvalidMessage}}</div>
       </div>
-    </article>
+    </article>-->
     <article class="details-item">
       <span><h2>Client Name</h2></span><input name="project-client-name" formControlName="projectclient" [placeholder]="projectClientNamePlaceholder" (input)="onProjectInput('client', $event)"/>
     </article>
