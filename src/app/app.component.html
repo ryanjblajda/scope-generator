@@ -23,7 +23,7 @@
   <!--<article class="download-container" ">-->
   <!--</article>-->
   <footer *ngIf="loaded()" class="footer">
-    <button *ngIf="downloadReady()" (click)="downloaded()"><a [href]="downloadURL()" [download]="downloadName()" ><i class="bi bi-cloud-download"></i><span>Download Scope</span></a></button>
+    <!--<button *ngIf="downloadReady()" (click)="downloaded()"><a id="download" [href]="downloadURL()" [download]="downloadName()" ><i class="bi bi-cloud-download"></i><span>Download Scope</span></a></button>-->
     <button (click)="onGenerateScopeClicked()"><i class="bi bi-arrow-clockwise"></i><span>Generate Scope</span></button>
     <!--<span>Please complete the form, once complete you will be able to generate your scope.</span>-->
   </footer>

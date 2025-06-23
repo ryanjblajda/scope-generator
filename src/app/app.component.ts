@@ -102,19 +102,17 @@ export class AppComponent implements OnInit {
   }
   
   exportCurrentProject(): void {
-    if (this.checkCurrentProjectNumber()) {
-      let config = JSON.stringify(this.project);
-      let file = new Blob([config], {type: '.ccsproject'});
-      let url = URL.createObjectURL(file);
-      let link = document.createElement('a');
-      link.setAttribute('href', url);
-      link.setAttribute('target', '_blank');
-      let now = this.datePipe.transform(new Date(), 'MM-dd-yyyy_HH-mm-ss');
-      link.download = `${this.project.number.toLowerCase()}_${now}.ccsproject`;
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-    }
+    let config = JSON.stringify(this.project);
+    let file = new Blob([config], {type: '.ccsproject'});
+    let url = URL.createObjectURL(file);
+    let link = document.createElement('a');
+    link.setAttribute('href', url);
+    link.setAttribute('target', '_blank');
+    let now = this.datePipe.transform(new Date(), 'MM-dd-yyyy_HH-mm-ss');
+    link.download = `${this.project.number.toLowerCase()}_${now}.ccsproject`;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
   }
 
   onLoadProjectError(error:string) {
@@ -185,7 +183,7 @@ export class AppComponent implements OnInit {
 
   generateScope():string {
     //create the initial string, and generate the header details
-    let scope:string = `CCS Presentation Systems\r\n\r\n${this.project.clientname}\r\n${this.project.number} // ${this.project.description}\r\n\r\nFunctional Programming Scope\r\n\r\n`;
+    let scope:string = `CCS Presentation Systems\r\n\r\n${this.project.clientname} // ${this.project.description}\r\n\r\nFunctional Programming Scope\r\n\r\n`;
     //generate the main body of the scope, looping through every single system in the project
     this.project.systems.forEach(system => {
       scope += system.name + "\r\n\r\n" + system.description + "\r\n\r\n";
@@ -201,14 +199,24 @@ export class AppComponent implements OnInit {
   onGenerateScopeClicked():void {
     //console.log(this.questions);
     //parse the responses from the end user
+    console.log('generating scope');
     let scope = this.generateScope();
     //print it for me
     //console.log(scope);
     //generate a new file to download
+    console.log('generating file');
     let file = new Blob([scope], {type: '.txt'});
-    this.downloadURL.set(URL.createObjectURL(file));
-    this.downloadName.set(`${this.project.number.toLowerCase()}_${this.project.clientname}_functional_scope.txt`.replaceAll(" ", "_").toLowerCase());
-    this.downloadReady.set(true);
+    //this.downloadURL.set(URL.createObjectURL(file));
+    let url = URL.createObjectURL(file);
+    let link = document.createElement('a');
+    link.setAttribute('href', url);
+    link.setAttribute('target', '_blank');
+    link.download = `${this.project.number.toLowerCase()}_${this.project.clientname}_functional_scope.txt`.replaceAll(" ", "_").toLowerCase();
+    //this.downloadReady.set(true);
+    console.log('downloading scope');
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
   }
 
   downloaded(): void {
