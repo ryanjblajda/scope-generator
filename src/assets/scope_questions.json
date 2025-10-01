@@ -64,8 +64,8 @@
                             "name":"Connectivity",
                             "prompt":"Will the device be connected via the local CCS network, or connect to the control system via the client's LAN", 
                             "answers":[
-                                {"prompt":"Connected via CCS local network", "scope":"This xPanel will only be accessible by a device connected to the local AV network.", "selected":false, "questions":[]},
-                                {"prompt":"Connected via client LAN", "scope":"This xPanel will be able to connect from external networks, the specifics to be dictated by the clients IT department.", "selected":false, "questions":[]}
+                                {"prompt":"Connected via CCS local network", "scope":"This [xPanel, Extron Virtual TLP, Q-SYS Web/Reflect UCI] will only be accessible by a device connected to the local AV network.", "selected":false, "questions":[]},
+                                {"prompt":"Connected via client LAN", "scope":"This [xPanel, Extron Virtual TLP, Q-SYS Web/Reflect UCI] will be able to connect from external networks, the specifics to be dictated by the clients IT department.", "selected":false, "questions":[]}
                             ]
                             
                         }
