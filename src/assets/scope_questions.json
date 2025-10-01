@@ -74,7 +74,7 @@
                   ]  
                 },
                 {
-                    "name":"Wireless Table Interface Functionality",
+                    "name":"Wireless Tablet Interface Functionality",
                     "prompt":"Does the system design include an iPad/Android Tablet for technicians or end-users?",
                     "answers": [
                         {
