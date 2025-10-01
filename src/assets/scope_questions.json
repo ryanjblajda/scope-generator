@@ -56,10 +56,10 @@
                     ]  
                   },
                 {
-                  "name":"xPanel Functionality",
+                  "name":"Virtual Interface Functionality",
                   "prompt":"Does the system design include a Virtual User Interface [xPanel, Extron Virtual TLP, Q-SYS Web/Reflect UCI] for technicians or end-users?",
                   "answers": [
-                    {"prompt":"Yes", "scope":"There will be an xPanel for either technicians or end users to control the av system.", "selected":false, "questions":[
+                    {"prompt":"Yes", "scope":"There will be an [xPanel, Extron Virtual TLP, Q-SYS Web/Reflect UCI] for either technicians or end users to control the AV system.", "selected":false, "questions":[
                         {
                             "name":"Connectivity",
                             "prompt":"Will the device be connected via the local CCS network, or connect to the control system via the client's LAN", 
@@ -74,19 +74,19 @@
                   ]  
                 },
                 {
-                    "name":"iPad Functionality",
+                    "name":"Wireless Table Interface Functionality",
                     "prompt":"Does the system design include an iPad/Android Tablet for technicians or end-users?",
                     "answers": [
                         {
                             "prompt":"Yes", 
-                            "scope":"There will be an iPad available for either end users or technicians to control the av system.", 
+                            "scope":"There will be an iPad available for either end users or technicians to control the AV system.", 
                             "selected":false, 
                             "questions": [
                                 {
                                     "name":"Connectivity", 
                                     "prompt":"Will the device be connected to a local CCS provided WAP, or connect to the control system via the client's LAN", 
                                     "answers":[
-                                        {"prompt":"Connected via CCS WAP", "scope":"The iPad will only be able to connect to the av system when connected to the CCS provided wireless access point.", "selected":false, "questions":[]},
+                                        {"prompt":"Connected via CCS WAP", "scope":"The iPad will only be able to connect to the AV system when connected to the CCS provided wireless access point.", "selected":false, "questions":[]},
                                         {"prompt":"Connected via client LAN", "scope":"The iPad will connect to the clients wireless network, requiring the control system, or other network hardware to be connected to the clients network, requiring collaboration from the clients IT department.", "selected":false, "questions":[]}
                                     ],
                                     "questions":[]
@@ -105,7 +105,7 @@
                         {"prompt":"No, the client has chosen to use a CCS standardized UI that will have colors and logos added only.", "scope":"The client has chosen to use one of CCS' standardized user interface templates, and as such only colors and logos will be changed or modified to match the clients brand.", "selected":false, "questions":[]},
                         {
                             "prompt":"Yes", 
-                            "scope":"CCS will design a new user interface for the client, providing 2 revisions.", 
+                            "scope":"CCS will design a new user interface for the client, providing up to 2 revisions before deployment.", 
                             "selected":false, 
                             "questions":[
                                 {
@@ -113,7 +113,8 @@
                                     "prompt":"Does the client have a branding guideline for CCS to utilize in the creation of user interfaces?", 
                                     "answers":[
                                         {"prompt":"Yes, the client will provide CCS a branding guideline.", "scope":"The client will provide, before user interface programming is to begin a branding guideline document.", "selected":false, "questions":[]},
-                                        {"prompt":"No, the client does not have, or cannot provide a branding guideline.", "scope":"The client cannot provide a branding guideline document so CCS will make its best effort to match styling and colors where possible.", "selected":false, "questions":[]}
+                                        {"prompt":"No, the client does not have any documented branding guidelines.", "scope":"The client cannot provide a branding guideline document so CCS will make its best effort to match styling and colors where possible.", "selected":false, "questions":[]},
+                                        {"prompt":"Unknown", "scope":"It is unknown at this time if the client can provide a branding guideline document, so CCS attempt to obtain those from the client. If unsuccessful, CCS will make its best effort to match styling and colors to publicly available resources where possible.", "selected":false, "questions":[]}
                                     ]
                                 },
                                 {
@@ -121,7 +122,8 @@
                                     "prompt":"Does the client have access to high resolution logos for CCS to insert in the user interfaces?", 
                                     "answers":[
                                         {"prompt":"Yes", "scope":"The client will provide, before user interface programming is to begin, high quality logo files in .png format of no less than 500x500 pixels.", "selected":false, "questions":[]},
-                                        {"prompt":"No", "scope":"The client cannot provide high resolution logo files, so CCS will make its best effort to obtain logo files from publicly available websites or other resources.", "selected":false, "questions":[]}
+                                        {"prompt":"No", "scope":"The client cannot provide high resolution logo files, so CCS will make its best effort to obtain logo files from publicly available websites or other resources.", "selected":false, "questions":[]},
+                                        {"prompt":"Unknown", "scope":"It is unknown at this time if the client can provide high resolution logo files, so CCS attempt to obtain those from the client. If unsuccessful, CCS will make its best effort to obtain logo files from publicly available websites or other resources.", "selected":false, "questions":[]}
                                     ]
                                 }
                             ]
@@ -169,7 +171,7 @@
                             "selected":false, 
                             "questions": [ 
                                 { "name":"Mix Controls", "prompt":"Should there be a separate set of controls for an advanced technician to adjust the levels to the recording hardware or outputs?", "answers": [ 
-                                        { "prompt":"Yes", "scope":"There will be a separate set of mix controls, or user interface, to control the audio feed to the recording hardware installed. The specifics will be determined during the ui submittal process.", "selected":false, "questions":[ ] },
+                                        { "prompt":"Yes", "scope":"There will be a separate set of mix controls, or user interface, to control the audio feed to the recording hardware installed. The specifics will be determined during the UI submittal process.", "selected":false, "questions":[ ] },
                                         { "prompt":"No", "scope":"", "selected":false, "questions":[ ] }
                                     ] 
                                 },
@@ -187,7 +189,7 @@
                                             },
                                             { 
                                                 "name":"ACPR", "prompt":"Does the system design include automated preset recall [Q-SYS ACPR or Crestron [formerly OneBeyond]]?", "answers": [ 
-                                                    { "prompt":"Yes", "scope":"The av system will automatically recall camera presets based on speaker positions in the space. The specific number of presets will be determined by the physical space.", "selected":false, "questions":[] },
+                                                    { "prompt":"Yes", "scope":"The AV system will automatically recall camera presets based on speaker positions in the space. The specific number of presets will be determined by the physical space.", "selected":false, "questions":[] },
                                                     { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                                 ] 
                                             }
@@ -235,12 +237,12 @@
                         },
                         { 
                             "prompt":"The speakers will play back the source that was last routed to a destination in the system.", 
-                            "scope":"The speakers will play back the source that was last routed to a destination in the system. The specific displays that will trigger this routing will be determined during the ui submittal process.", 
+                            "scope":"The speakers will play back the source that was last routed to a destination in the system. The specific displays that will trigger this routing will be determined during the UI submittal process.", 
                             "selected":false
                         },
                         { 
                             "prompt":"There is only one display present in the system, or only one display that will be primarily viewed by the audience, speaker audio playback will follow this display.", 
-                            "scope":"There is only one display present in the system, or only one display that will be primarily viewed by the audience, therefore source audio heard on the speakers will always be the same source that is routed to this destination. This destination to be specified during the ui submittal process.", 
+                            "scope":"There is only one display present in the system, or only one display that will be primarily viewed by the audience, therefore source audio heard on the speakers will always be the same source that is routed to this destination. This destination to be specified during the UI submittal process.", 
                             "selected":false
                         },
                         { 
@@ -281,8 +283,8 @@
                                     "name":"Control",
                                     "prompt":"Do any of these sources require control via the AV system [BluRay players, cable tv boxes, AirMedia or other wireless presentation gateways]",
                                     "answers":[
-                                        {"prompt":"Yes", "scope":"The user interfaces will provide control of some av sources, the specifics of the controls and which sources will be controlled will be determined by engineering, sales and/or programming during the ui submittal process.", "selected":false},
-                                        {"prompt":"No", "scope":"The user interfaces will not provide control of any av sources present in the system and/or there are no sources capable of being controlled specified in the design.", "selected":false}
+                                        {"prompt":"Yes", "scope":"The user interfaces will provide control of some AV sources, the specifics of the controls and which sources will be controlled will be determined by engineering, sales and/or programming during the UI submittal process.", "selected":false},
+                                        {"prompt":"No", "scope":"The user interfaces will not provide control of any AV sources present in the system and/or there are no sources capable of being controlled specified in the design.", "selected":false}
                                     ]
                                 }
                             ]
@@ -305,7 +307,7 @@
                     "answers": [ 
                         { 
                             "prompt":"Yes", 
-                            "scope":"The av system will be capable of holding soft conferences with BYOD devices, using platforms such as Microsoft Teams, Zoom, Webex, etc.", 
+                            "scope":"The AV system will be capable of holding soft conferences with BYOD devices, using platforms such as Microsoft Teams, Zoom, Webex, etc.", 
                             "selected":false, 
                             "questions": [ 
                                 { "name":"Incoming Audio Controls", "prompt":"Should user interfaces provide an incoming audio level fader?", "answers": [ 
@@ -329,12 +331,12 @@
                                     ] 
                                 },
                                 { "name":"Meeting Automation", "prompt":"Is the specified design hardware capable of turning the system on when a meeting starts?", "answers": [ 
-                                    { "prompt":"Yes", "scope":"The av system will automatically turn on, routing the appropriate source when a meeting starts.", "selected":false, "questions":[] },
+                                    { "prompt":"Yes", "scope":"The AV system will automatically turn on, routing the appropriate source when a meeting starts.", "selected":false, "questions":[] },
                                     { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 },
                                 { "name":"One Touch Meeting Join", "prompt":"Is the specified design hardware capable of joining a meeting with one-touch via user interfaces?", "answers": [ 
-                                    { "prompt":"Yes", "scope":"The av system will join meetings [when available] with a single button press from user interfaces.", "selected":false, "questions":[] },
+                                    { "prompt":"Yes", "scope":"The AV system will join meetings [when available] with a single button press from user interfaces.", "selected":false, "questions":[] },
                                     { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 },
@@ -352,7 +354,7 @@
                                             },
                                             { 
                                                 "name":"ACPR", "prompt":"Does the system design include automated preset recall [Q-SYS ACPR or Crestron [formerly OneBeyond]]?", "answers": [ 
-                                                    { "prompt":"Yes", "scope":"The av system will automatically recall camera presets based on speaker positions in the space. The specific number of presets will be determined by the physical space.", "selected":false, "questions":[] },
+                                                    { "prompt":"Yes", "scope":"The AV system will automatically recall camera presets based on speaker positions in the space. The specific number of presets will be determined by the physical space.", "selected":false, "questions":[] },
                                                     { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                                 ] 
                                             }
@@ -364,7 +366,7 @@
                             ]
                         },
                         { 
-                            "prompt":"No", "scope":"The av system will not be programmed to make soft conference calls or interact with such conference calls via BYOD devices.", "selected":false, "questions":[] 
+                            "prompt":"No", "scope":"The AV system will not be programmed to make soft conference calls or interact with such conference calls via BYOD devices.", "selected":false, "questions":[] 
                         }
                     ] 
                 }
@@ -379,7 +381,7 @@
                     "answers": [ 
                         { 
                             "prompt":"Yes", 
-                            "scope":"The av system will have the ability to make audio conference calls, via the clients POTS or VOIP system.", 
+                            "scope":"The AV system will have the ability to make audio conference calls, via the clients POTS or VOIP system.", 
                             "selected":false, 
                             "questions": [ 
                                 { "name":"Incoming Audio Controls", "prompt":"Should user interfaces provide an incoming audio level fader?", "answers": [ 
@@ -410,7 +412,7 @@
                             ]
                         },
                         { 
-                            "prompt":"No", "scope":"The av system will not be programmed to make audio teleconferencing calls via POTS or VOIP.", "selected":false, "questions":[] 
+                            "prompt":"No", "scope":"The AV system will not be programmed to make audio teleconferencing calls via POTS or VOIP.", "selected":false, "questions":[] 
                         }
                     ] 
                 }
@@ -425,7 +427,7 @@
                     "answers": [ 
                         { 
                             "prompt":"Yes", 
-                            "scope":"The av system will interact with VTC codecs installed in the space.", 
+                            "scope":"The AV system will interact with VTC codecs installed in the space.", 
                             "selected":false, 
                             "questions": [ 
                                 { "name":"Incoming Audio Controls", "prompt":"Should user interfaces provide an incoming audio level fader?", "answers": [ 
@@ -472,7 +474,7 @@
                                             },
                                             { 
                                                 "name":"ACPR", "prompt":"Does the system design include automated preset recall [Q-SYS ACPR or Crestron [formerly OneBeyond]]?", "answers": [ 
-                                                    { "prompt":"Yes", "scope":"The av system will automatically recall camera presets based on speaker positions in the space. The specific number of presets will be determined by the physical space.", "selected":false, "questions":[] },
+                                                    { "prompt":"Yes", "scope":"The AV system will automatically recall camera presets based on speaker positions in the space. The specific number of presets will be determined by the physical space.", "selected":false, "questions":[] },
                                                     { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                                 ] 
                                             }
@@ -484,7 +486,7 @@
                             ]
                         },
                         { 
-                            "prompt":"No", "scope":"The av system will not be programmed to control or interact with VTC codec hardware.", "selected":false, "questions":[] 
+                            "prompt":"No", "scope":"The AV system will not be programmed to control or interact with VTC codec hardware.", "selected":false, "questions":[] 
                         }
                     ] 
                 }
@@ -499,11 +501,11 @@
                     "answers": [ 
                         { 
                             "prompt":"Yes", 
-                            "scope":"The av system will interact with the occupancy sensors installed in the system.", 
+                            "scope":"The AV system will interact with the occupancy sensors installed in the system.", 
                             "selected":false, 
                             "questions": [ 
                                 { "name":"Vacancy Automation", "prompt":"Should the system automatically turn off when vacancy is detected?", "answers": [ 
-                                        { "prompt":"Yes", "scope":"The av system will automatically turn off when vacancy has been detected, the specific vacancy timeout will be determined during the submittal process.", "selected":false, "questions":[] },
+                                        { "prompt":"Yes", "scope":"The AV system will automatically turn off when vacancy has been detected, the specific vacancy timeout will be determined during the submittal process.", "selected":false, "questions":[] },
                                         { "prompt":"No", "scope":"", "selected":false, "questions":[] }
                                     ] 
                                 },
@@ -520,7 +522,7 @@
                             ]
                         },
                         { 
-                            "prompt":"No", "scope":"The av system will not respond to room occupancy or vacancy.", "selected":false, "questions":[] 
+                            "prompt":"No", "scope":"The AV system will not respond to room occupancy or vacancy.", "selected":false, "questions":[] 
                         }
                     ] 
                 },
@@ -530,7 +532,7 @@
                     "answers": [ 
                         { 
                             "prompt":"Yes", 
-                            "scope":"The av system is capable of detecting when end-user devices have been connected to the system.", 
+                            "scope":"The AV system is capable of detecting when end-user devices have been connected to the system.", 
                             "selected":false, 
                             "questions": [ 
                                 { "name":"System Power On", "prompt":"Should the system power on automatically when it detects signal on a user input?", "answers": [ 
@@ -546,7 +548,7 @@
                             ]
                         },
                         { 
-                            "prompt":"No", "scope":"The av system is either not capable of detecting when end-user devices have been connected and/or will not be programmed to react to when end-user devices have been connected. This will require end-users to interact with the user interfaces to turn the av system on or off as needed.", "selected":false, "questions":[] 
+                            "prompt":"No", "scope":"The AV system is either not capable of detecting when end-user devices have been connected and/or will not be programmed to react to when end-user devices have been connected. This will require end-users to interact with the user interfaces to turn the AV system on or off as needed.", "selected":false, "questions":[] 
                         }
                     ] 
                 }
@@ -580,14 +582,14 @@
                                     ] 
                                 },
                                 { "name":"Preset Automation", "prompt":"Will the system automatically recall specified presets when the system turns on or off?", "answers": [ 
-                                    { "prompt":"Yes", "scope":"The av system will automatically recall the appropriate presets [determined by the client and lighting contractor] when it turns on or off.", "selected":false, "questions":[ ] },
+                                    { "prompt":"Yes", "scope":"The AV system will automatically recall the appropriate presets [determined by the client and lighting contractor] when it turns on or off.", "selected":false, "questions":[ ] },
                                     { "prompt":"No", "scope":"", "selected":false, "questions":[ ] }
                                     ] 
                                 }
                             ]
                         },
                         { 
-                            "prompt":"No", "scope":"There will be no lighting control provided by the av system.", "selected":false, "questions":[] 
+                            "prompt":"No", "scope":"There will be no lighting control provided by the AV system.", "selected":false, "questions":[] 
                         }
                     ] 
                 }
@@ -611,14 +613,14 @@
                                     ] 
                                 },
                                 { "name":"Preset Automation", "prompt":"Will the system automatically adjust shades when the system turns on or off?", "answers": [ 
-                                    { "prompt":"Yes", "scope":"The av system will raise or lower shades as needed when the system turns on or off. The specifics of which shades will move shall be determined by the configuration of the space, the shade contractor and/or the client.", "selected":false, "questions":[ ] },
+                                    { "prompt":"Yes", "scope":"The AV system will raise or lower shades as needed when the system turns on or off. The specifics of which shades will move shall be determined by the configuration of the space, the shade contractor and/or the client.", "selected":false, "questions":[ ] },
                                     { "prompt":"No", "scope":"", "selected":false, "questions":[ ] }
                                     ] 
                                 }
                             ]
                         },
                         { 
-                            "prompt":"No", "scope":"There will be no shade control provided by the av system.", "selected":false, "questions":[] 
+                            "prompt":"No", "scope":"There will be no shade control provided by the AV system.", "selected":false, "questions":[] 
                         }
                     ] 
                 }
@@ -633,28 +635,28 @@
                     "answers": [ 
                         { 
                             "prompt":"Yes", 
-                            "scope":"The av system, or av hardware will be connected to the client's network in some capacity. This will require collaboration and communication between the IT department.", 
+                            "scope":"The AV system, or AV hardware will be connected to the client's network in some capacity. This will require collaboration and communication between the IT department.", 
                             "selected":false, 
                             "questions": [ 
                                 { "name":"Control System", "prompt":"Does our control system connect to the client's network?", "answers": [ 
-                                        { "prompt":"Yes", "scope":"The control system will connect to the client's network. This will potentially require either a DHCP reservation, or a static ip address to be provided to CCS by the client's IT department.", "selected":false, "questions":[ ] },
+                                        { "prompt":"Yes", "scope":"The control system will connect to the client's network. This will potentially require either a DHCP reservation, or a static IP address to be provided to CCS by the client's IT department.", "selected":false, "questions":[ ] },
                                         { "prompt":"No", "scope":"", "selected":false, "questions":[ ] }
                                     ] 
                                 },
                                 { "name":"AV Devices", "prompt":"Do any of our AV devices connect to the client's network?", "answers": [ 
-                                        { "prompt":"Yes", "scope":"Some av devices will connect to the client's network. This will potentially require either DHCP reservations or static ip addresses provided by the client's IT department.", "selected":false, "questions":[ ] },
+                                        { "prompt":"Yes", "scope":"Some AV devices will connect to the client's network. This will potentially require either DHCP reservations or static IP addresses provided by the client's IT department.", "selected":false, "questions":[ ] },
                                         { "prompt":"No", "scope":"", "selected":false, "questions":[ ] }
                                     ] 
                                 },
                                 { "name":"Client Network Devices", "prompt":"Are we going to be controlling any client devices that are connected to the their network?", "answers": [ 
-                                        { "prompt":"Yes", "scope":"The av system will be controlling devices on the client's network. This will potentially require either DHCP reservations or static ip addresses provided by the client's IT department.", "selected":false, "questions":[ ] },
+                                        { "prompt":"Yes", "scope":"The AV system will be controlling devices on the client's network. This will potentially require either DHCP reservations or static IP addresses provided by the client's IT department.", "selected":false, "questions":[ ] },
                                         { "prompt":"No", "scope":"", "selected":false, "questions":[ ] }
                                     ] 
                                 }
                             ]
                         },
                         { 
-                            "prompt":"No", "scope":"The av system will not interact with the clients network, or control devices connected to the clients network. If changes in this regard are made, a CO will be required to account for additional programming, configuration or installation required by the functionality desired.", "selected":false, "questions":[] 
+                            "prompt":"No", "scope":"The AV system will not interact with the clients network, or control devices connected to the clients network. If changes in this regard are made, a CO will be required to account for additional programming, configuration or installation required by the functionality desired.", "selected":false, "questions":[] 
                         }
                     ] 
                 },
@@ -669,7 +671,7 @@
                     "answers":[
                         {
                             "prompt":"Yes",
-                            "scope":"An OVRC remote management appliance will be installed in the system. This will require coordination between CCS and the client's IT department, and either a DHCP reservation, or a static ip address to be provided to CCS. This device will provide remote management, the specifics of which will be dictated by the current firmware & documented capabilities of the unit installed.",
+                            "scope":"An OVRC remote management appliance will be installed in the system. This will require coordination between CCS and the client's IT department, and either a DHCP reservation, or a static IP address to be provided to CCS. This device will provide remote management, the specifics of which will be dictated by the current firmware & documented capabilities of the unit installed.",
                             "selected":false
                         },
                         {
